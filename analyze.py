@@ -474,20 +474,6 @@ def main():
         md.append(table(["model", "mean per-task SD of tries", "flaky tasks (some pass, some fail)",
                          "never pass", "always pass"], rows) + "\n")
 
-    # ---- 7. calibration ----
-    cal = ok[ok.confidence.notna()].copy()
-    if len(cal):
-        cal["conf"] = cal.confidence.clip(0, 100) / 100
-        cal["bin"] = pd.cut(cal.conf, [0, .25, .5, .75, 1.0], include_lowest=True)
-        rows = []
-        for m in models:
-            g = cal[cal.model == m]
-            for bn, gg in g.groupby("bin", observed=True):
-                rows.append([m, str(bn), len(gg), pct(gg.conf.mean(), 0), pct(gg.passed.mean(), 0)])
-            rows.append([m, "Brier score", len(g), "", f"{((g.conf - g.passed) ** 2).mean():.3f}"])
-        md.append("## 7. Calibration: stated confidence vs actual pass\n")
-        md.append(table(["model", "confidence bin", "tries", "mean confidence", "pass rate"], rows) + "\n")
-
     # ---- 8. dataset-specific deep dive (judge 1) ----
     deep = deep_dive(df, ok, pt, models, out, md)
     md.append("Domains are skipped: 12 domains with 1–2 tasks each is too small to show anything.\n")

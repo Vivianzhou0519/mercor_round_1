@@ -124,21 +124,6 @@ Tally: judge 2 right 4×, judge 1 right 2×. Judge 1 (deepseek-v4-flash) errors:
 | claude-haiku-5.5 | 0.09                      | 3                                  | 15         | 2           |
 | gpt-5.4-mini     | 0.06                      | 2                                  | 18         | 0           |
 
-## 7. Calibration: stated confidence vs actual pass
-
-| model            | confidence bin | tries | mean confidence | pass rate |
-| ---------------- | -------------- | ----- | --------------- | --------- |
-| claude-haiku-5.5 | (-0.001, 0.25] | 12    | 16%             | 0%        |
-| claude-haiku-5.5 | (0.25, 0.5]    | 2     | 45%             | 0%        |
-| claude-haiku-5.5 | (0.5, 0.75]    | 14    | 62%             | 43%       |
-| claude-haiku-5.5 | (0.75, 1.0]    | 32    | 85%             | 12%       |
-| claude-haiku-5.5 | Brier score    | 60    |                 | 0.412     |
-| gpt-5.4-mini     | (-0.001, 0.25] | 2     | 20%             | 0%        |
-| gpt-5.4-mini     | (0.25, 0.5]    | 1     | 34%             | 0%        |
-| gpt-5.4-mini     | (0.5, 0.75]    | 1     | 52%             | 0%        |
-| gpt-5.4-mini     | (0.75, 1.0]    | 56    | 95%             | 4%        |
-| gpt-5.4-mini     | Brier score    | 60    |                 | 0.825     |
-
 ## 8a. Source vs answer: C1 × C2 per model (tries)
 
 **claude-haiku-5.5**

@@ -116,7 +116,7 @@ async def call_with_retries(log, label, **kw):
             err = f"{type(e).__name__}: {str(e)[:300]}"
             log(f"  retry {attempt + 1}/5 {label}: {err[:160]}")
             if attempt < 4:  # rate limits are per minute, so wait longer on 429s
-                await asyncio.sleep((20 * (attempt + 1) if "RateLimit" in err else 2 ** attempt) + random.random())
+                await asyncio.sleep((60 if "RateLimit" in err else 2 ** attempt) + random.random())
     return None, err
 
 

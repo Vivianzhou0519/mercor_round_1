@@ -1,0 +1,254 @@
+=== run 2026-10-29 11:34:42  models=['openrouter/anthropic/claude-haiku-5.5', 'openrouter/openai/gpt-5.4-mini']  tasks=20  tries=3
+SYSTEM_PROMPT:
+You are a careful research assistant with a web search tool.
+Search the web as many times as you need to find the exact facts the question asks for, and do any calculation yourself.
+Rely on primary/official sources and cite the exact URL of the document you used.
+
+End your response with exactly these four lines:
+Explanation: <short explanation of how you got the answer>
+Exact Answer: <your final answer only>
+Sources: <the URL(s) of the documents the answer comes from>
+Confidence: <0-100>%
+
+FIRST TASK PROMPT:
+I need to know the exact share of Singapore's AI-using enterprises that apply generative AI specifically for coding and debugging in their Information Technology departments. Calculate this overall percentage using the IT function's AI adoption rate and the specific software development use-case share from IMDA's 2025 digital economy data.
+
+120 tries to run (0 already saved)
+[1/120] gpt-5.4-mini 368fd8 #2 ok 9.4s searches=2 cost=$0.0219
+[2/120] gpt-5.4-mini 3e4ab5 #1 ok 13.9s searches=1 cost=$0.0106
+[3/120] claude-haiku-5.5 9cd75a #2 ok 14.2s searches=4 cost=$0.0316
+[4/120] gpt-5.4-mini a7bf9d #0 ok 19.0s searches=6 cost=$0.0694
+[5/120] gpt-5.4-mini 9873e3 #0 ok 19.7s searches=2 cost=$0.0219
+[6/120] claude-haiku-5.5 bf3a09 #1 ok 23.6s searches=3 cost=$0.0240
+[7/120] gpt-5.4-mini a7bf9d #1 ok 25.6s searches=3 cost=$0.0353
+[8/120] claude-haiku-5.5 2ce94d #0 ok 28.3s searches=4 cost=$0.0316
+[9/120] gpt-5.4-mini 3e4ab5 #2 ok 30.9s searches=2 cost=$0.0224
+[10/120] gpt-5.4-mini 07d69d #0 ok 32.3s searches=3 cost=$0.0287
+[11/120] claude-haiku-5.5 d6a140 #0 ok 32.4s searches=2 cost=$0.0159
+[12/120] claude-haiku-5.5 746cc2 #0 ok 38.7s searches=9 cost=$0.0725
+[13/120] gpt-5.4-mini a7bf9d #2 ok 39.7s searches=2 cost=$0.0207
+  retry 1/5 gpt-5.4-mini 6146f2 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 9873e3 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 07d69d #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[14/120] claude-haiku-5.5 746cc2 #1 ok 42.4s searches=7 cost=$0.0556
+[15/120] claude-haiku-5.5 bf3a09 #2 ok 42.8s searches=5 cost=$0.0399
+  retry 1/5 gpt-5.4-mini 9873e3 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[16/120] claude-haiku-5.5 2ce94d #1 ok 46.1s searches=5 cost=$0.0392
+  retry 1/5 gpt-5.4-mini 03a7bc #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[17/120] claude-haiku-5.5 d6a140 #1 ok 48.7s searches=2 cost=$0.0159
+  retry 1/5 gpt-5.4-mini 07d69d #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[18/120] claude-haiku-5.5 746cc2 #2 ok 55.0s searches=6 cost=$0.0479
+  retry 1/5 gpt-5.4-mini 6146f2 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[19/120] claude-haiku-5.5 2ce94d #2 ok 59.0s searches=3 cost=$0.0239
+  retry 1/5 gpt-5.4-mini 03a7bc #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 93cd4a #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[20/120] claude-haiku-5.5 0abf31 #0 ok 65.2s searches=2 cost=$0.0192
+[21/120] claude-haiku-5.5 cca9ba #0 ok 66.2s searches=3 cost=$0.0237
+  retry 1/5 gpt-5.4-mini 6146f2 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[22/120] claude-haiku-5.5 d6a140 #2 ok 71.2s searches=2 cost=$0.0158
+[23/120] claude-haiku-5.5 1c54c6 #0 ok 72.7s searches=6 cost=$0.0488
+  retry 1/5 gpt-5.4-mini 03a7bc #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 93cd4a #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[24/120] claude-haiku-5.5 cca9ba #1 ok 87.0s searches=3 cost=$0.0235
+  retry 1/5 gpt-5.4-mini ae683b #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[25/120] claude-haiku-5.5 0abf31 #1 ok 87.4s searches=2 cost=$0.0199
+[26/120] gpt-5.4-mini 8dd543 #0 ok 88.6s searches=2 cost=$0.0203
+  retry 1/5 gpt-5.4-mini 93cd4a #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[27/120] claude-haiku-5.5 1c54c6 #2 ok 91.7s searches=2 cost=$0.0168
+[28/120] claude-haiku-5.5 573859 #0 ok 93.3s searches=2 cost=$0.0161
+[29/120] claude-haiku-5.5 1c54c6 #1 ok 95.8s searches=8 cost=$0.0655
+[30/120] claude-haiku-5.5 d5c83c #0 ok 101.6s searches=11 cost=$0.0776
+[31/120] gpt-5.4-mini 8dd543 #1 ok 102.0s searches=2 cost=$0.0194
+[32/120] claude-haiku-5.5 0abf31 #2 ok 103.9s searches=5 cost=$0.0436
+[33/120] claude-haiku-5.5 cca9ba #2 ok 106.3s searches=3 cost=$0.0237
+[34/120] claude-haiku-5.5 368fd8 #0 ok 106.6s searches=1 cost=$0.0088
+[35/120] gpt-5.4-mini 6146f2 #0 ok 107.4s searches=2 cost=$0.0198
+[36/120] claude-haiku-5.5 573859 #1 ok 109.9s searches=2 cost=$0.0159
+  retry 2/5 gpt-5.4-mini 03a7bc #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 9873e3 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[37/120] gpt-5.4-mini 07d69d #1 ok 112.8s searches=2 cost=$0.0225
+  retry 2/5 gpt-5.4-mini 9873e3 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini ae683b #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 07d69d #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[38/120] claude-haiku-5.5 3e4ab5 #0 ok 122.6s searches=4 cost=$0.0318
+[39/120] claude-haiku-5.5 d5c83c #1 ok 122.6s searches=12 cost=$0.0781
+  retry 2/5 gpt-5.4-mini 6146f2 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[40/120] claude-haiku-5.5 573859 #2 ok 124.7s searches=2 cost=$0.0159
+[41/120] claude-haiku-5.5 368fd8 #1 ok 126.2s searches=2 cost=$0.0167
+  retry 2/5 gpt-5.4-mini 03a7bc #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 93cd4a #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[42/120] claude-haiku-5.5 d5c83c #2 ok 134.1s searches=12 cost=$0.0772
+  retry 1/5 gpt-5.4-mini 9cd75a #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[43/120] claude-haiku-5.5 3e4ab5 #1 ok 136.7s searches=4 cost=$0.0316
+[44/120] claude-haiku-5.5 368fd8 #2 ok 140.8s searches=2 cost=$0.0164
+[45/120] gpt-5.4-mini 8dd543 #2 ok 148.6s searches=3 cost=$0.0271
+[46/120] claude-haiku-5.5 07d69d #0 ok 151.4s searches=2 cost=$0.0157
+[47/120] gpt-5.4-mini 03a7bc #2 ok 153.6s searches=1 cost=$0.0106
+[48/120] claude-haiku-5.5 3e4ab5 #2 ok 154.0s searches=2 cost=$0.0159
+[49/120] gpt-5.4-mini 6146f2 #2 ok 155.3s searches=4 cost=$0.0360
+[50/120] gpt-5.4-mini 93cd4a #1 ok 159.2s searches=1 cost=$0.0108
+[51/120] claude-haiku-5.5 9873e3 #0 ok 163.0s searches=10 cost=$0.0800
+[52/120] gpt-5.4-mini ae683b #2 ok 164.0s searches=2 cost=$0.0188
+[53/120] claude-haiku-5.5 07d69d #1 ok 167.5s searches=2 cost=$0.0157
+[54/120] claude-haiku-5.5 a7bf9d #0 ok 167.6s searches=6 cost=$0.0511
+  retry 2/5 gpt-5.4-mini ae683b #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 9cd75a #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini bf3a09 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[55/120] claude-haiku-5.5 a7bf9d #1 ok 172.5s searches=8 cost=$0.0651
+  retry 2/5 gpt-5.4-mini 93cd4a #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[56/120] claude-haiku-5.5 a7bf9d #2 ok 175.0s searches=6 cost=$0.0480
+  retry 1/5 gpt-5.4-mini 746cc2 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[57/120] claude-haiku-5.5 03a7bc #0 ok 177.0s searches=2 cost=$0.0157
+[58/120] claude-haiku-5.5 9873e3 #1 ok 178.3s searches=11 cost=$0.0802
+  retry 1/5 gpt-5.4-mini 9cd75a #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[59/120] claude-haiku-5.5 6146f2 #0 ok 183.8s searches=12 cost=$0.0761
+  retry 1/5 gpt-5.4-mini bf3a09 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[60/120] claude-haiku-5.5 07d69d #2 ok 184.6s searches=2 cost=$0.0156
+[61/120] claude-haiku-5.5 03a7bc #1 ok 187.8s searches=2 cost=$0.0158
+  retry 2/5 gpt-5.4-mini ae683b #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 746cc2 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[62/120] claude-haiku-5.5 9873e3 #2 ok 195.9s searches=11 cost=$0.0800
+[63/120] claude-haiku-5.5 93cd4a #0 ok 195.9s searches=2 cost=$0.0156
+  retry 1/5 gpt-5.4-mini 2ce94d #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[64/120] claude-haiku-5.5 03a7bc #2 ok 200.5s searches=1 cost=$0.0080
+[65/120] claude-haiku-5.5 6146f2 #1 ok 203.3s searches=12 cost=$0.0760
+[66/120] gpt-5.4-mini bf3a09 #2 ok 205.4s searches=1 cost=$0.0109
+[67/120] claude-haiku-5.5 93cd4a #1 ok 207.0s searches=2 cost=$0.0156
+[68/120] claude-haiku-5.5 8dd543 #0 ok 207.2s searches=3 cost=$0.0234
+[69/120] gpt-5.4-mini 03a7bc #0 ok 208.4s searches=1 cost=$0.0107
+[70/120] claude-haiku-5.5 6146f2 #2 ok 212.8s searches=12 cost=$0.0760
+[71/120] gpt-5.4-mini 9873e3 #2 ok 215.8s searches=2 cost=$0.0203
+[72/120] claude-haiku-5.5 ae683b #0 ok 216.0s searches=3 cost=$0.0231
+[73/120] claude-haiku-5.5 8dd543 #1 ok 223.1s searches=4 cost=$0.0304
+[74/120] gpt-5.4-mini 9cd75a #0 ok 223.4s searches=2 cost=$0.0195
+[75/120] gpt-5.4-mini d6a140 #0 ok 224.9s searches=1 cost=$0.0115
+  retry 1/5 gpt-5.4-mini 746cc2 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 9873e3 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[76/120] gpt-5.4-mini 07d69d #2 ok 228.8s searches=1 cost=$0.0111
+[77/120] claude-haiku-5.5 93cd4a #2 ok 231.9s searches=4 cost=$0.0313
+  retry 1/5 gpt-5.4-mini 2ce94d #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[78/120] claude-haiku-5.5 ae683b #1 ok 236.2s searches=3 cost=$0.0233
+  retry 3/5 gpt-5.4-mini 6146f2 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 0abf31 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[79/120] claude-haiku-5.5 8dd543 #2 ok 242.4s searches=4 cost=$0.0305
+  retry 3/5 gpt-5.4-mini 03a7bc #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[80/120] claude-haiku-5.5 9cd75a #0 ok 246.9s searches=3 cost=$0.0237
+  retry 3/5 gpt-5.4-mini 93cd4a #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini d6a140 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 1c54c6 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[81/120] gpt-5.4-mini 2ce94d #2 ok 271.5s searches=3 cost=$0.0304
+[82/120] gpt-5.4-mini 0abf31 #1 ok 277.0s searches=5 cost=$0.0536
+[83/120] gpt-5.4-mini bf3a09 #0 ok 277.6s searches=3 cost=$0.0296
+[84/120] gpt-5.4-mini 9cd75a #1 ok 282.1s searches=4 cost=$0.0402
+  retry 1/5 gpt-5.4-mini d6a140 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 9cd75a #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 746cc2 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[85/120] claude-haiku-5.5 ae683b #2 ok 286.9s searches=3 cost=$0.0230
+  retry 1/5 gpt-5.4-mini 1c54c6 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini bf3a09 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini cca9ba #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[86/120] claude-haiku-5.5 9cd75a #1 ok 298.8s searches=3 cost=$0.0239
+[87/120] claude-haiku-5.5 bf3a09 #0 ok 298.9s searches=3 cost=$0.0242
+  retry 1/5 gpt-5.4-mini 0abf31 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini ae683b #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 746cc2 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 93cd4a #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[88/120] gpt-5.4-mini 1c54c6 #2 ok 330.9s searches=3 cost=$0.0350
+[89/120] gpt-5.4-mini cca9ba #1 ok 333.4s searches=1 cost=$0.0107
+[90/120] gpt-5.4-mini 2ce94d #0 ok 334.5s searches=3 cost=$0.0303
+[91/120] gpt-5.4-mini 573859 #0 ok 336.8s searches=1 cost=$0.0107
+[92/120] gpt-5.4-mini ae683b #1 ok 345.0s searches=2 cost=$0.0203
+  retry 1/5 gpt-5.4-mini cca9ba #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[93/120] gpt-5.4-mini 368fd8 #0 ok 350.6s searches=1 cost=$0.0115
+  retry 1/5 gpt-5.4-mini d5c83c #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 746cc2 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 2ce94d #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 0abf31 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 573859 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini d6a140 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 1c54c6 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini d5c83c #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[94/120] gpt-5.4-mini 9873e3 #1 ok 385.7s searches=1 cost=$0.0113
+[95/120] gpt-5.4-mini 368fd8 #1 ok 394.9s searches=2 cost=$0.0211
+[96/120] gpt-5.4-mini 3e4ab5 #0 ok 397.0s searches=1 cost=$0.0107
+  retry 4/5 gpt-5.4-mini 6146f2 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[97/120] gpt-5.4-mini d6a140 #2 ok 401.1s searches=1 cost=$0.0114
+[98/120] gpt-5.4-mini 03a7bc #1 ok 404.7s searches=1 cost=$0.0104
+[99/120] gpt-5.4-mini 93cd4a #0 ok 408.7s searches=1 cost=$0.0108
+  retry 2/5 gpt-5.4-mini 1c54c6 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini cca9ba #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 0abf31 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 9cd75a #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 746cc2 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 1/5 gpt-5.4-mini 573859 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini bf3a09 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[100/120] gpt-5.4-mini cca9ba #2 ok 451.7s searches=1 cost=$0.0105
+[101/120] gpt-5.4-mini ae683b #0 ok 452.4s searches=2 cost=$0.0187
+[102/120] gpt-5.4-mini 746cc2 #1 ok 454.4s searches=4 cost=$0.0409
+[103/120] gpt-5.4-mini 93cd4a #2 ok 460.7s searches=1 cost=$0.0107
+[104/120] gpt-5.4-mini d5c83c #1 ok 463.1s searches=3 cost=$0.0291
+[105/120] gpt-5.4-mini 573859 #1 ok 465.4s searches=1 cost=$0.0108
+  retry 2/5 gpt-5.4-mini d5c83c #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 746cc2 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 2ce94d #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 0abf31 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini d6a140 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 1c54c6 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 2/5 gpt-5.4-mini 573859 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 1c54c6 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini cca9ba #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[106/120] gpt-5.4-mini 0abf31 #2 ok 509.7s searches=2 cost=$0.0251
+[107/120] gpt-5.4-mini 6146f2 #1 ok 519.9s searches=6 cost=$0.0587
+[108/120] gpt-5.4-mini 9cd75a #2 ok 521.2s searches=3 cost=$0.0289
+  retry 3/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini bf3a09 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini d5c83c #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini 746cc2 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 3/5 gpt-5.4-mini 573859 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini 746cc2 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini 2ce94d #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini 0abf31 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini d6a140 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini 1c54c6 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 4/5 gpt-5.4-mini 1c54c6 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[109/120] gpt-5.4-mini cca9ba #0 ok 562.5s searches=1 cost=$0.0106
+[110/120] gpt-5.4-mini 573859 #2 ok 599.3s searches=2 cost=$0.0203
+[111/120] gpt-5.4-mini d5c83c #0 ok 604.2s searches=6 cost=$0.0564
+  retry 4/5 gpt-5.4-mini d5c83c #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+  retry 5/5 gpt-5.4-mini bf3a09 #1: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[112/120] gpt-5.4-mini bf3a09 #1 api_error 609.1s searches=0 cost=$0.0000
+  retry 5/5 gpt-5.4-mini 746cc2 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[113/120] gpt-5.4-mini 746cc2 #0 api_error 609.2s searches=0 cost=$0.0000
+  retry 5/5 gpt-5.4-mini 746cc2 #2: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-2026
+[114/120] gpt-5.4-mini 746cc2 #2 api_error 614.4s searches=0 cost=$0.0000
+[115/120] gpt-5.4-mini 2ce94d #1 ok 628.3s searches=3 cost=$0.0307
+[116/120] gpt-5.4-mini 0abf31 #0 ok 629.7s searches=2 cost=$0.0225
+[117/120] gpt-5.4-mini d6a140 #1 ok 630.3s searches=1 cost=$0.0112
+[118/120] gpt-5.4-mini 1c54c6 #1 ok 645.3s searches=2 cost=$0.0242
+[119/120] gpt-5.4-mini 1c54c6 #0 ok 646.1s searches=3 cost=$0.0520
+[120/120] gpt-5.4-mini d5c83c #2 ok 715.6s searches=7 cost=$0.0697
+
+done in 716s; total cost $3.487
+=== run 2026-10-29 11:46:44  models=['openrouter/anthropic/claude-haiku-5.5', 'openrouter/openai/gpt-5.4-mini']  tasks=20  tries=3
+SYSTEM_PROMPT:
+You are a careful research assistant with a web search tool.
+Search the web as many times as you need to find the exact facts the question asks for, and do any calculation yourself.
+Rely on primary/official sources and cite the exact URL of the document you used.
+
+End your response with exactly these four lines:
+Explanation: <short explanation of how you got the answer>
+Exact Answer: <your final answer only>
+Sources: <the URL(s) of the documents the answer comes from>
+Confidence: <0-100>%
+
+FIRST TASK PROMPT:
+I need to know the exact share of Singapore's AI-using enterprises that apply generative AI specifically for coding and debugging in their Information Technology departments. Calculate this overall percentage using the IT function's AI adoption rate and the specific software development use-case share from IMDA's 2025 digital economy data.
+
+3 tries to run (117 already saved)
+[1/3] gpt-5.4-mini bf3a09 #1 ok 5.8s searches=3 cost=$0.0300
+[2/3] gpt-5.4-mini 746cc2 #2 ok 14.6s searches=3 cost=$0.0303
+[3/3] gpt-5.4-mini 746cc2 #0 ok 21.1s searches=3 cost=$0.0319
+
+done in 21s; total cost $0.092

@@ -12,7 +12,7 @@ import pandas as pd
 
 import run
 
-JUDGES = ["openrouter/google/gemini-3.1-flash-lite", "openrouter/deepseek/deepseek-v4-flash"]
+JUDGES = ["openrouter/deepseek/deepseek-v4-flash", "openrouter/google/gemini-3.1-flash-lite"]  # primary first
 
 JUDGE_PROMPT = """You are grading a research assistant's response against a rubric. Grade each criterion independently as met (true) or not met (false). No partial credit.
 

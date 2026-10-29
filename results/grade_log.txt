@@ -23,3 +23,7 @@ gpt-5.4-mini      0.48  0.10    0.03       0.02         0.53               0.48 
 failure tagging: 101 tries to tag (0 already saved)
   tagged 20/101
   tagged 40/101
+  tagged 60/101
+  tagged 80/101
+  tagged 100/101
+  tagged 101/101

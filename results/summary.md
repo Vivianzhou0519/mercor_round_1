@@ -159,10 +159,10 @@ Right answer but wrong source: 7 tries. Is the rubric too strict? These fail onl
 
 ## 8b. Failure type (tries, judge 1; wrong answers tagged by an LLM, see failure_tags.jsonl)
 
-| model            | full pass | right answer, wrong source | not_found | wrong_value | wrong_math | incomplete | untagged |
-| ---------------- | --------- | -------------------------- | --------- | ----------- | ---------- | ---------- | -------- |
-| claude-haiku-5.5 | 10 (17%)  | 3 (5%)                     | 19 (32%)  | 20 (33%)    | 1 (2%)     | 5 (8%)     | 2 (3%)   |
-| gpt-5.4-mini     | 2 (3%)    | 4 (7%)                     | 0 (0%)    | 0 (0%)      | 0 (0%)     | 0 (0%)     | 54 (90%) |
+| model            | full pass | right answer, wrong source | not_found | wrong_value | wrong_math | incomplete |
+| ---------------- | --------- | -------------------------- | --------- | ----------- | ---------- | ---------- |
+| claude-haiku-5.5 | 10 (17%)  | 3 (5%)                     | 19 (32%)  | 21 (35%)    | 1 (2%)     | 6 (10%)    |
+| gpt-5.4-mini     | 2 (3%)    | 4 (7%)                     | 14 (23%)  | 34 (57%)    | 4 (7%)     | 2 (3%)     |
 
 not_found = never located the right document; wrong_value = found it, pulled the wrong number/fact; wrong_math = right inputs, wrong calculation; incomplete = refused, hedged or missing parts.
 
@@ -175,7 +175,7 @@ not_found = never located the right document; wrong_value = found it, pulled the
 | gpt-5.4-mini     | pass    | 2     | 1.0           | 1      | 1   | 0%                    |
 | gpt-5.4-mini     | fail    | 58    | 2.4           | 2      | 7   | 0%                    |
 
-Mean searches by failure type: claude-haiku-5.5: incomplete 6.2, not_found 6.9, wrong_math 1.0, wrong_value 3.0.
+Mean searches by failure type: claude-haiku-5.5: incomplete 7.2, not_found 6.9, wrong_math 1.0, wrong_value 2.9; gpt-5.4-mini: incomplete 2.0, not_found 3.2, wrong_math 2.8, wrong_value 2.2.
 
 ## 8d. Tasks no one solved (0 of 6 tries across both models)
 
@@ -187,7 +187,7 @@ Mean searches by failure type: claude-haiku-5.5: incomplete 6.2, not_found 6.9, 
 | d5c83c | TV shows & movies                                     | 25                                       | no               | no               | no                         | gold document never appeared in any search: too hard to find (or URL moved)                       |
 | 8dd543 | Music                                                 | 14th Street and Constitution Avenue, NW  | no               | no               | no                         | gold document never appeared in any search: too hard to find (or URL moved)                       |
 | 03a7bc | Art                                                   | The problem of carrying the weight of a  | no               | no               | no                         | gold document never appeared in any search: too hard to find (or URL moved)                       |
-| 9873e3 | Geography                                             | 20.77 LNM; 30° 29' 22.57" N, 91° 14' 51. | no               | yes              | no                         | gold document never appeared in any search: too hard to find (or URL moved)                       |
+| 9873e3 | Geography                                             | 20.77 LNM; 30° 29' 22.57" N, 91° 14' 51. | no               | yes              | no                         | document was found but no try got the answer: hard extraction/maths, or check the expected answer |
 | ae683b | Science & technology                                  | 80001                                    | no               | no               | no                         | gold document never appeared in any search: too hard to find (or URL moved)                       |
 | 368fd8 | Sports                                                | Buprenorphine, Pseudoephedrine, and Spir | no               | yes              | yes                        | document was found but no try got the answer: hard extraction/maths, or check the expected answer |
 | cca9ba | Other (Business/Regulatory)                           | 149                                      | no               | yes              | yes                        | document was found but no try got the answer: hard extraction/maths, or check the expected answer |

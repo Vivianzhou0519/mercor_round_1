@@ -223,9 +223,61 @@ async def grade(out, log, which):
         write_scored(out, recs, rubrics, log)  # results updated after each judge
 
 
+TAG_PROMPT = """A research assistant answered a web-research question WRONG. Classify the main reason.
+
+QUESTION:
+{question}
+
+EXPECTED ANSWER: {expected}
+EXPECTED SOURCE: {source}
+
+RESPONSE:
+<<<
+{response}
+>>>
+
+Types:
+- not_found: never located the right document/data (wrong or no source, guessed, or gave up because it could not find it)
+- wrong_value: found the right document/data but pulled out the wrong number or fact
+- wrong_math: pulled out the right inputs but the calculation/aggregation/combination is wrong
+- incomplete: refused, hedged between answers, or left parts of a multi-part answer missing
+Return only JSON: {{"type": "<one type>", "reason": "<one sentence>"}}"""
+
+
+async def tag_failures(out, log):
+    """Tag each try that the primary judge failed on the answer (C2) with a failure type (primary judge model)."""
+    rubrics = load_rubrics()
+    df = pd.read_csv(out / "scored.csv")
+    path = out / "failure_tags.jsonl"
+    done = {(c["model"], c["task_id"], c["try"]) for c in map(json.loads, path.read_text().splitlines())} if path.exists() else set()
+    todo = df[(df.c2 == 0) & ~df.apply(lambda r: (r.model, r.task_id, r["try"]) in done, axis=1)]
+    log(f"failure tagging: {len(todo)} tries to tag ({len(done)} already saved)")
+    f, n = path.open("a", encoding="utf-8"), [0]
+
+    async def one(r):
+        rb = rubrics[r.task_id]
+        prompt = TAG_PROMPT.format(question=rb["question"], expected=answer_of(rb),
+                                   source=rb["criteria"][0]["description"].split(":", 1)[-1].strip(),
+                                   response=r.final_answer if isinstance(r.final_answer, str) else "(empty)")
+        resp, _ = await run.call_with_retries(log, "tag", model=JUDGES[0], temperature=0, timeout=180,
+                                              messages=[{"role": "user", "content": prompt}])
+        try:
+            v = json.loads(re.search(r"\{.*\}", resp.choices[0].message.content, re.S).group(0))
+            f.write(json.dumps({"model": r.model, "task_id": r.task_id, "try": int(r["try"]),
+                                "type": v["type"], "reason": v["reason"]}) + "\n"); f.flush()
+        except Exception:
+            pass
+        n[0] += 1
+        if n[0] % 20 == 0 or n[0] == len(todo):
+            log(f"  tagged {n[0]}/{len(todo)}")
+
+    await asyncio.gather(*(one(r) for _, r in todo.iterrows()))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--precheck", action="store_true")
+    ap.add_argument("--tag-failures", action="store_true", help="tag wrong answers with a failure type")
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--rpm", type=float, default=20)
     ap.add_argument("--judges", default="1,2", help="which judges, in order: 1 = primary, 2 = second")
@@ -236,7 +288,8 @@ def main():
 
     async def go():
         run.LIMITER = run.RateLimiter(args.rpm)
-        await (precheck(log) if args.precheck else grade(out, log, [int(x) for x in args.judges.split(",")]))
+        await (precheck(log) if args.precheck else tag_failures(out, log) if args.tag_failures
+               else grade(out, log, [int(x) for x in args.judges.split(",")]))
     asyncio.run(go())
 
 

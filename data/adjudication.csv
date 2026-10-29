@@ -1,0 +1,7 @@
+model,task_id,try,criterion,judge1,judge2,correct,right_judge,cause
+claude-haiku-5.5,task_0feca2d493bd4a13b6314717b9bf3a09,0,C2,1,0,1,judge 1,"judge 2 graded the reasoning (inferred mapping) instead of the stated answer, which matches exactly"
+claude-haiku-5.5,task_1e540fdfa57d41f09a4ce28f42a7bf9d,0,C2,0,1,1,judge 2,"judge 1 counted a caveat as a hedge; the Exact Answer line commits to $150,600"
+claude-haiku-5.5,task_a57f13b60f73422a8e301a3c9f3e4ab5,2,C2,0,1,1,judge 2,"judge 1 counted a caveat as a hedge; the Exact Answer line commits to 588,000"
+claude-haiku-5.5,task_edafa33e92ae44eca8f8fc1bb4d6a140,1,C2,1,0,1,judge 1,answer states the exact value '20.1% (20.09%)'
+claude-haiku-5.5,task_edafa33e92ae44eca8f8fc1bb4d6a140,2,C2,1,0,0,judge 2,task asks for the exact share 20.09%; the answer gives rounded 20.1%
+gpt-5.4-mini,task_edafa33e92ae44eca8f8fc1bb4d6a140,1,C2,1,0,0,judge 2,task asks for the exact share 20.09%; the answer gives rounded 20.1%

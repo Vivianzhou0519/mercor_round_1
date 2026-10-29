@@ -20,3 +20,6 @@ scored.csv: 120 tries (0 api_error); judge 1 graded 120, judge 2 graded 120; 'Ex
 model                                                                                          
 claude-haiku-5.5  0.50  0.22    0.17       0.15         0.50               0.50            0.98
 gpt-5.4-mini      0.48  0.10    0.03       0.02         0.53               0.48            0.97
+failure tagging: 101 tries to tag (0 already saved)
+  tagged 20/101
+  tagged 40/101

@@ -1,4 +1,4 @@
-"""Analysis of scored.csv -> summary.md, overview.png, by_category.png, failures.csv.
+"""Analysis of scored.csv -> summary.md, overview.png, judges.png, failures.png, failures.csv.
 
 Tasks are the data points: each task's tries are averaged first (tries on one task are not independent).
 Usage: python analyze.py [--smoke]
@@ -74,6 +74,218 @@ def leader(scores):
     return top[0] if len(top) == 1 else "tie"
 
 
+def kappa_label(k):
+    return "n/a" if np.isnan(k) else "strong" if k > .8 else "good" if k >= .6 else "moderate" if k >= .4 else "weak"
+
+
+def adjudicate(both):
+    """Judges' verdict where they agree; my own reading (data/adjudication.csv) where they disagree."""
+    out = both.passed.copy()
+    adj = Path("data/adjudication.csv")
+    if adj.exists():
+        a = pd.read_csv(adj).set_index(["model", "task_id", "try"]).correct
+        for i, r in both.iterrows():
+            key = (r.model, r.task_id, r["try"])
+            if key in a.index:
+                out[i] = r.c1 * a[key]  # C1 was never disputed
+    return out
+
+
+TYPES = ["full pass", "right answer, wrong source", "not_found", "wrong_value", "wrong_math", "incomplete", "untagged"]
+
+
+def deep_dive(df, ok, pt, models, out, md):
+    """Dataset-specific analysis on judge 1 verdicts. Returns the frames the failure chart needs."""
+    t = ok.copy()
+    tags = out / "failure_tags.jsonl"
+    if tags.exists():
+        tg = pd.read_json(tags, lines=True).drop_duplicates(["model", "task_id", "try"], keep="last")
+        t = t.merge(tg[["model", "task_id", "try", "type"]], on=["model", "task_id", "try"], how="left")
+    else:
+        t["type"] = np.nan
+    t["outcome"] = np.select([t.passed == 1, (t.c2 == 1) & (t.c1 == 0)], ["full pass", "right answer, wrong source"],
+                             default=t.type.fillna("untagged"))
+
+    md.append("## 8a. Source vs answer: C1 × C2 per model (tries)\n")
+    for m in models:
+        g = t[t.model == m]
+        cell = lambda a, b: int(((g.c1 == a) & (g.c2 == b)).sum())
+        md.append(f"**{m}**\n")
+        md.append(table(["", "Right answer", "Wrong answer"],
+                        [["Right source", f"{cell(1, 1)} full pass", f"{cell(1, 0)} found the document, then misread or miscalculated"],
+                         ["Wrong source", f"{cell(0, 1)} right answer, wrong source → still fails", f"{cell(0, 0)} lost"]]) + "\n")
+    rawc = t[(t.c2 == 1) & (t.c1 == 0)]
+    md.append(f"Right answer but wrong source: {len(rawc)} tries. Is the rubric too strict? These fail only because "
+              f"they cited a different page than the rubric's URL" +
+              (": " + "; ".join(f"{r.model} {r.task_id[-6:]}#{r['try']}" for _, r in rawc.iterrows()) if len(rawc) else "") + ".\n")
+
+    md.append("## 8b. Failure type (tries, judge 1; wrong answers tagged by an LLM, see failure_tags.jsonl)\n")
+    ct = pd.crosstab(t.model, t.outcome).reindex(columns=[c for c in TYPES if c in set(t.outcome)], fill_value=0)
+    md.append(table(["model"] + list(ct.columns), [[m] + [f"{v} ({v / ct.loc[m].sum():.0%})" for v in ct.loc[m]]
+                                                    for m in ct.index]) + "\n")
+    md.append("not_found = never located the right document; wrong_value = found it, pulled the wrong number/fact; "
+              "wrong_math = right inputs, wrong calculation; incomplete = refused, hedged or missing parts.\n")
+
+    md.append("## 8c. Search behavior: passes vs fails\n")
+    rows = []
+    for m in models:
+        for lab, g in [("pass", t[(t.model == m) & (t.passed == 1)]), ("fail", t[(t.model == m) & (t.passed == 0)])]:
+            if len(g):
+                rows.append([m, lab, len(g), f"{g.searches.mean():.1f}", f"{g.searches.median():.0f}",
+                             f"{g.searches.max():.0f}", f"{(g.searches >= 10).mean():.0%}"])
+    md.append(table(["model", "outcome", "tries", "mean searches", "median", "max", "hit the 10-search cap"], rows) + "\n")
+    if "type" in t and t.type.notna().any():
+        st = t[t.type.notna()].groupby(["model", "type"]).searches.mean().unstack().round(1)
+        md.append("Mean searches by failure type: " + "; ".join(
+            f"{m}: " + ", ".join(f"{k} {v}" for k, v in st.loc[m].dropna().items()) for m in st.index) + ".\n")
+
+    md.append("## 8d. Tasks no one solved (0 of 6 tries across both models)\n")
+    tk = t.groupby("task_id").agg(passes=("passed", "sum"), tries=("passed", "size"), any_c2=("c2", "max"),
+                                   any_c1=("c1", "max"), seen=("source_seen", "max"), expected=("expected", "first"),
+                                   category=("category", "first")).reset_index()
+    dead = tk[tk.passes == 0]
+    def why(r):
+        if r.any_c2:
+            return "someone got the answer but never with the right source: rubric source may be too strict"
+        if not (r.seen or r.any_c1):  # judge-confirmed citation also counts as found
+            return "gold document never appeared in any search: too hard to find (or URL moved)"
+        return "document was found but no try got the answer: hard extraction/maths, or check the expected answer"
+    md.append(table(["task", "category", "expected", "any right answer", "any right source", "gold doc in search results", "likely reason"],
+                    [[r.task_id[-6:], r.category, str(r.expected)[:40], "yes" if r.any_c2 else "no", "yes" if r.any_c1 else "no",
+                      "yes" if r.seen else "no", why(r)] for _, r in dead.iterrows()]) + "\n")
+    md.append(f"{len(dead)} of {len(tk)} tasks unsolved. All tasks passed the judge precheck (gold answer passes, "
+              f"empty fails), so these are not broken graders; whether the expected answer itself is right needs a human check.\n")
+
+    md.append("## 8e. Cost per correct answer\n")
+    rows = []
+    for m in models:
+        g, a = t[t.model == m], df[df.model == m]
+        n_pass = int(g.passed.sum())
+        rows.append([m, f"${a.cost.sum():.2f}", n_pass, f"${a.cost.sum() / n_pass:.2f}" if n_pass else "∞ (no passes)"])
+    md.append(table(["model", "total cost", "passing tries", "cost per correct answer"], rows) + "\n")
+
+    if len(models) == 2:
+        w = pt.pivot(index="task_id", columns="model", values="p").dropna()
+        d = (w[models[0]] - w[models[1]]).values
+        gap, sd = d.mean(), d.std(ddof=1)
+        md.append("## 8f. Sample size\n")
+        if gap and sd:
+            n80 = math.ceil(((1.96 + 0.84) * sd / abs(gap)) ** 2)
+            md.append(f"Observed paired gap {100 * gap:+.1f} pts with per-task SD {100 * sd:.1f} pts. To detect a gap this size "
+                      f"(95% confidence, 80% power) we'd need about **{n80} tasks**; we have {len(d)}. "
+                      f"Formula: n = ((1.96 + 0.84) × SD / gap)².\n")
+    return {"t": t, "tk": tk}
+
+
+def judges_chart(both, models, out, j1, j2):
+    fig, ax = plt.subplots(1, 4, figsize=(20, 5), gridspec_kw={"width_ratios": [1, 1, 1, 1.6]})
+    for a, (col, name) in zip(ax[:3], [("c1", "C1 source"), ("c2", "C2 answer"), ("passed", "Final pass")]):
+        x, y = both[col].astype(int), both[col + "_j2"].astype(int)
+        m2 = np.array([[((x == 1) & (y == 1)).sum(), ((x == 1) & (y == 0)).sum()],
+                       [((x == 0) & (y == 1)).sum(), ((x == 0) & (y == 0)).sum()]])
+        a.imshow(np.log1p(m2), cmap="Blues")
+        for i in range(2):
+            for j in range(2):
+                a.text(j, i, str(m2[i, j]), ha="center", va="center", fontsize=14,
+                       color="white" if m2[i, j] > m2.max() / 2 else "black")
+        a.set_xticks([0, 1], [f"{j2}\npass", f"{j2}\nfail"], fontsize=8)
+        a.set_yticks([0, 1], [f"{j1}\npass", f"{j1}\nfail"], fontsize=8)
+        k = kappa(x, y)
+        a.set_title(f"{name}: agree {(x == y).mean():.0%}, κ={k:.2f} ({kappa_label(k)})", fontsize=10)
+    cols = [("Judge 1", "passed"), ("Judge 2", "passed_j2"), ("Strict", "strict"), ("Lenient", "lenient"),
+            ("Adjudicated", "adjudicated")]
+    wdt = 0.8 / len(models)
+    for i, m in enumerate(models):
+        g = both[both.model == m]
+        for j, (lab, c) in enumerate(cols):
+            per = g.groupby("task_id")[c].mean()
+            mean, lo, hi = normal_ci(per)
+            xx = j + (i - (len(models) - 1) / 2) * wdt
+            ax[3].bar(xx, 100 * mean, wdt, color=COLORS[i], label=m if j == 0 else None,
+                      yerr=[[100 * (mean - lo)], [100 * (hi - mean)]], capsize=3)
+            ax[3].text(xx, 100 * hi + 1, f"{100 * mean:.0f}%", ha="center", fontsize=8)
+    ax[3].set_xticks(range(len(cols)), [c[0] for c in cols]); ax[3].set_ylim(0, 50)
+    ax[3].set_ylabel("pass rate (%)"); ax[3].legend(fontsize=8, loc="upper left")
+    ax[3].set_title("Pass rate by judging rule (95% range)")
+    fig.tight_layout(); fig.savefig(out / "judges.png", dpi=130); plt.close(fig)
+
+
+def failures_chart(deep, models, out):
+    t, tk = deep["t"], deep["tk"]
+    fig, ax = plt.subplots(2, 3, figsize=(20, 11))
+    a = ax[0, 0]  # outcome mix
+    types = [c for c in TYPES if c in set(t.outcome)]
+    cmap = dict(zip(TYPES, ["#2e9e44", "#9bd18b", "#7f7f7f", "#e07b39", "#c23b22", "#b9a0d6", "#dddddd"]))
+    left = np.zeros(len(models))
+    for ty in types:
+        v = np.array([(t[t.model == m].outcome == ty).sum() for m in models])
+        a.barh(models, v, left=left, color=cmap[ty], label=ty)
+        for k, (l, vv) in enumerate(zip(left, v)):
+            if vv:
+                a.text(l + vv / 2, k, str(vv), ha="center", va="center", fontsize=9)
+        left += v
+    a.set_xlabel("tries"); a.legend(fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=3)
+    a.set_title("Outcome per try: pass, wrong source, or failure type")
+    a = ax[0, 1]  # C1 x C2 per model
+    lab = ["right src\nright ans", "right src\nwrong ans", "wrong src\nright ans", "wrong src\nwrong ans"]
+    wdt = 0.8 / len(models)
+    for i, m in enumerate(models):
+        g = t[t.model == m]
+        v = [((g.c1 == 1) & (g.c2 == 1)).sum(), ((g.c1 == 1) & (g.c2 == 0)).sum(),
+             ((g.c1 == 0) & (g.c2 == 1)).sum(), ((g.c1 == 0) & (g.c2 == 0)).sum()]
+        xx = np.arange(4) + (i - (len(models) - 1) / 2) * wdt
+        a.bar(xx, v, wdt, color=COLORS[i], label=m)
+        for x_, v_ in zip(xx, v):
+            a.text(x_, v_ + 0.5, str(v_), ha="center", fontsize=9)
+    a.set_xticks(range(4), lab, fontsize=9); a.set_ylabel("tries"); a.legend(fontsize=8)
+    a.set_title("Source (C1) × answer (C2)")
+    a = ax[0, 2]  # calibration
+    a.plot([0, 100], [0, 100], "--", color="grey", lw=1)
+    cal = t[t.confidence.notna()].copy()
+    cal["bin"] = pd.cut(cal.confidence.clip(0, 100), [0, 25, 50, 75, 100], include_lowest=True)
+    for i, m in enumerate(models):
+        g = cal[cal.model == m].groupby("bin", observed=True).agg(c=("confidence", "mean"), p=("passed", "mean"), n=("passed", "size"))
+        a.plot(g.c, 100 * g.p, "-o", color=COLORS[i], label=m)
+        a.scatter(g.c, 100 * g.p, s=g.n * 8, color=COLORS[i], alpha=.35)
+        for c_, p_, n_ in zip(g.c, g.p, g.n):
+            a.annotate(f"n={n_}", (c_, 100 * p_), textcoords="offset points", xytext=(5, 6), fontsize=8)
+    a.set_xlim(0, 100); a.set_ylim(-3, 103); a.set_xlabel("stated confidence (%)"); a.set_ylabel("actual pass rate (%)")
+    a.legend(fontsize=8, loc="upper left"); a.set_title("Calibration (dashed = perfect; dot size = tries)")
+    a = ax[1, 0]  # searches pass vs fail
+    pos, labels = [], []
+    for i, m in enumerate(models):
+        for j, (lab_, sel) in enumerate([("pass", 1), ("fail", 0)]):
+            v = t[(t.model == m) & (t.passed == sel)].searches.values
+            x = i * 2.5 + j
+            if len(v):
+                a.boxplot([v], positions=[x], widths=.6, showfliers=False)
+                a.scatter(x + RNG.uniform(-.15, .15, len(v)), v, s=14, color=COLORS[i], alpha=.6)
+            pos.append(x); labels.append(f"{m}\n{lab_} (n={len(v)})")
+    a.set_xticks(pos, labels, fontsize=8); a.set_ylabel("searches per try"); a.set_title("Searches: passes vs fails")
+    a = ax[1, 1]  # per-task heatmap
+    tk_m = t.groupby(["task_id", "model"]).passed.sum().unstack().reindex(columns=models)
+    order = tk_m.sum(axis=1).sort_values(ascending=False).index
+    tk_m = tk_m.loc[order]
+    a.imshow(tk_m.values.T, cmap="Greens", vmin=0, vmax=3, aspect="auto")
+    for i in range(tk_m.shape[0]):
+        for j in range(tk_m.shape[1]):
+            a.text(i, j, int(tk_m.values[i, j]), ha="center", va="center", fontsize=8)
+    a.set_yticks(range(len(models)), models, fontsize=8)
+    a.set_xticks(range(len(order)), [x[-4:] for x in order], rotation=90, fontsize=7)
+    n_dead = int((tk_m.sum(axis=1) == 0).sum())
+    a.set_title(f"Passes per task (of 3 tries); {n_dead} of {len(order)} tasks unsolved by both")
+    a = ax[1, 2]  # cost per correct
+    v = []
+    for m in models:
+        n_pass = t[t.model == m].passed.sum()
+        v.append(t[t.model == m].cost.sum() / n_pass if n_pass else np.nan)
+    a.bar(models, v, color=COLORS[:len(models)])
+    for i, vv in enumerate(v):
+        a.text(i, (0 if np.isnan(vv) else vv) * 1.02 + .01, "no passes" if np.isnan(vv) else f"${vv:.2f}", ha="center")
+    a.set_ylabel("$ per passing try"); a.set_title("Cost per correct answer")
+    fig.tight_layout(); fig.savefig(out / "failures.png", dpi=120); plt.close(fig)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
@@ -103,8 +315,10 @@ def main():
     if len(both):
         both["strict"] = both.passed * both.passed_j2
         both["lenient"] = np.maximum(both.passed, both.passed_j2)
+        both["adjudicated"] = adjudicate(both)
         cols = {f"Judge 1 ({j1}, primary)": "passed", f"Judge 2 ({j2}, check)": "passed_j2",
-                "Strict: both pass": "strict", "Lenient: either passes": "lenient"}
+                "Strict: both pass": "strict", "Lenient: either passes": "lenient",
+                "Adjudicated (my read of disagreements)": "adjudicated"}
         per = both.groupby(["model", "task_id"])[list(cols.values())].mean().reset_index()
         rows, verdicts = [], {}
         for m in models:
@@ -126,7 +340,9 @@ def main():
             rows.append(cells)
         md.append(table([""] + list(cols), rows) + "\n")
         md.append("Strict = a pass only if both judges say pass; lenient = a pass if either does. These bracket the "
-                  "lowest and highest believable score; the truth is probably in between. Ranges are 95% (±1.96·SD/√n over tasks).\n")
+                  "lowest and highest believable score; the truth is probably in between. Adjudicated = the judges' verdict "
+                  "where they agree, my own reading (data/adjudication.csv) where they disagree. "
+                  "Ranges are 95% (±1.96·SD/√n over tasks). All other sections and overview.png use judge 1 only.\n")
         rows = [[col.upper() if col != "passed" else "final pass", len(both),
                  pct((both[col] == both[col + "_j2"]).mean()), f"{kappa(both[col], both[col + '_j2']):.2f}"]
                 for col in ["c1", "c2", "passed"]]
@@ -200,7 +416,6 @@ def main():
                      "tries: saw gold source but didn't cite it"], rows) + "\n")
 
     # ---- 5. judge agreement ----
-    both = ok[ok.passed_j2.notna()]
     rows = [[col, len(both), pct((both[col] == both[col + "_j2"]).mean()), f"{kappa(both[col], both[col + '_j2']):.2f}",
              pct(both[col].mean()), pct(both[col + "_j2"].mean())] for col in ["c1", "c2", "passed"]] if len(both) else []
     j1, j2 = (run.short(j) for j in grade.JUDGES)
@@ -215,18 +430,50 @@ def main():
     md.append("C1 is judged from the response text only (its Sources line), not from the search-result list. "
               "A cited URL that never appeared in the model's search results was probably made up.\n")
 
-    md.append(f"## 5. Judge agreement ({j1} vs {j2})\n")
-    md.append(table(["verdict", "tries", "agreement", "Cohen's κ", f"yes rate {j1}", f"yes rate {j2}"], rows) + "\n")
+    md.append(f"## 5. Judge agreement ({j1} = judge 1 vs {j2} = judge 2, {len(both)} graded answers)\n")
+    for col, name in [("c1", "C1 (source)"), ("c2", "C2 (answer)"), ("passed", "Final pass")]:
+        a_, b_ = both[col].astype(int), both[col + "_j2"].astype(int)
+        po, pa, pb = (a_ == b_).mean(), a_.mean(), b_.mean()
+        pe = pa * pb + (1 - pa) * (1 - pb)
+        k = (po - pe) / (1 - pe) if pe < 1 else np.nan
+        md.append(f"**{name}**\n")
+        md.append(table(["", "Judge 2: pass", "Judge 2: fail"],
+                        [["Judge 1: pass", int(((a_ == 1) & (b_ == 1)).sum()), int(((a_ == 1) & (b_ == 0)).sum())],
+                         ["Judge 1: fail", int(((a_ == 0) & (b_ == 1)).sum()), int(((a_ == 0) & (b_ == 0)).sum())]]) + "\n")
+        md.append(f"Agreement {pct(po)}; chance agreement = {pa:.2f}×{pb:.2f} + {1 - pa:.2f}×{1 - pb:.2f} = {pe:.2f}; "
+                  f"κ = ({po:.2f} − {pe:.2f}) ÷ (1 − {pe:.2f}) = **{k:.2f}** ({kappa_label(k)}).\n")
     dis = both[(both.c1 != both.c1_j2) | (both.c2 != both.c2_j2)]
     dis[["model", "task_id", "try", "c1", "c1_j2", "c2", "c2_j2", "reason", "reason_j2", "answer_tail"]].to_csv(
         out / "judge_disagreements.csv", index=False)
+
+    win = {}
+    for name, col in [("judge 1", "passed"), ("judge 2", "passed_j2")]:
+        win[name] = leader({m: both[both.model == m].groupby("task_id")[col].mean().mean() for m in models})
+    md.append(f"**Does the headline change with the judge?** Winner under judge 1: {win['judge 1']}; under judge 2: "
+              f"{win['judge 2']}. " + ("The winner does not flip." if win["judge 1"] == win["judge 2"]
+                                       else "**The winner flips: the result depends on the judge.**") + "\n")
+
+    adj = Path("data/adjudication.csv")
+    if adj.exists() and len(dis):
+        a = pd.read_csv(adj)
+        md.append(f"### Who was right? (I read all {len(a)} disagreements)\n")
+        md.append(table(["model", "task", "try", "judge 1", "judge 2", "correct", "right judge", "why they disagreed"],
+                        [[r.model, r.task_id[-6:], r["try"], r.judge1, r.judge2, r.correct, r.right_judge, r.cause]
+                         for _, r in a.iterrows()]) + "\n")
+        tally = a.right_judge.value_counts().to_dict()
+        md.append("Tally: " + ", ".join(f"{k} right {v}×" for k, v in tally.items()) +
+                  f". Judge 1 ({j1}) errors: too strict on caveats (counted as hedges), too lenient on rounding "
+                  f"(20.1% for an 'exact' 20.09%). Judge 2 ({j2}) error: graded the reasoning instead of the stated answer.\n")
+
     rows = []
     for m in models:
-        mm = pt[pt.model == m].p
-        s = both[both.model == m].groupby("task_id").passed_j2.mean()
-        rows.append([m, pct(mm.mean()), pct(s.mean())])
-    md.append(f"Pass rate under each judge: " + "; ".join(f"{r[0]}: {r[1]} vs {r[2]}" for r in rows) +
-              f". {len(dis)} disagreeing tries → judge_disagreements.csv.\n")
+        g = both[both.model == m]
+        rows.append([m, len(g), pct((g.c2 == g.c2_j2).mean()), f"{kappa(g.c2, g.c2_j2):.2f}",
+                     pct((g.passed == g.passed_j2).mean()), f"{kappa(g.passed, g.passed_j2):.2f}",
+                     int(((g.c1 != g.c1_j2) | (g.c2 != g.c2_j2)).sum())])
+    md.append("### Bias check: is agreement lower for one model?\n")
+    md.append(table(["model", "answers", "C2 agreement", "C2 κ", "pass agreement", "pass κ", "disagreements"], rows) + "\n")
+    md.append("κ is unstable when almost every answer fails (few passes to agree on); read the disagreement counts alongside it.\n")
 
     # ---- 6. run-to-run variance ----
     if K > 1:
@@ -253,14 +500,9 @@ def main():
         md.append("## 7. Calibration: stated confidence vs actual pass\n")
         md.append(table(["model", "confidence bin", "tries", "mean confidence", "pass rate"], rows) + "\n")
 
-    # ---- 8. by category ----
-    rows = []
-    for m in models:
-        for cat, g in pt[pt.model == m].groupby("category"):
-            mean, lo, hi = normal_ci(g.p)
-            rows.append([m, cat, len(g), pct(mean, 0), rng_str(lo, hi, 0), "small, a lead only" if len(g) < 30 else ""])
-    md.append("## 8. By category (Domain)\n")
-    md.append(table(["model", "category", "tasks", "pass rate", "95% range", "note"], rows) + "\n")
+    # ---- 8. dataset-specific deep dive (judge 1) ----
+    deep = deep_dive(df, ok, pt, models, out, md)
+    md.append("Domains are skipped: 12 domains with 1–2 tasks each is too small to show anything.\n")
 
     # ---- 9. failures ----
     md.append("## 9. Failures\n")
@@ -306,7 +548,7 @@ def main():
         ax[0].bar(i, 100 * mean, color=COLORS[i], yerr=None if err is None else np.array(err) * 100, capsize=6, label=m)
         ax[0].text(i, 100 * (hi if not np.isnan(hi) else mean) + 2, f"{pct(mean)}\n({rng_str(lo, hi)})", ha="center", va="bottom", fontsize=9)
     ax[0].set_xticks(range(len(models)), models); ax[0].set_ylim(0, 115); ax[0].set_ylabel("% of tasks")
-    ax[0].set_title("Pass rate (C1 and C2), 95% range")
+    ax[0].set_title("Pass rate (C1 and C2), 95% range, judge 1")
     wdt = 0.8 / max(len(models), 1)
     for i, m in enumerate(models):
         for j, name in enumerate(metrics):
@@ -315,7 +557,7 @@ def main():
             ax[1].bar(x, 100 * v, wdt, color=COLORS[i], yerr=[[100 * (v - lo)], [100 * (hi - v)]], capsize=4,
                       label=m if j == 0 else None)
             ax[1].text(x, 100 * hi + 2, f"{100 * v:.0f}%\n({100 * lo:.0f}–{100 * hi:.0f})", ha="center", va="bottom", fontsize=8)
-    ax[1].set_xticks(range(len(metrics)), metrics); ax[1].set_ylim(0, 120); ax[1].set_title("pass@1 / pass@k / pass^k (bootstrap 95%)")
+    ax[1].set_xticks(range(len(metrics)), metrics); ax[1].set_ylim(0, 120); ax[1].set_title("pass@1 / pass@k / pass^k (bootstrap 95%), judge 1")
     ax[1].legend(loc="upper left", fontsize=8)
     if gap:
         mean, lo, hi = gap
@@ -327,25 +569,15 @@ def main():
         lim = max(30, 100 * np.nanmax(np.abs([lo, hi, mean])) + 10)
         ax[2].set_xlim(-lim, lim); ax[2].set_ylim(-1, 1); ax[2].set_yticks([])
         ax[2].set_xlabel(f"← {models[1]} better     pass-rate gap (pts)     {models[0]} better →")
-        ax[2].set_title(f"Paired gap {models[0]} − {models[1]}")
+        ax[2].set_title(f"Paired gap {models[0]} − {models[1]}, judge 1")
     fig.tight_layout(); fig.savefig(out / "overview.png", dpi=130); plt.close(fig)
 
-    cats = sorted(pt.category.unique())
-    fig, ax = plt.subplots(figsize=(10, 0.55 * len(cats) + 1.5))
-    for i, m in enumerate(models):
-        g = pt[pt.model == m].groupby("category").p.mean().reindex(cats)
-        y = np.arange(len(cats)) + (i - (len(models) - 1) / 2) * wdt
-        ax.barh(y, 100 * g.values, wdt, color=COLORS[i], label=m)
-        for yy, v in zip(y, g.values):
-            if not np.isnan(v):
-                ax.text(100 * v + 1, yy, f"{100 * v:.0f}%", va="center", fontsize=8)
-    n_per = pt[pt.model == models[0]].groupby("category").size().reindex(cats)
-    ax.set_yticks(range(len(cats)), [f"{c} (n={n})" for c, n in zip(cats, n_per)], fontsize=8)
-    ax.set_xlim(0, 110); ax.set_xlabel("pass rate (%)"); ax.invert_yaxis(); ax.legend(loc="lower right")
-    ax.set_title("Pass rate by category: 1–2 tasks each, a lead only")
-    fig.tight_layout(); fig.savefig(out / "by_category.png", dpi=130); plt.close(fig)
+    if len(both):
+        judges_chart(both, models, out, j1, j2)
+    failures_chart(deep, models, out)
     print("\n".join(md))
-    print(f"\nwrote {out}/summary.md, overview.png, by_category.png, failures.csv, judge_disagreements.csv")
+    (out / "by_category.png").unlink(missing_ok=True)
+    print(f"\nwrote {out}/summary.md, overview.png, judges.png, failures.png, failures.csv, judge_disagreements.csv")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,561 @@
+Task ID,Domain,Workflow,Prompt,Rubric JSON
+task_edafa33e92ae44eca8f8fc1bb4d6a140,TV shows & movies,Media & Entertainment Research,I need to know the exact share of Singapore's AI-using enterprises that apply generative AI specifically for coding and debugging in their Information Technology departments. Calculate this overall percentage using the IT function's AI adoption rate and the specific software development use-case share from IMDA's 2025 digital economy data.,"[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf"",
+      ""sources"": ""https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf (pages 10-22)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf, specifically pages 10-22"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 20.09%"",
+      ""sources"": ""https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf (pages 10-22)"",
+      ""justification"": ""The correct final answer is: 20.09%"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_37e38d11f3c94a8aa0a0578758d5c83c,TV shows & movies,Media & Entertainment Research,"Identify the Australian copyright collecting society that counts the founder of Matchbox Pictures among its 2024-2025 board members. If you look at every director who had one or more possible meetings for the Remuneration Committee or the Technology & Data Committee, what is the exact sum of the 'Directors' Meetings' attended by those specific people?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf"",
+      ""sources"": ""https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf (pages 1-13)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf, specifically pages 1-13"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 25"",
+      ""sources"": ""https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf (pages 1-13)"",
+      ""justification"": ""The correct final answer is: 25"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_1e540fdfa57d41f09a4ce28f42a7bf9d,Art,Cultural & Institutional Analysis,"For a philanthropy analysis of The Phillips Collection (FY23), I need to calculate a specific financial total based on their donor brackets. First, find the minimum donation required for the tier containing the foundation that paid to restore the Ellsworth Kelly sculpture. Second, add the minimum threshold for the tier containing the foundation supporting the Terra Curatorial Fellowship research. Finally, add the minimum threshold for the tier containing the person the Diversity Fellowship is named after. What is the final sum?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf"",
+      ""sources"": ""https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf (pages 3-15)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf, specifically pages 3-15"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: $150,600"",
+      ""sources"": ""https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf (pages 3-15)"",
+      ""justification"": ""The correct final answer is: $150,600"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_5c0efb3944384c03b1234d19f503a7bc,Art,Cultural & Institutional Analysis,"For the 2023 Immigrant Artist Biennial, what specific curatorial theme or problem is explored by the exhibition projects located at the same venue that is hosting the panel on Ukrainian artists and the ongoing war?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://static1.squarespace.com/static/5c917481fb22a55670f60598/t/6535e953a08e15678077dc89/1698031955319/TIAB%2BField%2BGuide%2BPart%2BI.pdf"",
+      ""sources"": ""https://static1.squarespace.com/static/5c917481fb22a55670f60598/t/6535e953a08e15678077dc89/1698031955319/TIAB%2BField%2BGuide%2BPart%2BI.pdf (pages 1-10)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://static1.squarespace.com/static/5c917481fb22a55670f60598/t/6535e953a08e15678077dc89/1698031955319/TIAB%2BField%2BGuide%2BPart%2BI.pdf, specifically pages 1-10"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: The problem of carrying the weight of a distant politic in the present"",
+      ""sources"": ""https://static1.squarespace.com/static/5c917481fb22a55670f60598/t/6535e953a08e15678077dc89/1698031955319/TIAB%2BField%2BGuide%2BPart%2BI.pdf (pages 1-10)"",
+      ""justification"": ""The correct final answer is: The problem of carrying the weight of a distant politic in the present"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_6cf998c0a384416698ee9ea61aae683b,Science & technology,Technical Documentation Research,"If a developer wants to configure their local environment for the DAFNE+ project's validation phase using the specific network chosen to mitigate Ethereum's high gas costs, what exact Chain ID should they use for that network's testnet?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://zenodo.org/records/15190085/files/Dafneplus_D4.1_Report_specification_development_ENG_v1.pdf"",
+      ""sources"": ""https://zenodo.org/records/15190085/files/Dafneplus_D4.1_Report_specification_development_ENG_v1.pdf (pages 21-33)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://zenodo.org/records/15190085/files/Dafneplus_D4.1_Report_specification_development_ENG_v1.pdf, specifically pages 21-33"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 80001"",
+      ""sources"": ""https://zenodo.org/records/15190085/files/Dafneplus_D4.1_Report_specification_development_ENG_v1.pdf (pages 21-33)"",
+      ""justification"": ""The correct final answer is: 80001"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_13ba2dc526e647648286bbf22c746cc2,Science & technology,Technical Documentation Research,"In the Victorian ESC's voltage compliance assessment for distribution networks covering December 2021 to November 2023, one provider breached the overvoltage standard (>253V) in exactly four weeks over the two years. What was the exact average percentage of smart meters (NMIs) affected during those four specific non-compliant weeks?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.esc.vic.gov.au/sites/default/files/documents/RPT%20-%20GridWise%20Energy%20Solutions%20-%20Copy%20of%20voltage%20compliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf"",
+      ""sources"": ""https://www.esc.vic.gov.au/sites/default/files/documents/RPT%20-%20GridWise%20Energy%20Solutions%20-%20Copy%20of%20voltage%20compliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf (pages 16-28)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.esc.vic.gov.au/sites/default/files/documents/RPT%20-%20GridWise%20Energy%20Solutions%20-%20Copy%20of%20voltage%20compliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf, specifically pages 16-28"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 5.4125%"",
+      ""sources"": ""https://www.esc.vic.gov.au/sites/default/files/documents/RPT%20-%20GridWise%20Energy%20Solutions%20-%20Copy%20of%20voltage%20compliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf (pages 16-28)"",
+      ""justification"": ""The correct final answer is: 5.4125%"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_00d6c208dc0242809fb10672741c54c6,Sports,Sports Data & Regulation Analysis,"I am analyzing the men's points standings from the 2024 junior world weightlifting championships. If you take the total points awarded to the runner-up of the Men's 102 kg Snatch and subtract the points belonging to the winner of the Men's 89 kg Snatch, what is the exact value?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf"",
+      ""sources"": ""https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf (pages 65-77)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf, specifically pages 65-77"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 78.6658"",
+      ""sources"": ""https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf (pages 65-77)"",
+      ""justification"": ""The correct final answer is: 78.6658"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_709b525e9979410fbbc3993e30368fd8,Sports,Sports Data & Regulation Analysis,"A competitor's 2024 in-competition drug test reveals the presence of Spironolactone, Pamabrom, Cannabidiol, Buprenorphine, and 100 mcg/mL of Pseudoephedrine. Based on global anti-doping regulations, name the substances from this list that necessitate an approved TUE to avoid a doping violation.","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf"",
+      ""sources"": ""https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf (pages 9-21)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf, specifically pages 9-21"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: Buprenorphine, Pseudoephedrine, and Spironolactone"",
+      ""sources"": ""https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf (pages 9-21)"",
+      ""justification"": ""The correct final answer is: Buprenorphine, Pseudoephedrine, and Spironolactone"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_acdefe20000b4708b322e2800907d69d,Politics,Policy & Governance Research,"During the campaign for the 2023 Turkish general elections, an Ankara civil court ordered presidential candidate Kemal Kılıçdaroğlu to pay compensation to the incumbent president for defamation (specifically over a claim that the president would 'flee the country'). To standardize the financial impact, calculate the equivalent of this penalty in Euros by using the exact 1-to-X Euro-to-Lira exchange rate explicitly cited by the OSCE international election observation mission. What is the final Euro amount?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.osce.org/files/f/documents/6/2/543543.pdf"",
+      ""sources"": ""https://www.osce.org/files/f/documents/6/2/543543.pdf (pages 5-17)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.osce.org/files/f/documents/6/2/543543.pdf, specifically pages 5-17"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 5,000"",
+      ""sources"": ""https://www.osce.org/files/f/documents/6/2/543543.pdf (pages 5-17)"",
+      ""justification"": ""The correct final answer is: 5,000"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_9c6d9cfec3624eb6a17e38e36993cd4a,Politics,Policy & Governance Research,"So the UN adopted a bunch of new global digital and tech commitments in September 2024. I'm doing an SDG mapping exercise for my NGO to align our advocacy with the new framework. Which exact Sustainable Development Goal (SDG) number is officially targeted by BOTH the commitment to develop methodologies for measuring and countering online violence and abuse, AND the commitment to disseminate independent, science-based information to fight misinformation?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf"",
+      ""sources"": ""https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf (pages 37-49)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf, specifically pages 37-49"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 16"",
+      ""sources"": ""https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf (pages 37-49)"",
+      ""justification"": ""The correct final answer is: 16"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_1007a79cf03847e3813a65d30a9cd75a,History,Historical Records & Legal Research,What was the total cubic footage of Office of the Secretary of Defense textual records that the U.S. National Archives made available in their Q2 FY2024 release log?,"[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf"",
+      ""sources"": ""https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf (pages 1-13)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf, specifically pages 1-13"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 25.848"",
+      ""sources"": ""https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf (pages 1-13)"",
+      ""justification"": ""The correct final answer is: 25.848"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_097e451ce72b46a5ad477e8ccb2ce94d,History,Historical Records & Legal Research,"In the 2002 ICTY Appeals Chamber Judgement for the Kunarac, Kovač, and Vuković case, the tribunal cites several historical precedents. First, in its discussion of the 'directed against any civilian population' requirement under Article 5, a footnote specifically directs readers to paragraphs 635-644 of a prior ICTY trial judgement. Second, when analyzing how the cruel act of rape can amount to torture, the Chamber quotes an ECHR decision regarding a woman raped in a police station. What are the exact judgement dates for these two referenced cases?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.legal-tools.org/doc/029a09/pdf"",
+      ""sources"": ""https://www.legal-tools.org/doc/029a09/pdf (pages 33-45)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.legal-tools.org/doc/029a09/pdf, specifically pages 33-45"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 7 May 1997 (Tadi\u0107 Trial Judgement) and 22 September 1997 (Aydin v Turkey)."",
+      ""sources"": ""https://www.legal-tools.org/doc/029a09/pdf (pages 33-45)"",
+      ""justification"": ""The correct final answer is: 7 May 1997 (Tadi\u0107 Trial Judgement) and 22 September 1997 (Aydin v Turkey)."",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_8b6b205d086946d7ba0b6bf97ccca9ba,Other (Business/Regulatory),Financial Regulation & Compliance,I'm analyzing the ECB's banking supervision enforcement statistics for 2024. What is the exact numerical difference between the total number of formal sanctioning proceedings handled concerning natural persons and the number of proceedings that ultimately concluded with an administrative penalty against a natural person?,"[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf"",
+      ""sources"": ""https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf (pages 1-9)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf, specifically pages 1-9"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 149"",
+      ""sources"": ""https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf (pages 1-9)"",
+      ""justification"": ""The correct final answer is: 149"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_a57f13b60f73422a8e301a3c9f3e4ab5,Other (Business/Regulatory),Financial Regulation & Compliance,"Regarding the June 25, 2020 regulatory precept from the Estonian financial authority to SEB Pank, if you calculate the absolute number of medium-risk customers using the stated approximate total customer base and the share of the base that fell into the medium-risk category, what is that figure?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf"",
+      ""sources"": ""https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf (pages 10-22)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf, specifically pages 10-22"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 588,000"",
+      ""sources"": ""https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf (pages 10-22)"",
+      ""justification"": ""The correct final answer is: 588,000"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_f19a945fd4034762be30f011d66146f2,Geography,Geospatial & Cartographic Research,"When consulting the 1930 International Boundary Commission's layout of the 18 map sheets spanning from the St. Croix River source to the Atlantic Ocean, what are the respective scales used for the detailed boundary sheets that contain MacAllister Cove, Vanceboro, and Robbinston?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.internationalboundarycommission.org/uploads/maps/2-st_croix_river/ibc_1059_index.pdf"",
+      ""sources"": ""https://www.internationalboundarycommission.org/uploads/maps/2-st_croix_river/ibc_1059_index.pdf (pages 1-1)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.internationalboundarycommission.org/uploads/maps/2-st_croix_river/ibc_1059_index.pdf, specifically pages 1-1"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 1:24000, 1:12000, and 1:24000"",
+      ""sources"": ""https://www.internationalboundarycommission.org/uploads/maps/2-st_croix_river/ibc_1059_index.pdf (pages 1-1)"",
+      ""justification"": ""The correct final answer is: 1:24000, 1:12000, and 1:24000"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_54cb108e5cc4431b87503a30478dd543,Music,Cultural Heritage & Archives Research,"Could you give me the exact street addresses for the two Smithsonian museums that house the library exhibits touching on music—namely, the one showcasing women's musical contributions to social change and the one featuring the book 'The Anthology of Rap'?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf"",
+      ""sources"": ""https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf (pages 7-19)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf, specifically pages 7-19"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)"",
+      ""sources"": ""https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf (pages 7-19)"",
+      ""justification"": ""The correct final answer is: 14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_0feca2d493bd4a13b6314717b9bf3a09,Video Games,Interactive Media Documentation,"I'm playing EA Sports UFC 3 on Xbox One and need help with three things. First, what exhibition fight mode entirely disables striking so you can focus strictly on your ground and takedown skills? Second, when you have your opponent in the clinch, what specific two buttons must you hold simultaneously to attempt a flying submission? Third, when you get a pack in Ultimate Team, what single button do you press to instantly sell all of your new items?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf"",
+      ""sources"": ""https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf (pages 9-21)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf, specifically pages 9-21"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: Submission Showdown; LT + LB; RT"",
+      ""sources"": ""https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf (pages 9-21)"",
+      ""justification"": ""The correct final answer is: Submission Showdown; LT + LB; RT"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_2297e46d8c4d420cbc966fd2060abf31,Other (Consumer/Retail Trends),Economic Data & Revision Analysis,"I am updating my macroeconomic models with the Bureau of Economic Analysis's October 2024 historical data revisions. What is the combined total of the 2022 percentage point revisions to the annual percent change across three categories: real personal consumption expenditures on 'Motor vehicles and parts', real exports of 'Automotive vehicles, engines, and parts', and real imports of 'Automotive vehicles, engines, and parts'?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf"",
+      ""sources"": ""https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf (pages 25-37)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf, specifically pages 25-37"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 1.9"",
+      ""sources"": ""https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf (pages 25-37)"",
+      ""justification"": ""The correct final answer is: 1.9"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_e2ea1cfae558450b9b4b34cfc6573859,Other (Environmental/Natural Resource Administration),Environmental Regulation Research,"Under the EPA's November 2024 updates to the Guideline on Air Quality Models, there are three options for Tier 3 NO2 detailed screening. One of these options uniquely requires hourly ambient NOx concentrations to be provided in addition to hourly ozone. What is the EPA publication number of the Technical Support Document for the adoption of this specific screening method?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf"",
+      ""sources"": ""https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf (pages 29-41)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf, specifically pages 29-41"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: EPA-454/R-23-009"",
+      ""sources"": ""https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf (pages 29-41)"",
+      ""justification"": ""The correct final answer is: EPA-454/R-23-009"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"
+task_642cdf4da2e3479db05b106f329873e3,Geography,Geospatial & Cartographic Research,"During the 2018-2019 NOAA hydrographic mapping of the Mississippi River from Mile 232.5 to 205, the S/V Blake and RHIB Sigsbee both collected various types of mainscheme and crossline data. How many more total linear nautical miles did the S/V Blake collect than the RHIB Sigsbee, and what are the exact coordinates (latitude and longitude) for the Northwest Limit of this specific survey area?","[
+  {
+    ""criterion 1"": {
+      ""description"": ""Identifies and references the correct source: https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf"",
+      ""sources"": ""https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf (pages 1-13)"",
+      ""justification"": ""The response must demonstrate it found the right document/data source at https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf, specifically pages 1-13"",
+      ""weight"": ""Supporting detail(s)"",
+      ""criterion_type"": [
+        ""Extraction (recall)""
+      ],
+      ""dependent_criteria"": []
+    }
+  },
+  {
+    ""criterion 2"": {
+      ""description"": ""Arrives at the correct answer: 20.77 LNM; 30\u00b0 29' 22.57\"" N, 91\u00b0 14' 51.57\"" W"",
+      ""sources"": ""https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf (pages 1-13)"",
+      ""justification"": ""The correct final answer is: 20.77 LNM; 30\u00b0 29' 22.57\"" N, 91\u00b0 14' 51.57\"" W"",
+      ""weight"": ""Primary objective(s)"",
+      ""criterion_type"": [
+        ""Reasoning""
+      ],
+      ""dependent_criteria"": [
+        1
+      ]
+    }
+  }
+]"

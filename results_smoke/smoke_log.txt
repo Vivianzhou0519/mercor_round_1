@@ -1,0 +1,167 @@
+=== run 2026-10-29 11:28:05  models=['openrouter/anthropic/claude-haiku-5.5', 'openrouter/openai/gpt-5.4-mini']  tasks=5  tries=1
+SYSTEM_PROMPT:
+You are a careful research assistant with a web search tool.
+Search the web as many times as you need to find the exact facts the question asks for, and do any calculation yourself.
+Rely on primary/official sources and cite the exact URL of the document you used.
+
+End your response with exactly these four lines:
+Explanation: <short explanation of how you got the answer>
+Exact Answer: <your final answer only>
+Sources: <the URL(s) of the documents the answer comes from>
+Confidence: <0-100>%
+
+FIRST TASK PROMPT:
+During the 2018-2019 NOAA hydrographic mapping of the Mississippi River from Mile 232.5 to 205, the S/V Blake and RHIB Sigsbee both collected various types of mainscheme and crossline data. How many more total linear nautical miles did the S/V Blake collect than the RHIB Sigsbee, and what are the exact coordinates (latitude and longitude) for the Northwest Limit of this specific survey area?
+
+10 tries to run (0 already saved)
+[1/10] gpt-5.4-mini bf3a09 #0 ok 4.9s searches=1 cost=$0.0110
+----- raw response -----
+Explanation: I used the official EA UFC 3 Xbox One manual, which lists the relevant fight mode, clinch controls, and Ultimate Team pack-item controls.
+Exact Answer: Submission Showdown; hold RB + RT; press RT
+Sources: https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf
+Confidence: 97%
+citations: ['https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf', 'https://www.ea.com/games/ufc/ufc-3/news/grappling-escapes-tips?__prclt=zvnJJVgF&ts=1677060401363', 'https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf', 'https://dlassets-ssl.xboxlive.com/public/content/931f95e6-af78-47e6-8d7b-8c58315e5185/GameManual/14cdd406-5ae3-4bf4-be3f-e0b63afa34b8/en-US/index.html', 'https://media.contentapi.ea.com/content/dam/able/manuals/ufc3ps4man.pdf']
+------------------------
+[2/10] claude-haiku-5.5 07d69d #0 ok 8.7s searches=2 cost=$0.0158
+----- raw response -----
+**Answer: about €4,773** (105,000 ÷ 22 = €4,772.73)
+
+1. **Penalty:** The OSCE/ODIHR International Election Observation Mission's preliminary statement says that on 19 April 2023 an Ankara civil court ordered Kılıçdaroğlu to pay the incumbent TRY 105,000 in defamation compensation, partly over a statement that he would "flee the country" after the elections. Turkish Minute (19 April 2023) reports the same amount.
+2. **Exchange rate:** The ODIHR final report on the 2023 elections (29 September 2023) states: "EUR 1 equals some 22 TRY (Turkish Lira)." The report says "some," so 22 is an approximation rather than an exact rate. I used it because it is the only rate the OSCE cites for this purpose.
+3. **Conversion:** 105,000 ÷ 22 = 4,772.73.
+
+Explanation: The TRY 105,000 penalty was taken from the OSCE IEOM preliminary statement. The euro conversion uses the rate of 1 EUR = 22 TRY cited in the ODIHR final report, giving €4,772.73.
+
+Exact Answer: €4,772.73
+
+Sources: https://www.oscepa.org/en/documents/election-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng ; https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf ; https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/
+
+Confidence: 72%
+
+Explanation: Penalty of TRY 105,000 from the OSCE IEOM statement; converted at the ODIHR-cited rate of EUR 1 ≈ 22 TRY.
+
+Exact Answer: €4,772.73
+
+Sources: https://www.oscepa.org/en/documents/election-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng ; https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf
+
+Confidence: 72%
+citations: ['https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/', 'https://www.oscepa.org/en/documents/election-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng', 'https://www.turkishminute.com/2022/05/28/rdogan-sues-kilicdaroglu-for-tl-1-mln-over-claims-of-fleeing-turkey/', 'https://balkaninsight.com/2023/06/22/report-turkey-copying-russia-using-courts-to-target-journalists', 'https://turkishminute.com/2022/05/24/gan-cronies-planning-to-flee-turkey-to-avoid-future-prosecution-main-opposition-leader/', 'https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf', 'https://odihr.osce.org/odihr/elections/turkiye/553966', 'https://odihr.osce.org/odihr/elections/turkiye/553963', 'https://www.tcmb.gov.tr/bilgiamackur/kurlar_en.html', 'https://www.ecoi.net/en/file/local/2094004/doc.+15793.pdf']
+------------------------
+[3/10] gpt-5.4-mini 07d69d #0 ok 9.0s searches=2 cost=$0.0199
+----- raw response -----
+Explanation: The OSCE/ODIHR final report says the Ankara civil court ordered Kemal Kılıçdaroğlu to pay TRY 105,000, and the same report cites the exchange rate as EUR 1 = about TRY 22. Dividing 105,000 by 22 gives about EUR 4,772.73.
+Exact Answer: €4,772.73
+Sources: https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf ; https://www.oscepa.org/en/documents/election-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng/file
+Confidence: 96%
+citations: ['https://www.oscepa.org/en/documents/election-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng/file', 'https://www.osce.org/odihr/elections/turkiye', 'https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf', 'https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/', 'https://odihr.osce.org/odihr/elections/turkiye/544723', 'https://odihr.osce.org/odihr/elections/turkiye/553966', 'https://odihr.osce.org/sites/default/files/f/documents/6/2/543543.pdf', 'https://odihr.osce.org/odihr/elections/turkiye/553963', 'https://odihr.osce.org/sites/default/files/f/documents/2/5/556473.pdf']
+------------------------
+[4/10] gpt-5.4-mini 0abf31 #0 ok 16.7s searches=6 cost=$0.0667
+----- raw response -----
+Explanation: I used BEA’s October 2024 annual update article tables for 2022 revisions: Table A1 for real PCE “Motor vehicles and parts” (revision in percent change = -1.6), Table A7 for real exports “Automotive vehicles, engines, and parts” (0.0), and Table A9 for real imports “Automotive vehicles, engines, and parts” (0.0). I then added the three 2022 revision values.
+Exact Answer: -1.6 percentage points
+Sources: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf
+Confidence: 91%
+citations: ['https://www.bea.gov/sites/default/files/2024-12/trad1024-hist.pdf', 'https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf', 'https://www.census.gov/foreign-trade/Press-Release/ft900/ft900_2410.pdf', 'https://www.bea.gov/sites/default/files/2024-10/gdp3q24-adv.pdf', 'https://apps.bea.gov/national/pdf/revision_information/rev1-3q24-3rd.pdf', 'https://www.bea.gov/sites/default/files/2024-11/pi1024.pdf', 'https://www.bea.gov/sites/default/files/2021-07/AU21_Supplemental-Tables.pdf', 'https://www.bea.gov/news/2024/personal-income-and-outlays-november-2024', 'https://www.bea.gov/news/2024/us-international-trade-goods-and-services-october-2024', 'https://www.bea.gov/news/2024/us-international-trade-goods-and-services-annual-revision', 'https://apps.bea.gov/iTable/?6200=245&6210=4&6220=0&6221=0&6222=&6223=&6224=&6230=1&isuri=1&reqid=62', 'https://www.bea.gov/sites/default/files/2024-06/trad1324.pdf', 'https://www.bea.gov/sites/default/files/2024-12/trad1024.pdf', 'https://www.bea.gov/sites/default/files/2024-03/trad0124_0.pdf', 'https://www.bea.gov/news/blog/2024-12-05/october-2024-trade-gap-738-billion', 'https://www.bea.gov/sites/default/files/2022-09/NEA-AU22-Briefing-Results-of-the-2022-Annual-Update.pdf', 'https://www.bea.gov/sites/default/files/2022-09/tech2q22_3rd.pdf', 'https://apps.bea.gov/scb/issues/2024/08-august/pdf/0824-revisions-to-gdp-gdi.pdf', 'https://www.bea.gov/sites/default/files/2023-02/tech4q22_2nd.pdf', 'https://www.bea.gov/news/2023/us-international-trade-goods-and-services-december-and-annual-2022', 'https://www.bea.gov/sites/default/files/2023-01/trad1122-hist.pdf', 'https://www.bea.gov/news/blog/2023-03-08/2022-trade-gap-9453-billion', 'https://apps.bea.gov/scb/issues/2023/07-july/pdf/0723-ita-annual.pdf', 'https://www.bea.gov/international/detailed-trade-data']
+------------------------
+  retry 1/5 gpt-5.4-mini 9873e3 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+  retry 1/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+  retry 2/5 gpt-5.4-mini 9873e3 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+[5/10] claude-haiku-5.5 bf3a09 #0 ok 23.0s searches=4 cost=$0.0323
+----- raw response -----
+Here are the answers, with one caveat on the second and third.
+
+1. **Submission Showdown.** The official UFC 3 manual says: "Striking is not allowed in this mode, so submission, grappling, and takedown skills reign supreme."
+
+2. **LT + LB on Xbox One.** The manual says that from the clinch you can "hold the W button or the W button + Q button for high takedowns and flying submissions." The Xbox controller mapping puts the Takedown/Submission modifier (W) on LT and the Advanced Transition modifier (Q) on LB. Spottis lists the Xbox flying submission as LT + right stick Up, so you hold LT and LB and flick the stick. The manual doesn't name the Xbox buttons directly, so the mapping comes from a third-party table.
+
+3. **RT (Right Trigger).** The manual says "sell all of your new items by pressing the R button." The manual's letter labels follow the PS4 layout, where R is R2, and Spottis gives R2 = RT on Xbox. The Xbox manual's glyphs didn't come through in my search, so this is inferred from the mapping rather than read directly off the Xbox page.
+
+Explanation: I took the first answer from the official UFC 3 manual's Fight Modes section. For the second, I used the manual's clinch takedown text (W, or W+Q, for flying submissions) and mapped W and Q to LT and LB using the Xbox table. For the third, I read the Ultimate Team text in the manual and mapped its R button to RT using the same letter-to-button mapping.
+Exact Answer: 1) Submission Showdown; 2) LT + LB (Left Trigger + Left Bumper); 3) RT (Right Trigger)
+Sources: https://media.contentapi.ea.com/content/dam/able/manuals/ufc3ps4man.pdf, https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf, https://www.spottis.com/games/ufc-3-controls/
+Confidence: 70%
+citations: ['https://media.contentapi.ea.com/content/dam/able/manuals/ufc3ps4man.pdf', 'https://www.magicgameworld.com/ea-sports-ufc-3-fight-modes-guide/', 'https://gamingtrend.com/reviews/winner-by-tko-ea-sports-ufc-3-review/', 'https://gamingbolt.com/ea-sports-ufc-3-guide-tips-and-tricks-all-combos-ultimate-team-submissions-grappling-and-more', 'https://blog.playstation.com/archive/2018/01/30/how-ea-sports-ufc-3-overhauls-its-systems-for-a-truly-authentic-sporting-experience', 'https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf', 'https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf', 'https://www.youtube.com/watch?v=_WNs0lGGPqo', 'https://www.magicgameworld.com/ea-sports-ufc-3-xbox-one-game-controls/', 'https://forums.ea.com/discussions/ufc-franchise-discussion-en/ultimate-team-opened-pack-pre-patch-bug/11428849', 'https://m.media-amazon.com/images/I/A1shyZYwSfS.pdf', 'https://www.scribd.com/document/856561372/ufc3ps4man', 'https://www.spottis.com/games/ufc-3-controls/', 'https://forums.operationsports.com/forums/forum/combat-sports/ea-sports-ufc/844388-ea-sports-ufc-3-standup-controls-confirmed', 'https://www.ea.com/games/ufc/ufc-3/news/grappling-escapes-tips?__prclt=zvnJJVgF&ts=1677060401363']
+------------------------
+  retry 2/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+  retry 3/5 gpt-5.4-mini 9873e3 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+  retry 3/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+[6/10] claude-haiku-5.5 0abf31 #0 ok 29.5s searches=2 cost=$0.0192
+----- raw response -----
+**Answer: 1.9 percentage points** (−0.1 + 2.2 − 0.2)
+
+I used the BEA Survey of Current Business article "The 2024 Annual Update of the National Economic Accounts" (October 2024), Appendix A. The PDF text extraction is garbled, so I mapped the values to rows by column order and checked each against the 2022 percent-change figures.
+
+- **Real PCE, Motor vehicles and parts (Table A1):** the 2022 revision is **−0.1** percentage points. Its 2022 percent change is −6.8.
+- **Real exports, Automotive vehicles, engines, and parts (Table A7):** the 2022 revision is **+2.2** percentage points. Its 2022 percent change is 7.1.
+- **Real imports, Automotive vehicles, engines, and parts (Table A9):** the 2022 revision is **−0.2** percentage points. Its 2022 percent change is 11.4.
+
+Sum: −0.1 + 2.2 − 0.2 = 1.9.
+
+The main risk is the garbled table layout. The row mapping is internally consistent (the 2019 and 2022 values line up with the row order, and the PCE goods and services totals reconcile), but I could not view the rendered tables directly.
+
+Explanation: I read the 2022 revision column for each of the three automotive rows in the October 2024 SCB annual-update appendix tables and summed them.
+Exact Answer: 1.9 percentage points
+Sources: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf
+Confidence: 72%
+citations: ['https://fred.stlouisfed.org/series/DMOTRZ2A224NBEA', 'https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf', 'https://fred.stlouisfed.org/series/B651RZ2A224NBEA', 'https://apps.bea.gov/iTable/?categories=survey&isuri=1&nipa_table_list=129&reqid=19&step=3', 'https://apps-fd.bea.gov/scb/issues/2024/12-december/1224-gdp-economy.htm', 'https://www.bea.gov/information-updates-national-economic-accounts-2024', 'https://www.bea.gov/sites/default/files/2024-09/NEA-AU24-Summary-of-Results.pdf', 'https://www.bea.gov/sites/default/files/2024-09/NEA-AU24-Briefing.pdf', 'https://fred.stlouisfed.org/series/B641RZ2A224NBEA']
+------------------------
+  retry 4/5 gpt-5.4-mini 9873e3 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+  retry 4/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+[7/10] claude-haiku-5.5 9873e3 #0 ok 31.2s searches=10 cost=$0.0799
+----- raw response -----
+I could not retrieve the figures you asked for, so I can't give a reliable answer to either part.
+
+**What I established:**
+- The survey in question is **H13188** (Mississippi River, Vicinity of Mile 232.5 to 205, 2018-08-15 to 2019-09-09, project OPR-J347-KR-18, S/V Blake and RHIB Sigsbee). The NCEI report page lists its Descriptive Report as H13188_DR.pdf.
+- The NCEI index confirms the PDF exists at https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf, but my search tool only returned excerpts from the H13188 report's metadata pages, not its Section A.1 (Survey Limits) or A.6 (Survey Statistics) tables.
+
+**What I could not get:**
+- **Mileage difference:** I could not retrieve H13188's survey statistics table, so I have no Blake or Sigsbee linear-mile totals for it. The similarly named surveys H13330 and H13189 have tables, but they are different surveys. H13330 covers Mile 235 to 232.5, and its Blake total is 50.47 + 30.69 + 3.20 = 84.36 NM against 48.13 + 1.63 = 49.76 NM for Sigsbee. That is not the answer to your question.
+- **Northwest limit:** I could not get H13188's Northwest Limit coordinates. The H13330 Northwest Limit (30° 33' 31" N, 91° 13' 15.6" W) belongs to the neighbouring survey and should not be used. The NCEI bounding box for H13188 (North 30.4896, West −91.2475) is a metadata envelope, not the survey's stated Northwest Limit.
+
+To finish this, open the H13188 Descriptive Report PDF linked above, go to Section A.1 for the Northwest Limit and Section A.6 (Table 3) for the Blake and Sigsbee mainscheme and crossline mileage, then subtract the Sigsbee total from the Blake total.
+
+Explanation: I identified the survey as H13188 and located its Descriptive Report on NCEI, but could not extract the survey limits or Table 3 statistics from the document through my search tool. I did not substitute figures from the neighbouring surveys H13330 or H13189.
+Exact Answer: Not determined. The H13188 Blake and Sigsbee mileage and the H13188 Northwest Limit coordinates could not be retrieved.
+Sources: https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf (not accessed in full); https://www.ngdc.noaa.gov/nos/H12001-H14000/H13188.html
+Confidence: 5%
+citations: ['https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13212/DR/H13212_DR.pdf', 'https://www.ngdc.noaa.gov/nos/H12001-H14000/H13188.html', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/DAPRs/OPR-J347-KR-18_DAPR.pdf', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13330/DR/H13330_DR.pdf', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13193/DR/H13193_DR.pdf', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13189/DR/H13189_DR.pdf', 'https://www.ngdc.noaa.gov/nos/H12001-H14000/H13189.html', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13194/DR/H13194_DR.pdf', 'https://data.noaa.gov/metaview/page?header=none&view=getDataView&xml=NOAA%2FNESDIS%2FNGDC%2FMGG%2FNOS%2FH12001-H14000%2Fiso%2Fxml%2FH13188.xml', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/hvcr/OPR-J347-KR-18_HVCR.pdf', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13186/DR/H13186_DR.pdf', 'https://www.ngdc.noaa.gov/nos/H12001-H14000/H13330.html', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/GeoImagePDF/', 'https://www.deainc.com/project/lower-mississippi-river-precision-navigation-surveys/', 'http://catalog.data.gov/dataset/h13188-nos-hydrographic-survey-2019-09-09', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/MBAB/', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13196/DR/H13196_DR.pdf', 'https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13195/DR/H13195_DR.pdf']
+------------------------
+[8/10] claude-haiku-5.5 d5c83c #0 ok 35.0s searches=12 cost=$0.0787
+----- raw response -----
+I could not get the 2024-25 figures. My search budget ran out before I found the FY2024 or FY2025 Directors' Meetings table, so the answer below is a fallback built from the FY2023 report, not the period you asked about.
+
+**What I could confirm:**
+- The society is **Screenrights** (Audio-Visual Copyright Society Limited). Its FY2024/25 AGM elected Michael McMahon's replacement cycle; the Screenrights 2 Dec 2024 release (https://www.screenrights.org/news/a-record-41-8-million-distributed-to-screenrights-members-in-2023-24-and-usage-of-the-australian-educational-licence-up-more-than-30) states that **Michael McMahon**, "a founder and first Executive Chairman of Matchbox Pictures," joined the Board, replacing Karina Holden.
+- Matchbox Pictures was founded in 2008 by Tony Ayres, Penny Chapman, Helen Bowden, Michael McMahon and Helen Panckhurst (https://en.wikipedia.org/wiki/Matchbox_Pictures).
+
+**What I could not confirm:** the FY2024 or FY2025 Directors' Meetings table, which is needed for the committee sum. The only table I retrieved is FY2023 (https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html). It does not list McMahon, and its committee membership may have changed since.
+
+**Fallback from the FY2023 table:** Directors with one or more possible Remuneration or Technology & Data Committee meetings are Carter, Dalton, Gardoll, Davey, Grant, Waite and Wiegard. Their attended counts in the Directors' Meetings column are 5 + 7 + 3 + 5 + 4 + 6 + 2 = 31 when Waite is counted once. Treat this as a reference point only, not the answer for 2024-25.
+
+Explanation: The Matchbox founder on the Screenrights board is Michael McMahon (joined Nov 2024). I could not retrieve the 2024-25 Directors' Meetings table before the search limit, so the sum is not verified. The 31 above is from the FY2023 report and is not the 2024-25 figure.
+Exact Answer: Unable to determine the 2024-25 sum; FY2023 fallback = 31 (unverified for the requested period)
+Sources: https://www.screenrights.org/news/a-record-41-8-million-distributed-to-screenrights-members-in-2023-24-and-usage-of-the-australian-educational-licence-up-more-than-30 ; https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html ; https://en.wikipedia.org/wiki/Matchbox_Pictures
+Confidence: 15%
+citations: ['https://www.screenrights.org/resources/corporate-and-governance/document-archive', 'https://www.foi-aus.org/entries/3992', 'https://www.screenrights.org/news/record-42-6m-distribution-to-members-in-2024-25', 'https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html', 'https://www.screenrights.org/agm-and-voting-procedures/', 'https://en.wikipedia.org/wiki/Matchbox_Pictures', 'https://www.austlit.edu.au/austlit/page/A133758', 'https://www.afr.com/work-and-careers/leaders/why-you-don-t-have-to-be-ruthless-to-be-successful-20240516-p5je92', 'https://www.abc.net.au/news/2026-02-17/matchbox-pictures-closed-universal-international-studios/106355260', 'https://libguides.aftrs.edu.au/virtuallibrary/helenbowden', 'https://www.screenrights.org/resources/corporate-and-governance', 'https://www.screenrights.org/news/a-record-41-8-million-distributed-to-screenrights-members-in-2023-24-and-usage-of-the-australian-educational-licence-up-more-than-30', 'https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22publications%2Ftabledpapers%2Fd6ecfa43-373d-4eab-9154-63efb3134d19%22', 'https://www.screenrights.org/wp-content/uploads/2019/10/SCR-4569-AR-FINS-2019-FIN-WEB-FINAL-Oct-19.html', 'https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22publications%2Ftabledpapers%2F7fd6b36a-eeaa-4c7f-a850-9c20f4cf316e%22', 'https://nla.gov.au/nla.obj-1124454615', 'https://www.screenrights.org/about-us/our-people', 'https://www.screenrights.org/news/screenrights-royalty-distributions-to-30-june-2025', 'https://linkedin.com/in/ryan-kang22', 'https://www.transparency.gov.au/publications/health-disability-and-ageing-i/australian_radiation_protection_and_nuclear_safety_agency/australian-radiation-protection-and-nuclear-safety-agency-annual-report-2023-24/part-4%3A-management-and-accountability/corporate-governance', 'https://assets.ctfassets.net/0vreywxqlgab/3D2LuvdnUP34q3iaZPufFm/3f79841724429a7d6ad2e0158848c33e/2023_Corporate_Governance_Statement.pdf', 'https://www.insurancenewsmag.com/insurance/deploying-data-to-deter-distracted-driving/', 'https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id%3A%22library%2Flcatalog%2F00101245%22;src1=sm1', 'https://www.screenrights.org/news/screenrights-board-director-nominations-2025']
+------------------------
+  retry 5/5 gpt-5.4-mini d5c83c #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+[9/10] gpt-5.4-mini d5c83c #0 api_error 39.7s searches=0 cost=$0.0000
+----- raw response -----
+RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+citations: []
+------------------------
+  retry 5/5 gpt-5.4-mini 9873e3 #0: RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+[10/10] gpt-5.4-mini 9873e3 #0 api_error 39.8s searches=0 cost=$0.0000
+----- raw response -----
+RateLimitError: litellm.RateLimitError: RateLimitError: OpenrouterException - {"error":{"message":"Rate limit exceeded: new-account-rpm/openai/gpt-5.4-mini-20260317. Rate limit reached: new accounts are limited to 20 requests per minute for this model. Please retry shortly.","code":429,"metadata":{"provider_name":n
+citations: []
+------------------------
+
+done in 40s; total cost $0.323
+
+=== SMOKE REPORT ===
+claude-haiku-5.5: median 30s, max 35s, searches/try 6.0, cost/try $0.0452
+gpt-5.4-mini: median 9s, max 17s, searches/try 3.0, cost/try $0.0325
+full run = 120 tries; est. time = (120/32 = 4 waves) x 20s median = ~1.3 min (slowest try sets the real end)
+est. cost = 120 x $0.0404 = ~$4.85

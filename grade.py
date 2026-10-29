@@ -53,6 +53,31 @@ def source_urls(rubric):
     return [norm_url(u) for u in re.findall(r"https?://[^\s)\]]+", rubric["criteria"][0]["description"])]
 
 
+def exact_answer(text):
+    m = re.findall(r"Exact Answer:\s*\**\s*(.+)", text or "")
+    return m[-1].strip().strip("*").strip() if m else ""
+
+
+def write_answers_md(df, rubrics, path):
+    """Human-readable view: per task, the expected answer and every try's answer + verdicts + full reply."""
+    md = ["# Model answers by task\n"]
+    for tid, g in df.groupby("task_id", sort=False):
+        rb = rubrics[tid]
+        md += [f"## {g.category.iloc[0]} · `{tid}`\n", f"**Question:** {rb['question']}\n",
+               f"**Expected:** {answer_of(rb)}  \n**Source:** {rb['criteria'][0]['description'].split(':', 1)[-1].strip()}\n"]
+        for _, r in g.iterrows():
+            if r.status == "api_error":
+                md.append(f"- **{r.model} try {r['try']}**: api_error\n"); continue
+            v = lambda x: "✅" if x == 1 else "❌" if x == 0 else "?"
+            md += [f"### {r.model} · try {r['try']} · {'PASS' if r.passed == 1 else 'FAIL'}",
+                   f"Answer: **{r.exact_answer or '(no Exact Answer line)'}**  ",
+                   f"Judge 1: C1 {v(r.c1)} C2 {v(r.c2)}: {r.reason}  ",
+                   f"Judge 2: C1 {v(r.c1_j2)} C2 {v(r.c2_j2)}: {r.reason_j2}  ",
+                   f"searches {r.searches}, {r.seconds}s, gold source in search results: {'yes' if r.source_seen else 'no'}\n",
+                   "<details><summary>full reply</summary>\n\n" + (r.final_answer or "") + "\n\n</details>\n"]
+    Path(path).write_text("\n".join(md))
+
+
 def answer_of(rubric):
     return rubric["criteria"][1]["description"].split("correct answer:", 1)[-1].strip()
 
@@ -135,7 +160,8 @@ async def grade(out, log):
                 "source_cited_text": int(any(s in cited for s in source_urls(rb))),
                 "n_cited_urls": len(cited),
                 "cited_grounded": len(cited & seen) / len(cited) if cited else None,
-                "answer_tail": text[-200:], "expected": answer_of(rb),
+                "exact_answer": exact_answer(text), "answer_tail": text[-200:], "expected": answer_of(rb),
+                "final_answer": text,
                 "turns": r["turns"], "words_per_turn": sum(r["words_per_turn"]) / max(len(r["words_per_turn"]), 1),
                 "searches": r["searches"], "tool_calls": r["tool_calls"], "tool_calls_failed": r["tool_calls_failed"],
                 "input_tokens": r["input_tokens"], "output_tokens": r["output_tokens"], "cost": r["cost"],
@@ -144,6 +170,7 @@ async def grade(out, log):
     rows = await asyncio.gather(*(one(r) for r in recs))
     df = pd.DataFrame(rows).sort_values(["model", "task_id", "try"])
     df.to_csv(out / "scored.csv", index=False)
+    write_answers_md(df, rubrics, out / "answers.md")
     ok = df[df.status != "api_error"]
     judged = ok["passed"].notna() & ok["passed_j2"].notna() if len(ok) else pd.Series(dtype=bool)
     log(f"graded {len(df)} tries ({(df.status == 'api_error').sum()} api_error) -> {out / 'scored.csv'}")

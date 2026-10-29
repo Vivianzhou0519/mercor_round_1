@@ -212,8 +212,8 @@ def judges_chart(both, models, out, j1, j2):
 
 def failures_chart(deep, models, out):
     t, tk = deep["t"], deep["tk"]
-    fig, ax = plt.subplots(2, 3, figsize=(20, 11))
-    a = ax[0, 0]  # outcome mix
+    fig, ax = plt.subplot_mosaic([["outcome", "c1c2", "cost"], ["search", "tasks", "tasks"]], figsize=(20, 11))
+    a = ax["outcome"]  # outcome mix
     types = [c for c in TYPES if c in set(t.outcome)]
     cmap = dict(zip(TYPES, ["#2e9e44", "#9bd18b", "#7f7f7f", "#e07b39", "#c23b22", "#b9a0d6", "#dddddd"]))
     left = np.zeros(len(models))
@@ -226,7 +226,7 @@ def failures_chart(deep, models, out):
         left += v
     a.set_xlabel("tries"); a.legend(fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=3)
     a.set_title("Outcome per try: pass, wrong source, or failure type")
-    a = ax[0, 1]  # C1 x C2 per model
+    a = ax["c1c2"]  # C1 x C2 per model
     lab = ["right src\nright ans", "right src\nwrong ans", "wrong src\nright ans", "wrong src\nwrong ans"]
     wdt = 0.8 / len(models)
     for i, m in enumerate(models):
@@ -239,19 +239,7 @@ def failures_chart(deep, models, out):
             a.text(x_, v_ + 0.5, str(v_), ha="center", fontsize=9)
     a.set_xticks(range(4), lab, fontsize=9); a.set_ylabel("tries"); a.legend(fontsize=8)
     a.set_title("Source (C1) × answer (C2)")
-    a = ax[0, 2]  # calibration
-    a.plot([0, 100], [0, 100], "--", color="grey", lw=1)
-    cal = t[t.confidence.notna()].copy()
-    cal["bin"] = pd.cut(cal.confidence.clip(0, 100), [0, 25, 50, 75, 100], include_lowest=True)
-    for i, m in enumerate(models):
-        g = cal[cal.model == m].groupby("bin", observed=True).agg(c=("confidence", "mean"), p=("passed", "mean"), n=("passed", "size"))
-        a.plot(g.c, 100 * g.p, "-o", color=COLORS[i], label=m)
-        a.scatter(g.c, 100 * g.p, s=g.n * 8, color=COLORS[i], alpha=.35)
-        for c_, p_, n_ in zip(g.c, g.p, g.n):
-            a.annotate(f"n={n_}", (c_, 100 * p_), textcoords="offset points", xytext=(5, 6), fontsize=8)
-    a.set_xlim(0, 100); a.set_ylim(-3, 103); a.set_xlabel("stated confidence (%)"); a.set_ylabel("actual pass rate (%)")
-    a.legend(fontsize=8, loc="upper left"); a.set_title("Calibration (dashed = perfect; dot size = tries)")
-    a = ax[1, 0]  # searches pass vs fail
+    a = ax["search"]  # searches pass vs fail
     pos, labels = [], []
     for i, m in enumerate(models):
         for j, (lab_, sel) in enumerate([("pass", 1), ("fail", 0)]):
@@ -262,7 +250,7 @@ def failures_chart(deep, models, out):
                 a.scatter(x + RNG.uniform(-.15, .15, len(v)), v, s=14, color=COLORS[i], alpha=.6)
             pos.append(x); labels.append(f"{m}\n{lab_} (n={len(v)})")
     a.set_xticks(pos, labels, fontsize=8); a.set_ylabel("searches per try"); a.set_title("Searches: passes vs fails")
-    a = ax[1, 1]  # per-task heatmap
+    a = ax["tasks"]  # per-task heatmap
     tk_m = t.groupby(["task_id", "model"]).passed.sum().unstack().reindex(columns=models)
     order = tk_m.sum(axis=1).sort_values(ascending=False).index
     tk_m = tk_m.loc[order]
@@ -274,7 +262,7 @@ def failures_chart(deep, models, out):
     a.set_xticks(range(len(order)), [x[-4:] for x in order], rotation=90, fontsize=7)
     n_dead = int((tk_m.sum(axis=1) == 0).sum())
     a.set_title(f"Passes per task (of 3 tries); {n_dead} of {len(order)} tasks unsolved by both")
-    a = ax[1, 2]  # cost per correct
+    a = ax["cost"]  # cost per correct
     v = []
     for m in models:
         n_pass = t[t.model == m].passed.sum()

@@ -1,0 +1,6 @@
+graded 10 tries (2 api_error) -> results_smoke/scored.csv
+parse rate: 'Exact Answer:' line in 100% of tries; both judges returned valid JSON for 100%
+                    c1   c2  passed  passed_j2  source_seen  source_cited_text  cited_grounded
+model                                                                                         
+claude-haiku-5.5  0.60  0.2     0.2        0.2          0.4                0.4             0.9
+gpt-5.4-mini      0.33  0.0     0.0        0.0          0.4                0.2             1.0

@@ -126,11 +126,15 @@ async def grade(out, log):
         g = await grade_one(rb, r["final_answer"], log) if r["status"] != "api_error" else {}
         text = r["final_answer"] or ""
         conf = re.search(r"Confidence:\s*\**\s*([\d.]+)", text)
-        seen = {norm_url(u) for u in r["citations"]}
+        seen = {norm_url(u) for u in r["citations"]}  # every search result OpenRouter surfaced
+        cited = {norm_url(u) for u in re.findall(r"https?://[^\s)\]>\"'<,;*]+", text)}  # URLs the model wrote
         return {"model": run.short(r["model"]), "model_id": r["model"], "task_id": r["task_id"], "try": r["try"],
                 "category": r["category"], "status": r["status"], **g,
                 "has_answer": int("Exact Answer:" in text), "confidence": float(conf.group(1)) if conf else None,
                 "source_seen": int(any(s in seen for s in source_urls(rb))),
+                "source_cited_text": int(any(s in cited for s in source_urls(rb))),
+                "n_cited_urls": len(cited),
+                "cited_grounded": len(cited & seen) / len(cited) if cited else None,
                 "answer_tail": text[-200:], "expected": answer_of(rb),
                 "turns": r["turns"], "words_per_turn": sum(r["words_per_turn"]) / max(len(r["words_per_turn"]), 1),
                 "searches": r["searches"], "tool_calls": r["tool_calls"], "tool_calls_failed": r["tool_calls_failed"],
@@ -145,7 +149,8 @@ async def grade(out, log):
     log(f"graded {len(df)} tries ({(df.status == 'api_error').sum()} api_error) -> {out / 'scored.csv'}")
     log(f"parse rate: 'Exact Answer:' line in {ok.has_answer.mean():.0%} of tries; "
         f"both judges returned valid JSON for {judged.mean():.0%}")
-    log(df.groupby("model")[["c1", "c2", "passed", "passed_j2", "source_seen"]].mean().round(2).to_string())
+    log(df.groupby("model")[["c1", "c2", "passed", "passed_j2", "source_seen", "source_cited_text",
+                             "cited_grounded"]].mean().round(2).to_string())
 
 
 def main():

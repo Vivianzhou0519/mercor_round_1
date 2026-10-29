@@ -160,6 +160,17 @@ def main():
     rows = [[col, len(both), pct((both[col] == both[col + "_j2"]).mean()), f"{kappa(both[col], both[col + '_j2']):.2f}",
              pct(both[col].mean()), pct(both[col + "_j2"].mean())] for col in ["c1", "c2", "passed"]] if len(both) else []
     j1, j2 = (run.short(j) for j in grade.JUDGES)
+    sub = ok[ok.source_cited_text.notna()]
+    crows = [[m, pct(g.source_cited_text.mean()), pct((g.c1 == g.source_cited_text).mean()),
+             int(((g.c1 == 1) & (g.source_cited_text == 0)).sum()), int(((g.c1 == 0) & (g.source_cited_text == 1)).sum()),
+             pct(g.cited_grounded.mean()), f"{g.n_cited_urls.mean():.1f}"] for m in models for g in [sub[sub.model == m]]]
+    md.append("### Is the cited source real? (deterministic checks, no LLM)\n")
+    md.append(table(["model", "gold URL string in response", "judge C1 agrees with string check",
+                     "judge yes / string no", "judge no / string yes", "cited URLs that came from its searches",
+                     "URLs cited per try"], crows) + "\n")
+    md.append("C1 is judged from the response text only (its Sources line), not from the search-result list. "
+              "A cited URL that never appeared in the model's search results was probably made up.\n")
+
     md.append(f"## 5. Judge agreement ({j1} vs {j2})\n")
     md.append(table(["verdict", "tries", "agreement", "Cohen's κ", f"yes rate {j1}", f"yes rate {j2}"], rows) + "\n")
     dis = both[(both.c1 != both.c1_j2) | (both.c2 != both.c2_j2)]
@@ -209,7 +220,7 @@ def main():
 
     # ---- 9. failures ----
     md.append("## 9. Failures\n")
-    rows = [[m, *(int((df[df.model == m].status == s).sum()) for s in ["ok", "empty", "max_turns", "api_error"]],
+    rows = [[m, *(int((df[df.model == m].status == s).sum()) for s in ["ok", "empty", "max_turns", "api_error"]),
              int((ok[ok.model == m].passed == 0).sum())] for m in models]
     md.append(table(["model", "ok", "empty", "max_turns", "api_error", "judged fail"], rows) + "\n")
     fails = df[(df.status != "ok") | (df.passed == 0)]

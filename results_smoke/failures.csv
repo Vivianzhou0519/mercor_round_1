@@ -1,0 +1,23 @@
+model,task_id,try,category,status,c1,c2,expected,answer_tail,reason
+claude-haiku-5.5,task_0feca2d493bd4a13b6314717b9bf3a09,0,Video Games,ok,1.0,0.0,Submission Showdown; LT + LB; RT,"ps://media.contentapi.ea.com/content/dam/able/manuals/ufc3ps4man.pdf, https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf, https://www.spottis.com/games/ufc-3-controls/
+Confidence: 70%","C1: The response includes the required URL https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf in its sources list. | C2: The response provides incorrect answers for the second and third parts, as it relies on external mapping inferences rather than the manual's actual content."
+claude-haiku-5.5,task_37e38d11f3c94a8aa0a0578758d5c83c,0,TV shows & movies,ok,0.0,0.0,25,"ian-educational-licence-up-more-than-30 ; https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html ; https://en.wikipedia.org/wiki/Matchbox_Pictures
+Confidence: 15%",C1: The response does not include the required source URL (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf). | C2: The response explicitly states it is unable to determine the answer and provides a fallback figure instead of the correct answer of 25.
+claude-haiku-5.5,task_642cdf4da2e3479db05b106f329873e3,0,Geography,ok,1.0,0.0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W","eved.
+Sources: https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf (not accessed in full); https://www.ngdc.noaa.gov/nos/H12001-H14000/H13188.html
+Confidence: 5%",C1: The response explicitly names and links the required source URL. | C2: The response explicitly states it could not determine the answer and provides no numerical values for the requested data.
+claude-haiku-5.5,task_acdefe20000b4708b322e2800907d69d,0,Politics,ok,0.0,0.0,"5,000","n-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng ; https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf
+
+Confidence: 72%","C1: The response does not include the required source URL (https://www.osce.org/files/f/documents/6/2/543543.pdf) in its list of sources. | C2: The response provides an answer of 4,772.73 instead of the required 5,000."
+gpt-5.4-mini,task_0feca2d493bd4a13b6314717b9bf3a09,0,Video Games,ok,0.0,0.0,Submission Showdown; LT + LB; RT,"h controls, and Ultimate Team pack-item controls.
+Exact Answer: Submission Showdown; hold RB + RT; press RT
+Sources: https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf
+Confidence: 97%",C1: The provided source URL does not match the required URL specified in the rubric. | C2: The response provides incorrect button combinations for the flying submission (RB + RT instead of LT + LB).
+gpt-5.4-mini,task_2297e46d8c4d420cbc966fd2060abf31,0,Other (Consumer/Retail Trends),ok,1.0,0.0,1.9," parts” (0.0). I then added the three 2022 revision values.
+Exact Answer: -1.6 percentage points
+Sources: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf
+Confidence: 91%",C1: The response explicitly includes the required URL in the sources section. | C2: The final answer provided (-1.6) does not match the expected answer (1.9).
+gpt-5.4-mini,task_37e38d11f3c94a8aa0a0578758d5c83c,0,TV shows & movies,api_error,,,25,,
+gpt-5.4-mini,task_642cdf4da2e3479db05b106f329873e3,0,Geography,api_error,,,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W",,
+gpt-5.4-mini,task_acdefe20000b4708b322e2800907d69d,0,Politics,ok,0.0,0.0,"5,000","cuments/1/f/553966.pdf ; https://www.oscepa.org/en/documents/election-observation/election-observation-statements/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng/file
+Confidence: 96%","C1: The response failed to cite the required document (https://www.osce.org/files/f/documents/6/2/543543.pdf). | C2: The response provided an incorrect final answer of 4,772.73 instead of the required 5,000."

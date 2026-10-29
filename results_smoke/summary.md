@@ -6,7 +6,7 @@ Setup: models `openrouter/anthropic/claude-haiku-5.5`, `openrouter/openai/gpt-5.
 
 | model            | tasks | pass rate | 95% range (±1.96·SD/√n) | 95% bootstrap |
 | ---------------- | ----- | --------- | ----------------------- | ------------- |
-| claude-haiku-5.5 | 5     | 20.0%     | -19.2–59.2%             | 0.0–60.0%     |
+| claude-haiku-5.5 | 5     | 20.0%     | 0.0–59.2%               | 0.0–60.0%     |
 | gpt-5.4-mini     | 3     | 0.0%      | 0.0–0.0%                | 0.0–0.0%      |
 
 ## 2. pass@k and pass^k (unbiased, per task then averaged)

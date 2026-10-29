@@ -19,13 +19,14 @@ RNG = np.random.default_rng(0)
 COLORS = ["#2a6fdb", "#e07b39"]
 
 
-def normal_ci(x):
+def normal_ci(x, clip=True):
+    """mean ± 1.96·SD/√n; rates are clipped to [0, 1] (the normal approximation can overshoot at small n)."""
     x = np.asarray(x, float)
     m = x.mean()
     if len(x) < 2:
         return m, np.nan, np.nan
     h = 1.96 * x.std(ddof=1) / math.sqrt(len(x))
-    return m, m - h, m + h
+    return (m, max(m - h, 0), min(m + h, 1)) if clip else (m, m - h, m + h)
 
 
 def boot_ci(x):
@@ -131,7 +132,7 @@ def main():
         a, b = models
         w = pt.pivot(index="task_id", columns="model", values="p").dropna()
         d = (w[a] - w[b]).values
-        mean, lo, hi = normal_ci(d)
+        mean, lo, hi = normal_ci(d, clip=False)
         blo, bhi = boot_ci(d)
         gap = (mean, lo, hi)
         won, lost, tied = int((d > 0).sum()), int((d < 0).sum()), int((d == 0).sum())

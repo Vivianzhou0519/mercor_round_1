@@ -96,6 +96,49 @@ def main():
               f"`openrouter:web_search` (Exa, max 10 searches); {pt.task_id.nunique()} tasks x {K}+ tries. "
               f"Pass = judge says yes to BOTH C1 (source) and C2 (answer). Ranges are 95%; tasks are the data points.\n")
 
+    # ---- 0. headline: does the result depend on the judge? ----
+    j1, j2 = (run.short(j) for j in grade.JUDGES)
+    both = ok[ok.passed_j2.notna()].copy()
+    md.append("## Headline: pass rate under each judge\n")
+    if len(both):
+        both["strict"] = both.passed * both.passed_j2
+        both["lenient"] = np.maximum(both.passed, both.passed_j2)
+        cols = {f"Judge 1 ({j1}, primary)": "passed", f"Judge 2 ({j2}, check)": "passed_j2",
+                "Strict: both pass": "strict", "Lenient: either passes": "lenient"}
+        per = both.groupby(["model", "task_id"])[list(cols.values())].mean().reset_index()
+        rows, verdicts = [], {}
+        for m in models:
+            cells = [f"{m} pass rate"]
+            for c in cols.values():
+                mean, lo, hi = normal_ci(per[per.model == m][c])
+                cells.append(f"{pct(mean)} [{rng_str(lo, hi)}]")
+            rows.append(cells)
+        if len(models) == 2:
+            a_, b_ = models
+            cells = [f"Gap {a_} − {b_} (paired)"]
+            for name, c in cols.items():
+                w = per.pivot(index="task_id", columns="model", values=c).dropna()
+                mean, lo, hi = normal_ci(w[a_] - w[b_], clip=False)
+                sig = not np.isnan(lo) and (lo > 0 or hi < 0)
+                verdicts[name] = f"{a_ if mean > 0 else b_} better" if sig else "can't tell apart"
+                cells.append(f"{100 * mean:+.1f} pts [{100 * lo:+.1f} to {100 * hi:+.1f}]" if not np.isnan(lo)
+                             else f"{100 * mean:+.1f} pts")
+            rows.append(cells)
+        md.append(table([""] + list(cols), rows) + "\n")
+        md.append("Strict = a pass only if both judges say pass; lenient = a pass if either does. These bracket the "
+                  "lowest and highest believable score; the truth is probably in between. Ranges are 95% (±1.96·SD/√n over tasks).\n")
+        rows = [[col.upper() if col != "passed" else "final pass", len(both),
+                 pct((both[col] == both[col + "_j2"]).mean()), f"{kappa(both[col], both[col + '_j2']):.2f}"]
+                for col in ["c1", "c2", "passed"]]
+        md.append(table(["verdict", "tries", "agreement", "Cohen's κ"], rows) + "\n")
+        if verdicts:
+            same = len(set(verdicts.values())) == 1
+            md.append(("**Verdict: the conclusion does not change with the judge**: " if same else
+                       "**Verdict: the conclusion DEPENDS on the judge**: ") +
+                      "; ".join(f"{k}: {v}" for k, v in verdicts.items()) + ".\n")
+    else:
+        md.append(f"Judge 2 ({j2}) not graded yet: run `python grade.py --judges 2`. Numbers below use judge 1 only.\n")
+
     # ---- 1. pass rate ----
     rows, pr = [], {}
     for m in models:

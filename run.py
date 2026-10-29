@@ -111,7 +111,8 @@ async def call_with_retries(log, label, **kw):
         if LIMITER:
             await LIMITER.wait(kw["model"])
         try:
-            return await litellm.acompletion(**kw), None
+            # hard timeout: litellm's own timeout does not always stop a stalled connection
+            return await asyncio.wait_for(litellm.acompletion(**kw), kw.get("timeout", 600) + 30), None
         except Exception as e:
             err = f"{type(e).__name__}: {str(e)[:300]}"
             log(f"  retry {attempt + 1}/5 {label}: {err[:160]}")

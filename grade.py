@@ -138,22 +138,40 @@ async def precheck(log):
         f"{len({b['task_id'] for b in bad})} tasks flagged -> data/dropped.csv")
 
 
-async def grade(out, log):
-    rubrics = load_rubrics()
-    recs = {}
-    for line in (out / "raw.jsonl").read_text().splitlines():
-        r = json.loads(line)
-        recs[(r["model"], r["task_id"], r["try"])] = r  # last line wins (re-runs)
-    recs = list(recs.values())
+def load_cache(out, j):
+    """Verdicts of one judge, keyed by (model, task_id, try); also reads the older combined cache."""
+    cache, short = {}, run.short(j)
+    old = out / "judge_cache.jsonl"
+    if old.exists():
+        for line in old.read_text().splitlines():
+            c = json.loads(line)
+            names = [run.short(x) for x in c["judges"].split("|")]
+            if short in names:
+                sfx = "" if names.index(short) == 0 else "_j2"
+                cache[(c["model"], c["task_id"], c["try"])] = {k: c["g"][f"{k}{sfx}"] for k in ("c1", "c2", "reason")}
+    path = out / f"judge_cache_{short}.jsonl"
+    if path.exists():
+        for line in path.read_text().splitlines():
+            c = json.loads(line)
+            cache[(c["model"], c["task_id"], c["try"])] = c["g"]
+    return cache, path
 
-    async def one(r):
-        rb = rubrics[r["task_id"]]
-        g = await grade_one(rb, r["final_answer"], log) if r["status"] != "api_error" else {}
-        text = r["final_answer"] or ""
+
+def write_scored(out, recs, rubrics, log):
+    caches = [load_cache(out, j)[0] for j in JUDGES]
+    rows = []
+    for r in recs:
+        rb, key, text = rubrics[r["task_id"]], (r["model"], r["task_id"], r["try"]), r["final_answer"] or ""
+        g = {}
+        if r["status"] != "api_error":
+            for sfx, cache in zip(["", "_j2"], caches):
+                v = cache.get(key)
+                g.update({f"c1{sfx}": v and v["c1"], f"c2{sfx}": v and v["c2"],
+                          f"passed{sfx}": v and v["c1"] * v["c2"], f"reason{sfx}": v["reason"] if v else ""})
         conf = re.search(r"Confidence:\s*\**\s*([\d.]+)", text)
         seen = {norm_url(u) for u in r["citations"]}  # every search result OpenRouter surfaced
         cited = {norm_url(u) for u in re.findall(r"https?://[^\s)\]>\"'<,;*]+", text)}  # URLs the model wrote
-        return {"model": run.short(r["model"]), "model_id": r["model"], "task_id": r["task_id"], "try": r["try"],
+        rows.append({"model": run.short(r["model"]), "model_id": r["model"], "task_id": r["task_id"], "try": r["try"],
                 "category": r["category"], "status": r["status"], **g,
                 "has_answer": int("Exact Answer:" in text), "confidence": float(conf.group(1)) if conf else None,
                 "source_seen": int(any(s in seen for s in source_urls(rb))),
@@ -165,26 +183,52 @@ async def grade(out, log):
                 "turns": r["turns"], "words_per_turn": sum(r["words_per_turn"]) / max(len(r["words_per_turn"]), 1),
                 "searches": r["searches"], "tool_calls": r["tool_calls"], "tool_calls_failed": r["tool_calls_failed"],
                 "input_tokens": r["input_tokens"], "output_tokens": r["output_tokens"], "cost": r["cost"],
-                "seconds": r["seconds"]}
-
-    rows = await asyncio.gather(*(one(r) for r in recs))
+                "seconds": r["seconds"]})
     df = pd.DataFrame(rows).sort_values(["model", "task_id", "try"])
     df.to_csv(out / "scored.csv", index=False)
     write_answers_md(df, rubrics, out / "answers.md")
     ok = df[df.status != "api_error"]
-    judged = ok["passed"].notna() & ok["passed_j2"].notna() if len(ok) else pd.Series(dtype=bool)
-    log(f"graded {len(df)} tries ({(df.status == 'api_error').sum()} api_error) -> {out / 'scored.csv'}")
-    log(f"parse rate: 'Exact Answer:' line in {ok.has_answer.mean():.0%} of tries; "
-        f"both judges returned valid JSON for {judged.mean():.0%}")
+    log(f"scored.csv: {len(df)} tries ({(df.status == 'api_error').sum()} api_error); "
+        f"judge 1 graded {ok.passed.notna().sum()}, judge 2 graded {ok.passed_j2.notna().sum()}; "
+        f"'Exact Answer:' line in {ok.has_answer.mean():.0%} of tries")
     log(df.groupby("model")[["c1", "c2", "passed", "passed_j2", "source_seen", "source_cited_text",
                              "cited_grounded"]].mean().round(2).to_string())
+
+
+async def grade(out, log, which):
+    """Grade with one judge at a time (primary first), saving each verdict as it arrives."""
+    rubrics = load_rubrics()
+    recs = {}
+    for line in (out / "raw.jsonl").read_text().splitlines():
+        r = json.loads(line)
+        recs[(r["model"], r["task_id"], r["try"])] = r  # last line wins (re-runs)
+    recs = list(recs.values())
+    for j in [JUDGES[i - 1] for i in which]:
+        cache, path = load_cache(out, j)
+        todo = [r for r in recs if r["status"] != "api_error" and (r["model"], r["task_id"], r["try"]) not in cache]
+        log(f"judge {run.short(j)}: {len(todo)} tries to grade ({len(cache)} already saved)")
+        done, f = [0], path.open("a", encoding="utf-8")
+
+        async def one(r):
+            v = await judge(j, rubrics[r["task_id"]], r["final_answer"], log)
+            if v:
+                f.write(json.dumps({"model": r["model"], "task_id": r["task_id"], "try": r["try"], "g": v}) + "\n")
+                f.flush()
+            done[0] += 1
+            if done[0] % 20 == 0 or done[0] == len(todo):
+                log(f"  {run.short(j)}: graded {done[0]}/{len(todo)}")
+
+        await asyncio.gather(*(one(r) for r in todo))
+        f.close()
+        write_scored(out, recs, rubrics, log)  # results updated after each judge
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--precheck", action="store_true")
     ap.add_argument("--smoke", action="store_true")
-    ap.add_argument("--rpm", type=float, default=15)
+    ap.add_argument("--rpm", type=float, default=20)
+    ap.add_argument("--judges", default="1,2", help="which judges, in order: 1 = primary, 2 = second")
     args = ap.parse_args()
     run.LIMITER = None
     out = Path("results_smoke" if args.smoke else "results"); out.mkdir(exist_ok=True)
@@ -192,7 +236,7 @@ def main():
 
     async def go():
         run.LIMITER = run.RateLimiter(args.rpm)
-        await (precheck(log) if args.precheck else grade(out, log))
+        await (precheck(log) if args.precheck else grade(out, log, [int(x) for x in args.judges.split(",")]))
     asyncio.run(go())
 
 

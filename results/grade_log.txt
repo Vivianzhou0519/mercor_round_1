@@ -1,1 +1,22 @@
 precheck: 120/120 judge verdicts as expected; 0 tasks flagged -> data/dropped.csv
+  graded 20/120
+  graded 20/120
+  graded 40/120
+  graded 60/120
+  graded 80/120
+judge deepseek-v4-flash: 37 tries to grade (83 already saved)
+  deepseek-v4-flash: graded 20/37
+  deepseek-v4-flash: graded 37/37
+scored.csv: 120 tries (0 api_error); judge 1 graded 120, judge 2 graded 83; 'Exact Answer:' line in 100% of tries
+                    c1    c2  passed  passed_j2  source_seen  source_cited_text  cited_grounded
+model                                                                                          
+claude-haiku-5.5  0.50  0.22    0.17       0.14         0.50               0.50            0.98
+gpt-5.4-mini      0.48  0.10    0.03       0.04         0.53               0.48            0.97
+judge gemini-3.1-flash-lite: 37 tries to grade (83 already saved)
+  gemini-3.1-flash-lite: graded 20/37
+  gemini-3.1-flash-lite: graded 37/37
+scored.csv: 120 tries (0 api_error); judge 1 graded 120, judge 2 graded 120; 'Exact Answer:' line in 100% of tries
+                    c1    c2  passed  passed_j2  source_seen  source_cited_text  cited_grounded
+model                                                                                          
+claude-haiku-5.5  0.50  0.22    0.17       0.15         0.50               0.50            0.98
+gpt-5.4-mini      0.48  0.10    0.03       0.02         0.53               0.48            0.97

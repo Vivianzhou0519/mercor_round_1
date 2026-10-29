@@ -1,0 +1,327 @@
+model,task_id,try,category,status,c1,c2,expected,answer_tail,reason
+claude-haiku-5.5,task_00d6c208dc0242809fb10672741c54c6,0,Sports,ok,0,0,78.6658,"ionships ; https://www.ffhaltero.fr/wp-content/uploads/2024/08/IWF-World-Junior-Championhips-2024-Results-Book.pdf ; https://iwrp.net/zawody/2786-28-th-49-th-junior-world-championships
+Confidence: 55%","C1: The response does not name or link the required IWF source document. | C2: The final answer is -0.21548, not the expected 78.6658."
+claude-haiku-5.5,task_00d6c208dc0242809fb10672741c54c6,1,Sports,ok,1,0,78.6658,"me=2024+IWF+World+Junior+Championships, https://en.wikipedia.org/wiki/2024_World_Junior_Weightlifting_Championships, https://iwrp.net/zawody/2786-28-th-49-th-junior-world-championships
+Confidence: 45%","C1: The response names and links the exact required IWF results book URL. | C2: The final answer is -0.21548, not the expected 78.6658."
+claude-haiku-5.5,task_00d6c208dc0242809fb10672741c54c6,2,Sports,ok,0,0,78.6658,"d=2671, https://openweightlifting.org/events/show?date=2024-09-19&fed=IWF&name=2024+IWF+World+Junior+Championships, https://iwrp.net/zawody/2786-28-th-49-th-junior-world-championships
+
+Confidence: 45%","C1: The response does not name or link the required IWF results book PDF, only other IWF/third-party links. | C2: The final answer is 207, not the expected 78.6658."
+claude-haiku-5.5,task_097e451ce72b46a5ad477e8ccb2ce94d,0,History,ok,0,0,7 May 1997 (Tadić Trial Judgement) and 22 September 1997 (Aydin v Turkey).,"ases/kunarac/acjug/en/foot.htm; https://www.icty.org/x/cases/tadic/tjug/en/tad-tsj70507JT2-e.pdf; http://hudoc.echr.coe.int/eng?i=001-62660; https://hudoc.echr.coe.int/eng?i=001-58371
+
+Confidence: 85%","C1: The response does not name or link the required source document at https://www.legal-tools.org/doc/029a09/pdf; it links to other URLs instead. | C2: The response gives 25 September 1997 for Aydin v Turkey, not the expected 22 September 1997, and hedges by noting the discrepancy."
+claude-haiku-5.5,task_097e451ce72b46a5ad477e8ccb2ce94d,1,History,ok,0,0,7 May 1997 (Tadić Trial Judgement) and 22 September 1997 (Aydin v Turkey).,"/cases/kunarac/acjug/en/kun-aj020612e.pdf; https://www.icty.org/x/cases/tadic/tjug/en/tad-tj970507e.htm; https://hudoc.echr.coe.int/eng?i=001-58371; https://rm.coe.int/090000168092a28b
+Confidence: 85%","C1: The response does not name or link the required document https://www.legal-tools.org/doc/029a09/pdf, instead providing other URLs. | C2: The response incorrectly gives 25 September 1997 for Aydin v. Turkey, but the correct date is 22 September 1997."
+claude-haiku-5.5,task_097e451ce72b46a5ad477e8ccb2ce94d,2,History,ok,0,0,7 May 1997 (Tadić Trial Judgement) and 22 September 1997 (Aydin v Turkey).,"al%20Library/jud_supplement/supp34-e/kunarac.htm ; https://rm.coe.int/090000168092a28b ; https://codices.coe.int/codices/documents/precis/3975CF18-5ACC-4551-1E1B-08DC225DC81B?lang=eng
+
+Confidence: 85%",C1: The response does not name or link the required document https://www.legal-tools.org/doc/029a09/pdf; it provides other URLs instead. | C2: The response gives 25 September 1997 for Aydin v Turkey instead of the correct 22 September 1997.
+claude-haiku-5.5,task_0feca2d493bd4a13b6314717b9bf3a09,1,Video Games,ok,1,0,Submission Showdown; LT + LB; RT,"media.contentapi.ea.com/content/dam/able/manuals/ufc3ps4man.pdf, https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf, https://www.spottis.com/games/ufc-3-controls/
+
+Confidence: 70%","C1: The response explicitly lists the required document https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf in its sources. | C2: The response gives 'Left Trigger (LT) + Right Stick Up' for the flying submission, not the expected 'LT + LB'."
+claude-haiku-5.5,task_0feca2d493bd4a13b6314717b9bf3a09,2,Video Games,ok,0,0,Submission Showdown; LT + LB; RT,"ps://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf, https://media.contentapi.ea.com/content/dam/able/manuals/ufc3ps4man.pdf, https://www.spottis.com/games/ufc-3-controls/
+Confidence: 80%","C1: The response does not name or link the required source document (https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf), instead citing different URLs. | C2: The response's second answer is 'LT + right stick up' instead of the correct 'LT + LB'."
+claude-haiku-5.5,task_13ba2dc526e647648286bbf22c746cc2,0,Science & technology,ok,1,0,5.4125%,"ce%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf ; https://media.powercor.com.au/wp-content/uploads/2022/10/07151238/VPN-Q2-2022-Voltage-Performance-Report_final.pdf
+Confidence: 15%",C1: The response directly links the required ESC document (GridWise report) as a source. | C2: The response does not provide the exact answer 5.4125%; instead it says 'Not determined' and gives a hedge.
+claude-haiku-5.5,task_13ba2dc526e647648286bbf22c746cc2,1,Science & technology,ok,1,0,5.4125%,"ec%202021-Nov%202023%20-%2020240207.pdf ; https://www.esc.vic.gov.au/sites/default/files/documents/RPT%20-%20FINAL%20GridWise%20Energy%20Solutions%20voltage%20report%20-%2020240208.pdf
+Confidence: 15%",C1: The response names and links the correct document (the GridWise voltage compliance assessment report). | C2: The response does not provide the correct answer 5.4125%; it states it could not determine the exact average.
+claude-haiku-5.5,task_13ba2dc526e647648286bbf22c746cc2,2,Science & technology,ok,1,0,5.4125%,"ce%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf ; https://media.powercor.com.au/wp-content/uploads/2022/10/07151238/VPN-Q2-2022-Voltage-Performance-Report_final.pdf
+Confidence: 10%",C1: The response correctly names and links the required GridWise report document. | C2: The response does not provide the exact average percentage of 5.4125%.
+claude-haiku-5.5,task_1e540fdfa57d41f09a4ce28f42a7bf9d,0,Art,ok,1,0,"$150,600","blog/2022-12-09-fellow-spotlight-rebecca-shipman ; https://www.phillipscollection.org/press/phillips-collection-announces-historic-endowment-chief-diversity-officer-dc-philanthropists
+
+Confidence: 60%","C1: The response directly includes the required URL https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf in its list of sources. | C2: The response hedges by presenting an alternative possible sum ($100,600) if a different donor list were used, violating the rule against hedging between several answers."
+claude-haiku-5.5,task_1e540fdfa57d41f09a4ce28f42a7bf9d,2,Art,ok,1,0,"$150,600","/blog/2022-12-09-fellow-spotlight-rebecca-shipman, https://www.phillipscollection.org/press/phillips-collection-announces-historic-endowment-chief-diversity-officer-dc-philanthropists
+
+Confidence: 65%","C1: The response names and links the required document (https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf) in its sources. | C2: The final answer is $151,000, not the expected $150,600, and the response includes hedging about alternative interpretations."
+claude-haiku-5.5,task_37e38d11f3c94a8aa0a0578758d5c83c,0,TV shows & movies,ok,0,0,25,"is 20 (not the requested year).
+Sources: https://www.screenrights.org/about-us/our-people ; https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html
+Confidence: 15%",C1: The response does not name or link the required document URL (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf) and instead references other pages. | C2: The final answer is not 25; it states 'Unable to determine' and provides a fallback sum of 20.
+claude-haiku-5.5,task_37e38d11f3c94a8aa0a0578758d5c83c,1,TV shows & movies,ok,0,0,25,"ww.screenrights.org/about-us/our-people ; https://en.wikipedia.org/wiki/Matchbox_Pictures ; https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html
+Confidence: 25%",C1: The response does not name or link the required source document (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf). | C2: The response does not provide the correct answer of 25; instead it states 'Not determined' and gives a sum from a different year.
+claude-haiku-5.5,task_37e38d11f3c94a8aa0a0578758d5c83c,2,TV shows & movies,ok,0,0,25,"s/a-record-41-8-million-distributed-to-screenrights-members-in-2023-24-and-usage-of-the-australian-educational-licence-up-more-than-30 ; https://en.wikipedia.org/wiki/Matchbox_Pictures
+Confidence: 20%","C1: The response does not name or link the required document (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf), instead referencing other pages. | C2: The response does not provide the correct answer of 25; it states the answer is not determined and refuses to give a sum."
+claude-haiku-5.5,task_54cb108e5cc4431b87503a30478dd543,0,Music,ok,0,0,"14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)","g-aid/highlights-nmaahc-library-collection-opens-national-museum-african-american-history-and ; https://www.si.edu/visit/museums ; https://www.americanhistory.si.edu/visit/getting-here
+Confidence: 85%","C1: The response does not reference the required source PDF at repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf. | C2: The response gives 1300 Constitution Ave. NW for the National Museum of American History, not the expected '14th Street and Constitution Avenue, NW Washington, DC'."
+claude-haiku-5.5,task_54cb108e5cc4431b87503a30478dd543,1,Music,ok,0,0,"14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)","ts-nmaahc-library-collection-opens-national-museum-african-american-history-and ; https://nmaahc.si.edu/visit/accessibility-options ; https://www.si.edu/museums/african-american-museum
+Confidence: 85%","C1: The response does not reference the required source document (https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf) at all. | C2: The response gives '1300 Constitution Ave NW, Washington, DC 20560' for the National Museum of American History, which does not match the expected answer '14th Street and Constitution Avenue, NW Washington, DC'."
+claude-haiku-5.5,task_54cb108e5cc4431b87503a30478dd543,2,Music,ok,0,0,"14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)","ts-nmaahc-library-collection-opens-national-museum-african-american-history-and ; https://nmaahc.si.edu/visit/accessibility-options ; https://www.si.edu/museums/african-american-museum
+Confidence: 85%","C1: The response does not name or link to the required source document (https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf). | C2: The response gives '1300 Constitution Avenue NW' for the National Museum of American History instead of the expected '14th Street and Constitution Avenue, NW Washington, DC'."
+claude-haiku-5.5,task_5c0efb3944384c03b1234d19f503a7bc,0,Art,ok,0,0,The problem of carrying the weight of a distant politic in the present,"-work-online-roundtable-ukraine-making-art-in-times-of-war-1 ; https://artspiel.org/the-immigrant-artist-biennial-names-47-artists-and-art-spiel-as-media-partner-for-their-2nd-edition/
+Confidence: 80%",C1: The response does not name or link the required PDF source (https://static1.squarespace.com/static/5c917481fb22a55670f60598/t/6535e953a08e15678077dc89/1698031955319/TIAB%2BField%2BGuide%2BPart%2BI.pdf). | C2: The final answer does not match the expected answer 'The problem of carrying the weight of a distant politic in the present'; it describes a different curatorial framing.
+claude-haiku-5.5,task_5c0efb3944384c03b1234d19f503a7bc,1,Art,ok,0,0,The problem of carrying the weight of a distant politic in the present,"artists' media push images to their infrastructural limit and inscribe ""elsewhere"" into local ""contact zones,"" creating a layered sense of place that bridges locality and foreignness.
+
+Confidence: 85%",C1: The response does not reference or link to the required source PDF. | C2: The response does not state the exact expected answer 'The problem of carrying the weight of a distant politic in the present'.
+claude-haiku-5.5,task_5c0efb3944384c03b1234d19f503a7bc,2,Art,ok,0,0,The problem of carrying the weight of a distant politic in the present,"rtist-biennial-2023 ; https://www.projectspace-efanyc.org/field-work-online-roundtable-ukraine-making-art-in-times-of-war-1 ; https://www.theimmigrantartistbiennial.com/programming2023
+Confidence: 80%",C1: The response does not name or link to the required source PDF (https://static1.squarespace.com/static/5c917481fb22a55670f60598/t/6535e953a08e15678077dc89/1698031955319/TIAB%2BField%2BGuide%2BPart%2BI.pdf). | C2: The response does not give the exact expected answer ('The problem of carrying the weight of a distant politic in the present'); it describes a different curatorial theme.
+claude-haiku-5.5,task_642cdf4da2e3479db05b106f329873e3,0,Geography,ok,1,0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W","rievable from my searches.
+Sources: https://www.ngdc.noaa.gov/nos/H12001-H14000/H13188.html ; https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf
+Confidence: 10%",C1: The response correctly names and links the required PDF document URL. | C2: The response does not provide the required answer but states 'Not determined'.
+claude-haiku-5.5,task_642cdf4da2e3479db05b106f329873e3,1,Geography,ok,1,0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W","s/H12001-H14000/H13188.html, https://data.ngdc.noaa.gov/platforms/ocean/nos/DAPRs/OPR-J347-KR-18_DAPR.pdf, https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/
+Confidence: 10%",C1: The response provides the exact URL to the required document (https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf) in the 'How to get the answer' section. | C2: The response does not give the expected answer; it states 'Exact Answer: Not determined' instead of the required 20.77 LNM and coordinates.
+claude-haiku-5.5,task_642cdf4da2e3479db05b106f329873e3,2,Geography,ok,1,0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W","tics) were not retrievable.
+Sources: https://www.ngdc.noaa.gov/nos/H12001-H14000/H13188.html ; https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf
+Confidence: 5%",C1: The response explicitly names and links the correct source document URL (https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf). | C2: The response does not provide the expected answer; it states 'Not determined' and admits it could not compute the mileage difference or coordinates.
+claude-haiku-5.5,task_6cf998c0a384416698ee9ea61aae683b,0,Science & technology,ok,0,0,80001,"mumbai/ ; https://zenodo.org/records/15190393 ; https://docs.polygon.technology/pos/reference/rpc-endpoints ; https://docs.polygon.technology/tools/wallets/metamask/add-polygon-network
+Confidence: 85%","C1: The response does not reference the required source (https://zenodo.org/records/15190085/files/Dafneplus_D4.1_Report_specification_development_ENG_v1.pdf); it cites other documents instead. | C2: The response gives Chain ID 80002, but the correct answer per the rubric is 80001."
+claude-haiku-5.5,task_6cf998c0a384416698ee9ea61aae683b,1,Science & technology,ok,0,0,80001,"e-platform-due-to-the-deprecation-of-mumbai/, https://docs.polygon.technology/pos/reference/rpc-endpoints, https://polygon.technology/blog/introducing-the-amoy-testnet-for-polygon-pos
+
+Confidence: 80%","C1: The response does not name or link the required Zenodo record (15190085) but instead provides a different DOI and other sources. | C2: The response's final answer is 80002, not the expected 80001."
+claude-haiku-5.5,task_6cf998c0a384416698ee9ea61aae683b,2,Science & technology,ok,0,0,80001,"-amoy-testnet-in-dafne-platform-due-to-the-deprecation-of-mumbai/ ; https://doi.org/10.5281/zenodo.15190392 ; https://dafneplus.eu/2025/01/how-to-avoid-high-gas-fees-when-minting-nfts/
+Confidence: 85%","C1: The response does not name or link the required Zenodo document (https://zenodo.org/records/15190085/files/Dafneplus_D4.1_Report_specification_development_ENG_v1.pdf). | C2: The response's final answer is 80002, not the expected 80001, and includes a hedge between multiple answers."
+claude-haiku-5.5,task_709b525e9979410fbbc3993e30368fd8,0,Sports,ok,0,0,"Buprenorphine, Pseudoephedrine, and Spironolactone","pironolactone and Buprenorphine
+Sources: https://www.wada-ama.org/sites/default/files/2024-09/2025list_en_final_clean_12_september_2024.pdf, https://www.wada-ama.org/en/prohibited-list
+Confidence: 85%","C1: The response does not name or link the required 2024 WADA Prohibited List PDF; it cites the 2025 List and a general WADA page instead. | C2: The final answer omits Pseudoephedrine, which the rubric requires to be included alongside Buprenorphine and Spironolactone."
+claude-haiku-5.5,task_709b525e9979410fbbc3993e30368fd8,1,Sports,ok,1,0,"Buprenorphine, Pseudoephedrine, and Spironolactone","tone and Buprenorphine
+
+Sources: https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf; https://www.wada-ama.org/en/prohibited-list?item-id=5027
+
+Confidence: 80%","C1: The response names and links the required WADA 2024 Prohibited List PDF. | C2: The final answer omits Pseudoephedrine, so it does not match the expected answer of Buprenorphine, Pseudoephedrine, and Spironolactone."
+claude-haiku-5.5,task_709b525e9979410fbbc3993e30368fd8,2,Sports,ok,1,0,"Buprenorphine, Pseudoephedrine, and Spironolactone",": Spironolactone and Buprenorphine
+
+Sources: https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf ; https://www.wada-ama.org/en/prohibited-list
+
+Confidence: 85%","C1: The response explicitly names the required WADA 2024 Prohibited List PDF URL. | C2: The response's final answer excludes Pseudoephedrine, so it does not match the expected answer."
+claude-haiku-5.5,task_8b6b205d086946d7ba0b6bf97ccca9ba,0,Other (Business/Regulatory),ok,1,0,149,"tions/publications/sanctioning-report/html/ssm.sr2025.en.html ; https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf
+
+Confidence: 55%","C1: Response links to the required PDF source. | C2: Response gives final answer 148, not 149."
+claude-haiku-5.5,task_8b6b205d086946d7ba0b6bf97ccca9ba,1,Other (Business/Regulatory),ok,1,0,149,"tions/publications/sanctioning-report/html/ssm.sr2025.en.html ; https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf
+
+Confidence: 62%","C1: The response names and links the required PDF document 'ssm.sr2025.en.pdf'. | C2: The response gives the answer as 148, not the expected 149, and includes hedging language."
+claude-haiku-5.5,task_8b6b205d086946d7ba0b6bf97ccca9ba,2,Other (Business/Regulatory),ok,1,0,149,"tions/publications/sanctioning-report/html/ssm.sr2025.en.html ; https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf
+
+Confidence: 55%","C1: The response includes the exact URL to the required PDF document in its sources list. | C2: The response gives an answer of 'about 148' or 'approximately 148', which does not match the expected answer of 149."
+claude-haiku-5.5,task_9c6d9cfec3624eb6a17e38e36993cd4a,0,Politics,ok,0,1,16,"www.un.org/global-digital-compact/sites/default/files/2024-09/Global%20Digital%20Compact%20-%20English_0.pdf ; https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact
+
+Confidence: 93%","C1: The response does not name or link the required document (A_RES_79_1-EN.pdf); it references A/79/L.2 and other URLs. | C2: The response's final answer is SDG 16, matching the expected answer."
+claude-haiku-5.5,task_9c6d9cfec3624eb6a17e38e36993cd4a,1,Politics,ok,0,1,16,"Compact) and compared the two lists. SDG 16 is the only number common to both.
+
+Exact Answer: SDG 16
+
+Sources: https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact
+
+Confidence: 92%","C1: The response does not name or link the required document (https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf); it links a different page (the UN Pact for the Future webpage). | C2: The response's final answer is SDG 16, which matches the expected answer 16."
+claude-haiku-5.5,task_9c6d9cfec3624eb6a17e38e36993cd4a,2,Politics,ok,0,1,16,"www.un.org/global-digital-compact/sites/default/files/2024-09/Global%20Digital%20Compact%20-%20English_0.pdf ; https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact
+
+Confidence: 93%","C1: The response does not name or link the required document (https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf); it instead references the Global Digital Compact and a different URL. | C2: The response's final answer is SDG 16, which matches the expected answer exactly."
+claude-haiku-5.5,task_a57f13b60f73422a8e301a3c9f3e4ab5,0,Other (Business/Regulatory),ok,1,0,"588,000","sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf (English translation); https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_as-le_seb_pank_0.pdf (original Estonian)
+Confidence: 80%","C1: Response names the correct source document URL. | C2: Final answer is 558,600, not the expected 588,000, and includes a hedge."
+claude-haiku-5.5,task_a57f13b60f73422a8e301a3c9f3e4ab5,1,Other (Business/Regulatory),ok,1,0,"588,000","sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf (English translation); https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_as-le_seb_pank_0.pdf (Estonian original)
+Confidence: 80%","C1: Response names the correct source URL (https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf) as required. | C2: Response's final answer is 558,600, not the expected 588,000."
+claude-haiku-5.5,task_a57f13b60f73422a8e301a3c9f3e4ab5,2,Other (Business/Regulatory),ok,1,0,"588,000"," precept's discussion of the customer base size, then multiplied them.
+
+Exact Answer: 588,000
+
+Sources: https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf
+
+Confidence: 60%","C1: The response includes the exact URL of the required document. | C2: The response hedges by presenting an alternative calculation and calling it a judgment call, which does not meet the requirement for a single correct final answer."
+claude-haiku-5.5,task_acdefe20000b4708b322e2800907d69d,0,Politics,ok,0,0,"5,000","es: https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/ ; https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf
+Confidence: 80%","C1: The response does not link or name the required document URL (https://www.osce.org/files/f/documents/6/2/543543.pdf); it cites a different OSCE/ODIHR report. | C2: The final answer given is €4,772.73, not the expected 5,000."
+claude-haiku-5.5,task_acdefe20000b4708b322e2800907d69d,1,Politics,ok,0,0,"5,000"," ; https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf ; https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/
+
+Confidence: 80%","C1: The response does not reference the required document at https://www.osce.org/files/f/documents/6/2/543543.pdf; it cites other OSCE links instead. | C2: The final answer is €4,772.73, not the required 5,000."
+claude-haiku-5.5,task_acdefe20000b4708b322e2800907d69d,2,Politics,ok,0,0,"5,000","g ; https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf ; https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/
+Confidence: 80%","C1: The response does not name or link the required document URL https://www.osce.org/files/f/documents/6/2/543543.pdf; it links a different OSCE ODIHR report. | C2: The response's final answer is €4,772.73, not the required 5,000 Euros."
+claude-haiku-5.5,task_e2ea1cfae558450b9b4b34cfc6573859,0,Other (Environmental/Natural Resource Administration),ok,0,0,EPA-454/R-23-009,"nal-rule ; https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P101CGV8.txt ; https://www.ecfr.gov/on/2024-11-29/title-40/chapter-I/subchapter-C/part-51/appendix-Appendix%20W%20to%20Part%2051
+
+Confidence: 95%","C1: The response does not name or link the required source document URL (https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf). | C2: The response gives EPA-454/R-24-005, not the expected answer EPA-454/R-23-009."
+claude-haiku-5.5,task_e2ea1cfae558450b9b4b34cfc6573859,1,Other (Environmental/Natural Resource Administration),ok,1,0,EPA-454/R-23-009,"ps://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf ; https://www.ecfr.gov/on/2024-11-29/title-40/chapter-I/subchapter-C/part-51/appendix-Appendix%20W%20to%20Part%2051
+
+Confidence: 92%","C1: Response includes the required EPA Appendix W URL. | C2: Response gives EPA-454/R-24-005, not the correct EPA-454/R-23-009."
+claude-haiku-5.5,task_e2ea1cfae558450b9b4b34cfc6573859,2,Other (Environmental/Natural Resource Administration),ok,0,0,EPA-454/R-23-009,"v/AIR/aqmg/SCRAM/models/preferred/aermod/AERMOD_GRSM_TSD_20241111.pdf; https://www.ecfr.gov/on/2024-11-29/title-40/chapter-I/subchapter-C/part-51/appendix-Appendix%20W%20to%20Part%2051
+Confidence: 95%","C1: The response does not name or link the required document (https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf), instead referencing other pages. | C2: The response gives EPA-454/R-24-005, but the correct answer is EPA-454/R-23-009."
+claude-haiku-5.5,task_edafa33e92ae44eca8f8fc1bb4d6a140,0,TV shows & movies,ok,1,0,20.09%,"v.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf ; https://www.imda.gov.sg/assets/e77d879a-6b39-4de4-b024-5e0c6da0eff3.pdf
+
+Confidence: 80%","C1: The response explicitly links the required IMDA report PDF. | C2: The final answer is 20.1%, not the required 20.09%, despite the calculation showing 0.2009."
+claude-haiku-5.5,task_f19a945fd4034762be30f011d66146f2,0,Geography,ok,0,0,"1:24000, 1:12000, and 1:24000","nternational_boundary_maps/16/, https://collections.leventhalmap.org/search/commonwealth:ns06dn15p, https://www.oldmapsonline.org/.well-known/maps/ad621681-4396-445f-bda0-67393c3d9cac
+
+Confidence: 20%","C1: The response does not name or link the required document (https://www.internationalboundarycommission.org/uploads/maps/2-st_croix_river/ibc_1059_index.pdf). | C2: The response does not provide the correct answer (1:24000, 1:12000, 1:24000) and instead states it cannot determine the scales."
+claude-haiku-5.5,task_f19a945fd4034762be30f011d66146f2,1,Geography,ok,0,0,"1:24000, 1:12000, and 1:24000","venthalmap.org/search/commonwealth:ns06dn15p, https://www.oldmapsonline.org/.well-known/maps/ad621681-4396-445f-bda0-67393c3d9cac, https://digitalmaine.com/international_boundary_maps/
+Confidence: 20%","C1: The response does not name or link the required document (https://www.internationalboundarycommission.org/uploads/maps/2-st_croix_river/ibc_1059_index.pdf); it references other sources instead. | C2: The response does not provide the correct answer (1:24000, 1:12000, 1:24000); it states 'Not determined' and only gives overall scales."
+claude-haiku-5.5,task_f19a945fd4034762be30f011d66146f2,2,Geography,ok,0,0,"1:24000, 1:12000, and 1:24000","e.com/international_boundary_maps/15/ ; https://www.oldmapsonline.org/pl/maps/a6a47e70-3c27-4280-a8d3-2860480e5ca6 ; https://collections.leventhalmap.org/search/commonwealth:ns06dn15p
+
+Confidence: 25%",C1: Response does not name or link the required source document (ibc_1059_index.pdf) from the International Boundary Commission. | C2: Response does not provide the correct answer; Vanceboro and Robbinston scales are stated as unverified.
+gpt-5.4-mini,task_00d6c208dc0242809fb10672741c54c6,0,Sports,ok,1,0,78.6658," kg Snatch, the winner earned 4 points. Subtracting gives 2 - 4 = -2.
+Exact Answer: -2
+Sources: https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf
+Confidence: 96%","C1: The response names and links the required IWF 2024 World Junior Championships Results Book PDF. | C2: The response gives -2, not the expected answer 78.6658."
+gpt-5.4-mini,task_00d6c208dc0242809fb10672741c54c6,1,Sports,ok,1,0,78.6658," Men’s 89 kg Snatch is Diyorbek Ermatov with 162; subtracting gives 7.
+Exact Answer: 7
+Sources: https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf
+Confidence: 96%","C1: The response explicitly references and links the required IWF 2024 Junior World Championships Results Book PDF. | C2: The final answer is 7, not the expected 78.6658."
+gpt-5.4-mini,task_00d6c208dc0242809fb10672741c54c6,2,Sports,ok,1,0,78.6658,"standings values for those finishes, the subtraction is 169 − 162 = 7.
+Exact Answer: 7
+Sources: https://iwf.sport/wp-content/uploads/downloads/2024/09/2024_IWF_WJC_ResultsBook-v1.1.pdf
+Confidence: 97%","C1: The response names and links the required IWF Results Book PDF URL. | C2: The response gives an exact answer of 7, not the expected 78.6658."
+gpt-5.4-mini,task_097e451ce72b46a5ad477e8ccb2ce94d,0,History,ok,0,0,7 May 1997 (Tadić Trial Judgement) and 22 September 1997 (Aydin v Turkey).,"ć Trial Judgement — 7 May 1997; Aydın v. Turkey — 25 September 1997
+Sources: https://www.icty.org/x/cases/kunarac/acjug/en/kun-aj020612e.pdf ; https://hudoc.echr.coe.int/eng?i=002-6215
+Confidence: 98%","C1: The response links to the ICTY website and ECHR, not the required document at https://www.legal-tools.org/doc/029a09/pdf. | C2: The response gives the date for Aydin v. Turkey as 25 September 1997, but the expected answer is 22 September 1997."
+gpt-5.4-mini,task_097e451ce72b46a5ad477e8ccb2ce94d,1,History,ok,0,0,7 May 1997 (Tadić Trial Judgement) and 22 September 1997 (Aydin v Turkey).,"ich is dated 24 January 2008.
+Exact Answer: 7 May 1997; 24 January 2008
+Sources: https://www.icty.org/x/cases/tadic/tjug/en/tad-tj970507e.htm; https://hudoc.echr.coe.int/eng?i=002-2283
+Confidence: 98%","C1: The response does not reference the required Legal Tools document (https://www.legal-tools.org/doc/029a09/pdf); it provides different URLs. | C2: The response gives 24 January 2008 for the second case, but the correct date is 22 September 1997 (Aydin v Turkey)."
+gpt-5.4-mini,task_097e451ce72b46a5ad477e8ccb2ce94d,2,History,ok,0,0,7 May 1997 (Tadić Trial Judgement) and 22 September 1997 (Aydin v Turkey).,"o Tadić, Trial Judgement) and 25 September 1997 (Aydın v. Turkey).
+Sources: https://www.icty.org/x/cases/tadic/tjug/en/tad-tsj70507JT2-e.pdf; https://hudoc.echr.coe.int/eng?i=001-58371
+Confidence: 98%","C1: The response does not reference the required document URL (https://www.legal-tools.org/doc/029a09/pdf), instead providing different links. | C2: The response gives 25 September 1997 for Aydın v Turkey, but the correct date is 22 September 1997."
+gpt-5.4-mini,task_0feca2d493bd4a13b6314717b9bf3a09,0,Video Games,ok,0,0,Submission Showdown; LT + LB; RT,"t Answer: Submission Showdown; hold LB + RT to attempt a flying submission; press RT to sell all new items.
+Sources: https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf
+Confidence: 98%","C1: The response links to a different URL (eaassets-a.akamaihd.net/...), not the required document at media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf. | C2: The second part of the answer incorrectly states 'LB + RT' instead of the expected 'LT + LB'."
+gpt-5.4-mini,task_0feca2d493bd4a13b6314717b9bf3a09,1,Video Games,ok,0,0,Submission Showdown; LT + LB; RT,"ssion Showdown; hold RT + Y to attempt a flying submission from the clinch; press RT to sell all new items.
+Sources: https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf
+Confidence: 95%",C1: The response links a different document (eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf) rather than the required source. | C2: The answer incorrectly states 'hold RT + Y' instead of the required 'LT + LB' for the flying submission.
+gpt-5.4-mini,task_0feca2d493bd4a13b6314717b9bf3a09,2,Video Games,ok,0,0,Submission Showdown; LT + LB; RT,"ems by pressing the X button.
+Exact Answer: Submission Showdown; hold Right Trigger + Right Bumper; press X
+Sources: https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf
+Confidence: 98%",C1: The response provides a different URL (eaassets-a.akamaihd.net/...) not the required manual document. | C2: The response gives 'Right Trigger + Right Bumper' and 'X' instead of the expected 'LT + LB' and 'RT'.
+gpt-5.4-mini,task_1007a79cf03847e3813a65d30a9cd75a,0,History,ok,1,0,25.848,"ary of Defense textual record entry listed there.
+Exact Answer: 26.730 cubic feet
+Sources: https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf
+Confidence: 96%","C1: Response names and links the exact required National Archives Q2 FY2024 release list PDF. | C2: Response's final answer is 26.730 cubic feet, not the expected 25.848 cubic feet."
+gpt-5.4-mini,task_1007a79cf03847e3813a65d30a9cd75a,1,History,ok,1,0,25.848,".077 + 1.077 + 1.077 + 4.308 = 25.824 cubic feet.
+Exact Answer: 25.824 cubic feet
+Sources: https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf
+Confidence: 96%","C1: The response explicitly cites the required National Archives Q2 FY2024 release list PDF URL. | C2: The response gives 25.824 cubic feet, which does not match the expected answer of 25.848."
+gpt-5.4-mini,task_1007a79cf03847e3813a65d30a9cd75a,2,History,ok,1,0,25.848,"ue, then added those cubic-foot figures together.
+Exact Answer: 22.869 cubic feet
+Sources: https://www.archives.gov/files/declassification/ndc/2024-ndc-2nd-quarter-release-list-pdf.pdf
+Confidence: 96%","C1: The response explicitly names the required source document URL. | C2: The final answer is 22.869 cubic feet, not the expected 25.848."
+gpt-5.4-mini,task_13ba2dc526e647648286bbf22c746cc2,0,Science & technology,ok,1,0,5.4125%,"pliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf ; https://www.esc.vic.gov.au/electricity-and-gas/victorian-energy-market-reporting-hub/voltage-performance-data
+Confidence: 82%",C1: Response names and links the required ESC/GridWise voltage compliance report PDF. | C2: Response states insufficient information and does not provide the correct answer 5.4125%.
+gpt-5.4-mini,task_13ba2dc526e647648286bbf22c746cc2,1,Science & technology,ok,1,0,5.4125%,"vic.gov.au/sites/default/files/documents/RPT%20-%20GridWise%20Energy%20Solutions%20-%20Copy%20of%20voltage%20compliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf
+Confidence: 34%","C1: The response provides the exact URL of the required document from the rubric. | C2: The response's final answer is 5.04%, which does not match the expected answer of 5.4125%."
+gpt-5.4-mini,task_13ba2dc526e647648286bbf22c746cc2,2,Science & technology,ok,1,0,5.4125%,"mpliance%20assessment%20report%20Dec%202021-Nov%202023%20-%2020240207.pdf; https://www.esc.vic.gov.au/electricity-and-gas/victorian-energy-market-reporting-hub/voltage-performance-data
+Confidence: 18%",C1: The response includes the exact URL of the required ESC voltage compliance assessment report. | C2: The response does not give the correct answer 5.4125% but states insufficient data to determine.
+gpt-5.4-mini,task_1e540fdfa57d41f09a4ce28f42a7bf9d,0,Art,ok,1,0,"$150,600","999 bracket. I then added the minimums: 100,000 + 50,000 + 10,000.
+Exact Answer: $160,000
+Sources: https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf
+Confidence: 86%","C1: The response names and links the exact required document: https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf | C2: The final answer is $160,000, which does not match the expected answer of $150,600"
+gpt-5.4-mini,task_1e540fdfa57d41f09a4ce28f42a7bf9d,1,Art,ok,1,0,"$150,600"," summed the minimums of those tiers: $100,000 + $50,000 + $10,000.
+Exact Answer: $160,000
+Sources: https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf
+Confidence: 97%","C1: The response names and links the exact required source document (same URL). | C2: The response's final answer is $160,000 instead of the expected $150,600."
+gpt-5.4-mini,task_1e540fdfa57d41f09a4ce28f42a7bf9d,2,Art,ok,1,0,"$150,600","r analysis.
+Exact Answer: $150,000
+Sources: https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf ; https://www.phillipscollection.org/individual-giving
+Confidence: 84%","C1: The response names/links the required document: https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf. | C2: The response's final answer is $150,000, not the expected $150,600."
+gpt-5.4-mini,task_2297e46d8c4d420cbc966fd2060abf31,0,Other (Consumer/Retail Trends),ok,1,0,1.9,"nd parts (+0.0). Summing them gives -1.6 percentage points.
+Exact Answer: -1.6 percentage points
+Sources: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf
+Confidence: 97%","C1: The response directly links to the required PDF document. | C2: The response's final answer is -1.6, not the expected 1.9."
+gpt-5.4-mini,task_2297e46d8c4d420cbc966fd2060abf31,1,Other (Consumer/Retail Trends),ok,1,0,1.9,"apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf, https://fred.stlouisfed.org/series/B641RZ2A224NBEA, https://www.bea.gov/sites/default/files/2024-12/trad1024.pdf
+Confidence: 86%","C1: The response includes the correct source URL in its Sources list. | C2: The response's final answer is -4.31, not the expected 1.9."
+gpt-5.4-mini,task_2297e46d8c4d420cbc966fd2060abf31,2,Other (Consumer/Retail Trends),ok,1,0,1.9," parts” = +0.19. Adding them gives +0.12 percentage points.
+Exact Answer: 0.12 percentage points
+Sources: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf
+Confidence: 96%","C1: The response directly links to the required BEA PDF document. | C2: The response gives 0.12 percentage points, which does not match the expected answer of 1.9."
+gpt-5.4-mini,task_37e38d11f3c94a8aa0a0578758d5c83c,0,TV shows & movies,ok,0,0,25,"
+Exact Answer: Screenrights; 21
+Sources: https://www.screenrights.org/about-us/our-people ; https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html
+Confidence: 88%","C1: The response does not name or link the required source document (the specific PDF at screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf), instead providing different URLs. | C2: The response gives '21' as the sum, but the correct answer is 25."
+gpt-5.4-mini,task_37e38d11f3c94a8aa0a0578758d5c83c,1,TV shows & movies,ok,0,0,25,"rights-members-in-2023-24-and-usage-of-the-australian-educational-licence-up-more-than-30 ; https://www.screenrights.org/wp-content/uploads/2023/12/Screenrights-Annual-Report-FY23.html
+Confidence: 86%","C1: The response does not name or link to the required document (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf). | C2: The response gives an answer of 19, not the expected 25."
+gpt-5.4-mini,task_37e38d11f3c94a8aa0a0578758d5c83c,2,TV shows & movies,ok,0,0,25,"ww.copyright.com.au/2025/11/copyright-agency-confirms-2025-board-re-appointments/ ; https://www.copyright.com.au/about-us/governance/annual-reports/copyright-agency-annual-report-2025/
+Confidence: 23%",C1: The response does not name or link the required Screenrights PDF source; instead it references Copyright Agency pages. | C2: The response states 'Unable to determine' rather than providing the correct answer of 25.
+gpt-5.4-mini,task_54cb108e5cc4431b87503a30478dd543,0,Music,ok,0,0,"14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)","ry-collection-opens-national-museum-african-american-history-and ; https://www.si.edu/newsdesk/releases/common-kurtis-blow-discuss-rap-s-influence-editors-new-book-anthology-rap-nov-16
+Confidence: 96%","C1: The response does not mention the required source document (the SLA_AnnualReport_2024.pdf from the repository.si.edu link). | C2: The response gives '1 West 14th St and Constitution Ave NW' for the National Museum of American History, which does not match the expected address '14th Street and Constitution Avenue, NW Washington, DC'."
+gpt-5.4-mini,task_54cb108e5cc4431b87503a30478dd543,1,Music,ok,0,0,"14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)","00 Constitution Ave., NW, Washington, DC 20024
+Sources: https://library.si.edu/exhibition/music-herstory ; https://www.si.edu/exhibitions/represent-hip-hop-photography:event-exhib-6617
+Confidence: 93%","C1: The response does not reference the required source document (https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf); it lists two unrelated URLs. | C2: The response gives '1 West 14th St and Constitution Ave NW' for the National Museum of American History, which does not match the expected '14th Street and Constitution Avenue' phrasing, and the addition of building number and ZIP code makes it non‑equivalent."
+gpt-5.4-mini,task_54cb108e5cc4431b87503a30478dd543,2,Music,ok,0,0,"14th Street and Constitution Avenue, NW Washington, DC (National Museum of American History) and 1400 Constitution Avenue, NW Washington, DC (National Museum of African American History and Culture)","ry-collection-opens-national-museum-african-american-history-and ; https://www.si.edu/newsdesk/releases/common-kurtis-blow-discuss-rap-s-influence-editors-new-book-anthology-rap-nov-16
+Confidence: 95%","C1: The response does not name or link to the required source document (https://repository.si.edu/bitstream/handle/10088/123078/SLA_AnnualReport_2024.pdf); it cites other Smithsonian pages. | C2: The response gives '1 West 14th St and Constitution Ave NW' and '1300 Constitution Ave.' instead of the expected '14th Street and Constitution Avenue, NW' and '1400 Constitution Avenue, NW', and omits the museum names."
+gpt-5.4-mini,task_5c0efb3944384c03b1234d19f503a7bc,0,Art,ok,0,0,The problem of carrying the weight of a distant politic in the present,"
+Sources: https://www.projectspace-efanyc.org/field-work-online-roundtable-ukraine-making-art-in-times-of-war-1 ; https://www.projectspace-efanyc.org/the-immigrant-artist-biennial-2023
+Confidence: 97%",C1: The response does not name or link the required PDF source (https://static1.squarespace.com/...). | C2: The response's final answer ('how to present distant conflicts to local publics...') does not match the expected exact phrasing 'The problem of carrying the weight of a distant politic in the present'.
+gpt-5.4-mini,task_5c0efb3944384c03b1234d19f503a7bc,1,Art,ok,0,0,The problem of carrying the weight of a distant politic in the present,"presenting distant conflicts to local publics through the lens of political exile and cultural diasporas
+Sources: https://www.projectspace-efanyc.org/the-immigrant-artist-biennial-2023
+Confidence: 95%",C1: The response cites a different web page (projectspace-efanyc.org) rather than the required PDF source. | C2: The response's final answer does not match the expected answer; it describes 'presenting distant conflicts...' instead of 'The problem of carrying the weight of a distant politic in the present'.
+gpt-5.4-mini,task_5c0efb3944384c03b1234d19f503a7bc,2,Art,ok,0,0,The problem of carrying the weight of a distant politic in the present,"stant conflicts to local publics, especially through the lens of political exile and cultural diasporas.
+Sources: https://www.projectspace-efanyc.org/the-immigrant-artist-biennial-2023
+Confidence: 98%",C1: The response links to a different webpage (EFA Project Space) rather than naming or linking the required PDF URL. | C2: The response gives a different description and does not state the exact curatorial theme 'The problem of carrying the weight of a distant politic in the present'.
+gpt-5.4-mini,task_642cdf4da2e3479db05b106f329873e3,0,Geography,ok,1,0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W"," 17' 0.58"" N, 91° 10' 30.26"" W.
+Sources: https://ngdc.noaa.gov/nos/H12001-H14000/H13188.html; https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf
+Confidence: 93%","C1: The response includes the exact URL to the required document H13188_DR.pdf. | C2: The response gives 63.15 LNM and different coordinates, not the expected 20.77 LNM and 30° 29' 22.57"" N, 91° 14' 51.57"" W."
+gpt-5.4-mini,task_642cdf4da2e3479db05b106f329873e3,1,Geography,ok,0,0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W"," miles than RHIB Sigsbee, and the Northwest Limit is 30° 33' 31"" N, 91° 13' 15.6"" W.
+Sources: https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13330/DR/H13330_DR.pdf
+Confidence: 98%","C1: The response references survey H13330 instead of the required H13188 document. | C2: The response gives 9.50 LNM and coordinates 30° 33' 31"" N, 91° 13' 15.6"" W, not the expected 20.77 LNM and 30° 29' 22.57"" N, 91° 14' 51.57"" W."
+gpt-5.4-mini,task_642cdf4da2e3479db05b106f329873e3,2,Geography,ok,1,0,"20.77 LNM; 30° 29' 22.57"" N, 91° 14' 51.57"" W","t.
+Exact Answer: 43.34 linear nautical miles more; 30° 17' 0.58"" N, 91° 10' 30.26"" W
+Sources: https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf
+Confidence: 96%","C1: The response includes the exact URL to the required NOAA descriptive report PDF. | C2: The response gives 43.34 LNM and coordinates 30° 17' 0.58"" N, 91° 10' 30.26"" W, which do not match the expected 20.77 LNM and 30° 29' 22.57"" N, 91° 14' 51.57"" W."
+gpt-5.4-mini,task_6cf998c0a384416698ee9ea61aae683b,0,Science & technology,ok,0,0,80001," 80002
+Sources: https://dafneplus.eu/2024/04/migration-to-amoy-testnet-in-dafne-platform-due-to-the-deprecation-of-mumbai/ ; https://docs.polygon.technology/pos/reference/rpc-endpoints
+Confidence: 98%","C1: The response does not reference the required Zenodo document; it cites different URLs. | C2: The response gives 80002, not the correct answer 80001."
+gpt-5.4-mini,task_6cf998c0a384416698ee9ea61aae683b,1,Science & technology,ok,0,0,80001,"24/04/migration-to-amoy-testnet-in-dafne-platform-due-to-the-deprecation-of-mumbai/ ; https://amoy.polygonscan.com/tx/0xff38dbea0cd3f3086630d693f33cee255cad878763eb925bc3b607fa5fff1f18
+Confidence: 96%",C1: The response does not name or link the required Zenodo document; it links to a different page. | C2: The response gives 80002 instead of the expected answer 80001.
+gpt-5.4-mini,task_6cf998c0a384416698ee9ea61aae683b,2,Science & technology,ok,0,0,80001,"og for the Amoy testnet details. Polygon states that Amoy’s Chain ID is 80002.
+Exact Answer: 80002
+Sources: https://polygon.technology/blog/introducing-the-amoy-testnet-for-polygon-pos
+Confidence: 98%","C1: The response does not name or link the required Zenodo document; instead it references a Polygon blog. | C2: The response gives Chain ID 80002, but the correct answer is 80001."
+gpt-5.4-mini,task_709b525e9979410fbbc3993e30368fd8,0,Sports,ok,1,0,"Buprenorphine, Pseudoephedrine, and Spironolactone"," and Cannabidiol is not prohibited.
+Exact Answer: Spironolactone and Buprenorphine
+Sources: https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf
+Confidence: 97%","C1: The response names the exact required WADA 2024 Prohibited List PDF URL in its Sources. | C2: The response's final answer omits Pseudoephedrine, whereas the expected answer requires Buprenorphine, Pseudoephedrine, and Spironolactone."
+gpt-5.4-mini,task_709b525e9979410fbbc3993e30368fd8,1,Sports,ok,1,0,"Buprenorphine, Pseudoephedrine, and Spironolactone","s: https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf ; https://www.wada-ama.org/en/athletes-support-personnel/therapeutic-use-exemptions-tues
+Confidence: 96%","C1: The response names and links the required WADA 2024 Prohibited List PDF. | C2: The final answer omits Pseudoephedrine, so it does not match the expected answer."
+gpt-5.4-mini,task_709b525e9979410fbbc3993e30368fd8,2,Sports,ok,1,0,"Buprenorphine, Pseudoephedrine, and Spironolactone","er: Spironolactone and Buprenorphine
+Sources: https://www.wada-ama.org/sites/default/files/2023-09/2024list_en_final_22_september_2023.pdf ; https://www.wada-ama.org/en/prohibited-list
+Confidence: 97%","C1: The response names and links the exact WADA 2024 Prohibited List PDF specified in the rubric. | C2: The response's final answer omits Pseudoephedrine, while the expected answer includes Buprenorphine, Pseudoephedrine, and Spironolactone."
+gpt-5.4-mini,task_8b6b205d086946d7ba0b6bf97ccca9ba,0,Other (Business/Regulatory),ok,1,0,149,"tural persons. The difference is 148.
+Exact Answer: 148
+Sources: https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf
+Confidence: 97%","C1: The response provides the exact link to the required ECB sanctioning report PDF. | C2: The response's final answer is 148, not the expected 149."
+gpt-5.4-mini,task_8b6b205d086946d7ba0b6bf97ccca9ba,1,Other (Business/Regulatory),ok,1,0,149,"atural person. Subtracting gives 351.
+Exact Answer: 351
+Sources: https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf
+Confidence: 99%","C1: The response provides the exact required source URL. | C2: The response gives 351, not the expected answer 149."
+gpt-5.4-mini,task_8b6b205d086946d7ba0b6bf97ccca9ba,2,Other (Business/Regulatory),ok,1,0,149,"n. Subtracting 90 from 441 gives 351.
+Exact Answer: 351
+Sources: https://www.bankingsupervision.europa.eu/press/other-publications/publications/sanctioning-report/pdf/ssm.sr2025.en.pdf
+Confidence: 99%","C1: The response directly names the required source URL. | C2: The response gives 351, not the expected answer of 149."
+gpt-5.4-mini,task_9c6d9cfec3624eb6a17e38e36993cd4a,0,Politics,ok,0,1,16,"/www.un.org/pact-for-the-future/en/annex-i-global-digital-compact ; https://www.un.org/global-digital-compact/sites/default/files/2024-09/Global%20Digital%20Compact%20-%20English_0.pdf
+Confidence: 99%","C1: The response cites URLs for the Global Digital Compact annex and PDF, not the required UN Digital Library record A_RES_79_1-EN.pdf. | C2: The response states 'Exact Answer: SDG 16', which matches the expected answer 16."
+gpt-5.4-mini,task_9c6d9cfec3624eb6a17e38e36993cd4a,1,Politics,ok,0,1,16,"ber common to both commitments is 16.
+Exact Answer: SDG 16
+Sources: https://www.un.org/global-digital-compact/sites/default/files/2024-09/Global%20Digital%20Compact%20-%20English_0.pdf
+Confidence: 99%",C1: The response cites a different URL (the Global Digital Compact page) instead of the required UN Digital Library document A_RES_79_1-EN.pdf. | C2: The response correctly identifies SDG 16 as the common SDG targeted by both commitments.
+gpt-5.4-mini,task_9c6d9cfec3624eb6a17e38e36993cd4a,2,Politics,ok,0,1,16,"/www.un.org/global-digital-compact/sites/default/files/2024-09/Global%20Digital%20Compact%20-%20English_0.pdf ; https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact
+Confidence: 98%","C1: The response does not name or link the required document https://digitallibrary.un.org/record/4061879/files/A_RES_79_1-EN.pdf; it cites different URLs. | C2: The response's final answer is SDG 16, which matches the expected answer."
+gpt-5.4-mini,task_a57f13b60f73422a8e301a3c9f3e4ab5,0,Other (Business/Regulatory),ok,1,0,"588,000","e up 98% of the customer base. Multiplying 570,000 by 0.98 gives 558,600.
+Exact Answer: 558,600
+Sources: https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf
+Confidence: 96%","C1: The response includes the exact URL of the required document. | C2: The response calculates 558,600, which does not match the expected answer of 588,000."
+gpt-5.4-mini,task_a57f13b60f73422a8e301a3c9f3e4ab5,2,Other (Business/Regulatory),ok,1,0,"588,000","% of the entire customer base. Multiplying 570,000 by 0.98 gives 558,600.
+Exact Answer: 558,600
+Sources: https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf
+Confidence: 98%","C1: The response directly links to the required document URL. | C2: The response calculates 558,600, which does not match the expected answer of 588,000."
+gpt-5.4-mini,task_acdefe20000b4708b322e2800907d69d,0,Politics,ok,0,0,"5,000","//odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf; https://h.aa.com.tr/tr/gundem/cumhurbaskani-erdogan-kemal-kilicdaroglundan-105-bin-lira-manevi-tazminat-kazandi/2876379
+Confidence: 95%","C1: The response references a different URL (odihr.osce.org/...) instead of the required https://www.osce.org/files/f/documents/6/2/543543.pdf. | C2: The response gives €4,772.73, not 5,000 as required."
+gpt-5.4-mini,task_acdefe20000b4708b322e2800907d69d,1,Politics,ok,0,0,"5,000","es: https://odihr.osce.org/sites/default/files/f/documents/1/f/553966.pdf ; https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/
+Confidence: 94%","C1: The response provides a link to a different OSCE document (odihr.osce.org/.../553966.pdf) rather than the required https://www.osce.org/files/f/documents/6/2/543543.pdf. | C2: The final answer is €4,772.73, not the required €5,000."
+gpt-5.4-mini,task_acdefe20000b4708b322e2800907d69d,2,Politics,ok,0,1,"5,000","ts/turkey/statements-24/4687-2023-presidential-and-parliamentary-eng/file ; https://www.turkishminute.com/2023/04/19/erdogan-won-non-pecuniary-damages-from-kilicdaroglu-for-defamation/
+Confidence: 94%","C1: The response does not reference the required OSCE document (https://www.osce.org/files/f/documents/6/2/543543.pdf); instead it cites an OSCE PA document and a news article. | C2: The response's final answer is €5,000, which matches the expected answer of 5,000."
+gpt-5.4-mini,task_e2ea1cfae558450b9b4b34cfc6573859,0,Other (Environmental/Natural Resource Administration),ok,0,0,EPA-454/R-23-009," read its publication number from the document header.
+Exact Answer: EPA-454/R-24-005
+Sources: https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/AERMOD_GRSM_TSD_20241111.pdf
+Confidence: 98%","C1: The response links to a different document (AERMOD_GRSM_TSD_20241111.pdf) instead of the required Appendix W PDF. | C2: The response gives EPA-454/R-24-005, not the expected EPA-454/R-23-009."
+gpt-5.4-mini,task_e2ea1cfae558450b9b4b34cfc6573859,1,Other (Environmental/Natural Resource Administration),ok,0,0,EPA-454/R-23-009,"Exact Answer: EPA-454/R-24-005
+Sources: https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/AERMOD_GRSM_TSD_20241111.pdf ; https://www.epa.gov/scram/2024-appendix-w-final-rule
+Confidence: 98%","C1: The response does not name or link to the required source document https://www.epa.gov/system/files/documents/2024-11/appendix_w-2024.pdf. | C2: The response gives EPA-454/R-24-005, which does not match the correct answer EPA-454/R-23-009."
+gpt-5.4-mini,task_e2ea1cfae558450b9b4b34cfc6573859,2,Other (Environmental/Natural Resource Administration),ok,0,0,EPA-454/R-23-009,"t Document lists its publication number in the header.
+Exact Answer: EPA-454/R-24-005
+Sources: https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/AERMOD_GRSM_TSD_20241111.pdf
+Confidence: 98%","C1: The response cites a different document (AERMOD_GRSM_TSD) instead of the required Appendix W PDF. | C2: The response gives EPA-454/R-24-005, which does not match the correct answer EPA-454/R-23-009."
+gpt-5.4-mini,task_edafa33e92ae44eca8f8fc1bb4d6a140,0,TV shows & movies,ok,1,0,20.09%,") from IMDA’s 2025 report.
+Exact Answer: 20.1%
+Sources: https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf
+Confidence: 98%","C1: The response explicitly lists the correct IMDA source URL in its Sources section. | C2: The final answer states 'Exact Answer: 20.1%' which is a rounded value, not the expected exact answer of 20.09%."
+gpt-5.4-mini,task_edafa33e92ae44eca8f8fc1bb4d6a140,2,TV shows & movies,ok,1,0,20.09%,"re Digital Economy Report.
+Exact Answer: 20.1%
+Sources: https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf
+Confidence: 97%",C1: The response explicitly names and links the required IMDA report URL. | C2: The final answer is given as 20.1% rather than the expected 20.09% (rounding to one decimal place is not equivalent to the stated precision).
+gpt-5.4-mini,task_f19a945fd4034762be30f011d66146f2,0,Geography,ok,0,0,"1:24000, 1:12000, and 1:24000","ets in that set, and the record’s scale entries are the applicable ones.
+Exact Answer: 1:12,000 and 1:24,000
+Sources: https://collections.leventhalmap.org/search/commonwealth:ns06dn15p
+Confidence: 94%","C1: The response links to a different source (Leventhal Map Collection) instead of the required IBC index PDF. | C2: The response gives only two scales (1:12,000 and 1:24,000) rather than the three specific scales in order (1:24000, 1:12000, 1:24000)."
+gpt-5.4-mini,task_f19a945fd4034762be30f011d66146f2,1,Geography,ok,0,0,"1:24000, 1:12000, and 1:24000","e-of-the-st-croix-river-to-the-atlantic-ocean ; https://digitalarchives.maine.gov/view/407289/sheet-9-international-boundary-from-the-source-of-the-st-croix-river-to-the-atlantic-ocean
+Confidence: 52%","C1: Response does not reference the required source URL from the International Boundary Commission website. | C2: Response gives scales 1:12,000 for MacAllister Cove and Robbinston and 1:24,000 for Vanceboro, which does not match the expected answer of 1:24,000, 1:12,000, and 1:24,000 respectively."
+gpt-5.4-mini,task_f19a945fd4034762be30f011d66146f2,2,Geography,ok,0,0,"1:24000, 1:12000, and 1:24000","n the same atlas layout.
+Exact Answer: MacAllister Cove: 1:12,000; Vanceboro: 1:24,000; Robbinston: 1:12,000
+Sources: https://collections.leventhalmap.org/search/commonwealth:ns06dn15p
+Confidence: 82%","C1: The response cites a Leventhal map collection URL instead of the required IBC index PDF. | C2: The response gives MacAllister Cove as 1:12,000, Vanceboro as 1:24,000, and Robbinston as 1:12,000, which does not match the expected 1:24000, 1:12000, and 1:24000."

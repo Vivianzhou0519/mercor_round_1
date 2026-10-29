@@ -10,3 +10,17 @@ parse rate: 'Exact Answer:' line in 100% of tries; both judges returned valid JS
 model                                                                                         
 claude-haiku-5.5  0.60  0.2     0.2        0.2          0.4                0.4             0.9
 gpt-5.4-mini      0.33  0.0     0.0        0.0          0.4                0.2             1.0
+judge deepseek-v4-flash: 8 tries to grade (0 already saved)
+  deepseek-v4-flash: graded 8/8
+scored.csv: 10 tries (2 api_error); judge 1 graded 8, judge 2 graded 0; 'Exact Answer:' line in 100% of tries
+                    c1   c2  passed  passed_j2  source_seen  source_cited_text  cited_grounded
+model                                                                                         
+claude-haiku-5.5  0.40  0.4     0.2        NaN          0.4                0.4             0.9
+gpt-5.4-mini      0.33  0.0     0.0        NaN          0.4                0.2             1.0
+judge gemini-3.1-flash-lite: 8 tries to grade (0 already saved)
+  gemini-3.1-flash-lite: graded 8/8
+scored.csv: 10 tries (2 api_error); judge 1 graded 8, judge 2 graded 8; 'Exact Answer:' line in 100% of tries
+                    c1   c2  passed  passed_j2  source_seen  source_cited_text  cited_grounded
+model                                                                                         
+claude-haiku-5.5  0.40  0.4     0.2        0.2          0.4                0.4             0.9
+gpt-5.4-mini      0.33  0.0     0.0        0.0          0.4                0.2             1.0

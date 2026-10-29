@@ -9,8 +9,8 @@
 
 ### claude-haiku-5.5 · try 0 · FAIL
 Answer: **1) Submission Showdown; 2) LT + LB (Left Trigger + Left Bumper); 3) RT (Right Trigger)**  
-Judge 1: C1 ✅ C2 ❌: C1: The response includes the required URL https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf in its sources list. | C2: The response provides incorrect answers for the second and third parts, as it relies on external mapping inferences rather than the manual's actual content.  
-Judge 2: C1 ❌ C2 ✅: C1: The response does not name or link the required document https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf; it references other URLs instead. | C2: The response's final answer is 'Submission Showdown; LT + LB; RT' which matches the expected answer exactly.  
+Judge 1: C1 ❌ C2 ✅: C1: Response does not name/link the required document (https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf); it links other manuals. | C2: Response's final answer is exactly 'Submission Showdown; LT + LB; RT' as required.  
+Judge 2: C1 ✅ C2 ❌: C1: The response includes the required URL https://eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf in its sources list. | C2: The response provides incorrect answers for the second and third parts, as it relies on external mapping inferences rather than the manual's actual content.  
 searches 4, 23.0s, gold source in search results: yes
 
 <details><summary>full reply</summary>
@@ -32,8 +32,8 @@ Confidence: 70%
 
 ### gpt-5.4-mini · try 0 · FAIL
 Answer: **Submission Showdown; hold RB + RT; press RT**  
-Judge 1: C1 ❌ C2 ❌: C1: The provided source URL does not match the required URL specified in the rubric. | C2: The response provides incorrect button combinations for the flying submission (RB + RT instead of LT + LB).  
-Judge 2: C1 ❌ C2 ❌: C1: The response links a different source (eaassets-a.akamaihd.net/...), not the required EA manual URL. | C2: The second part of the answer is incorrect (RB + RT instead of LT + LB), so the multi-part answer does not match the expected answer.  
+Judge 1: C1 ❌ C2 ❌: C1: The response links to a different manual (eaassets-a.akamaihd.net/eahelp/manuals/ufc-3-xboxone-en.pdf), not the required source document. | C2: The second part of the answer is 'hold RB + RT', but the expected answer is 'LT + LB', so the final answer does not match.  
+Judge 2: C1 ❌ C2 ❌: C1: The provided source URL does not match the required URL specified in the rubric. | C2: The response provides incorrect button combinations for the flying submission (RB + RT instead of LT + LB).  
 searches 1, 4.9s, gold source in search results: yes
 
 <details><summary>full reply</summary>
@@ -54,8 +54,8 @@ Confidence: 97%
 
 ### claude-haiku-5.5 · try 0 · PASS
 Answer: **1.9 percentage points**  
-Judge 1: C1 ✅ C2 ✅: C1: The response explicitly provides the required URL in the sources section. | C2: The response provides the correct final sum of 1.9.  
-Judge 2: C1 ✅ C2 ✅: C1: The response directly links the required document: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf | C2: The final answer is 1.9 percentage points, matching the expected answer of 1.9  
+Judge 1: C1 ✅ C2 ✅: C1: The response explicitly names and links the correct source URL: https://apps.bea.gov/scb/issues/2024/10-october/pdf/1024-nea-annual-update.pdf. | C2: The response gives the final answer as 1.9 percentage points, matching the expected answer of 1.9.  
+Judge 2: C1 ✅ C2 ✅: C1: The response explicitly provides the required URL in the sources section. | C2: The response provides the correct final sum of 1.9.  
 searches 2, 29.5s, gold source in search results: yes
 
 <details><summary>full reply</summary>
@@ -81,8 +81,8 @@ Confidence: 72%
 
 ### gpt-5.4-mini · try 0 · FAIL
 Answer: **-1.6 percentage points**  
-Judge 1: C1 ✅ C2 ❌: C1: The response explicitly includes the required URL in the sources section. | C2: The final answer provided (-1.6) does not match the expected answer (1.9).  
-Judge 2: C1 ✅ C2 ❌: C1: The response directly names and links the required document from BEA. | C2: The final answer given is -1.6, not the expected 1.9.  
+Judge 1: C1 ✅ C2 ❌: C1: The response includes the exact URL of the required BEA document. | C2: The response gives -1.6, not the expected 1.9.  
+Judge 2: C1 ✅ C2 ❌: C1: The response explicitly includes the required URL in the sources section. | C2: The final answer provided (-1.6) does not match the expected answer (1.9).  
 searches 6, 16.7s, gold source in search results: yes
 
 <details><summary>full reply</summary>
@@ -103,8 +103,8 @@ Confidence: 91%
 
 ### claude-haiku-5.5 · try 0 · FAIL
 Answer: **Unable to determine the 2024-25 sum; FY2023 fallback = 31 (unverified for the requested period)**  
-Judge 1: C1 ❌ C2 ❌: C1: The response does not include the required source URL (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf). | C2: The response explicitly states it is unable to determine the answer and provides a fallback figure instead of the correct answer of 25.  
-Judge 2: C1 ❌ C2 ❌: C1: The response does not name or link to the required source PDF; it references a news article, an older FY2023 report, and Wikipedia. | C2: The response does not give the correct answer of 25; it provides a fallback sum of 31 from FY2023 and states inability to determine the 2024-25 figure.  
+Judge 1: C1 ❌ C2 ❌: C1: The response does not reference the required source document (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf) in any form. | C2: The response does not give the correct answer of 25; it provides a fallback value of 31 from a different year and states it cannot determine the 2024-25 sum.  
+Judge 2: C1 ❌ C2 ❌: C1: The response does not include the required source URL (https://www.screenrights.org/wp-content/uploads/2025/10/SCR_4713_AR_FINS_2025-DIGI.pdf). | C2: The response explicitly states it is unable to determine the answer and provides a fallback figure instead of the correct answer of 25.  
 searches 12, 35.0s, gold source in search results: no
 
 <details><summary>full reply</summary>
@@ -137,8 +137,8 @@ Confidence: 15%
 
 ### claude-haiku-5.5 · try 0 · FAIL
 Answer: **Not determined. The H13188 Blake and Sigsbee mileage and the H13188 Northwest Limit coordinates could not be retrieved.**  
-Judge 1: C1 ✅ C2 ❌: C1: The response explicitly names and links the required source URL. | C2: The response explicitly states it could not determine the answer and provides no numerical values for the requested data.  
-Judge 2: C1 ✅ C2 ❌: C1: The response explicitly names and links the required document (https://data.ngdc.noaa.gov/platforms/ocean/nos/coast/H12001-H14000/H13188/DR/H13188_DR.pdf). | C2: The response does not provide the correct final answer; it states 'Not determined' instead of 20.77 LNM and the coordinates.  
+Judge 1: C1 ✅ C2 ❌: C1: The response names and links the correct source document URL. | C2: The response does not provide the correct final answer; it states the answer could not be determined.  
+Judge 2: C1 ✅ C2 ❌: C1: The response explicitly names and links the required source URL. | C2: The response explicitly states it could not determine the answer and provides no numerical values for the mileage or coordinates.  
 searches 10, 31.2s, gold source in search results: no
 
 <details><summary>full reply</summary>
@@ -173,8 +173,8 @@ Confidence: 5%
 
 ### claude-haiku-5.5 · try 0 · FAIL
 Answer: **€4,772.73**  
-Judge 1: C1 ❌ C2 ❌: C1: The response does not include the required source URL (https://www.osce.org/files/f/documents/6/2/543543.pdf) in its list of sources. | C2: The response provides an answer of 4,772.73 instead of the required 5,000.  
-Judge 2: C1 ❌ C2 ❌: C1: The response does not name or link the required document (https://www.osce.org/files/f/documents/6/2/543543.pdf); the URLs provided are to other OSCE-related pages. | C2: The response gives approximately €4,772.73, not the expected answer of €5,000.  
+Judge 1: C1 ❌ C2 ❌: C1: The response does not name or link to the required OSCE document at https://www.osce.org/files/f/documents/6/2/543543.pdf; it references other URLs instead. | C2: The response's final answer of €4,772.73 does not match the expected answer of 5,000.  
+Judge 2: C1 ❌ C2 ❌: C1: The response does not include the required source URL (https://www.osce.org/files/f/documents/6/2/543543.pdf) in its list of sources. | C2: The response provides an answer of 4,772.73 instead of the required 5,000.  
 searches 2, 8.7s, gold source in search results: no
 
 <details><summary>full reply</summary>
@@ -205,8 +205,8 @@ Confidence: 72%
 
 ### gpt-5.4-mini · try 0 · FAIL
 Answer: **€4,772.73**  
-Judge 1: C1 ❌ C2 ❌: C1: The response does not reference the required source document (https://www.osce.org/files/f/documents/6/2/543543.pdf). | C2: The final answer provided (4,772.73) does not match the expected answer (5,000).  
-Judge 2: C1 ❌ C2 ❌: C1: The response does not link or name the required OSCE document at https://www.osce.org/files/f/documents/6/2/543543.pdf, instead referencing different URLs. | C2: The final answer is €4,772.73, which does not match the expected answer of 5,000.  
+Judge 1: C1 ❌ C2 ❌: C1: The response does not name or link the required document at https://www.osce.org/files/f/documents/6/2/543543.pdf; it provides different URLs. | C2: The final answer is €4,772.73, not the expected 5,000.  
+Judge 2: C1 ❌ C2 ❌: C1: The response failed to cite the required document (https://www.osce.org/files/f/documents/6/2/543543.pdf). | C2: The response provided an incorrect final answer of 4,772.73 instead of the required 5,000.  
 searches 2, 9.0s, gold source in search results: no
 
 <details><summary>full reply</summary>

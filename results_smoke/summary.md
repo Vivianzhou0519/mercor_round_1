@@ -1,6 +1,24 @@
 # BrowseComp n=20: results
 
-Setup: models `openrouter/anthropic/claude-haiku-5.5`, `openrouter/openai/gpt-5.4-mini`; judges `openrouter/google/gemini-3.1-flash-lite`, `openrouter/deepseek/deepseek-v4-flash` (primary = first); web search = OpenRouter `openrouter:web_search` (Exa, max 10 searches); 5 tasks x 1+ tries. Pass = judge says yes to BOTH C1 (source) and C2 (answer). Ranges are 95%; tasks are the data points.
+Setup: models `openrouter/anthropic/claude-haiku-5.5`, `openrouter/openai/gpt-5.4-mini`; judges `openrouter/deepseek/deepseek-v4-flash`, `openrouter/google/gemini-3.1-flash-lite` (primary = first); web search = OpenRouter `openrouter:web_search` (Exa, max 10 searches); 5 tasks x 1+ tries. Pass = judge says yes to BOTH C1 (source) and C2 (answer). Ranges are 95%; tasks are the data points.
+
+## Headline: pass rate under each judge
+
+|                                              | Judge 1 (deepseek-v4-flash, primary) | Judge 2 (gemini-3.1-flash-lite, check) | Strict: both pass          | Lenient: either passes     |
+| -------------------------------------------- | ------------------------------------ | -------------------------------------- | -------------------------- | -------------------------- |
+| claude-haiku-5.5 pass rate                   | 20.0% [0.0–59.2%]                    | 20.0% [0.0–59.2%]                      | 20.0% [0.0–59.2%]          | 20.0% [0.0–59.2%]          |
+| gpt-5.4-mini pass rate                       | 0.0% [0.0–0.0%]                      | 0.0% [0.0–0.0%]                        | 0.0% [0.0–0.0%]            | 0.0% [0.0–0.0%]            |
+| Gap claude-haiku-5.5 − gpt-5.4-mini (paired) | +33.3 pts [-32.0 to +98.7]           | +33.3 pts [-32.0 to +98.7]             | +33.3 pts [-32.0 to +98.7] | +33.3 pts [-32.0 to +98.7] |
+
+Strict = a pass only if both judges say pass; lenient = a pass if either does. These bracket the lowest and highest believable score; the truth is probably in between. Ranges are 95% (±1.96·SD/√n over tasks).
+
+| verdict    | tries | agreement | Cohen's κ |
+| ---------- | ----- | --------- | --------- |
+| C1         | 8     | 87.5%     | 0.75      |
+| C2         | 8     | 87.5%     | 0.60      |
+| final pass | 8     | 100.0%    | 1.00      |
+
+**Verdict: the conclusion does not change with the judge**: Judge 1 (deepseek-v4-flash, primary): can't tell apart; Judge 2 (gemini-3.1-flash-lite, check): can't tell apart; Strict: both pass: can't tell apart; Lenient: either passes: can't tell apart.
 
 ## 1. Pass rate (C1 and C2)
 
@@ -30,25 +48,25 @@ Verdict: we can't tell them apart yet.
 
 | model            | C1 source yes | C2 answer yes | both (pass) | tries: right answer, wrong source | tries: right source, wrong answer | gold source in search results | tries: saw gold source but didn't cite it |
 | ---------------- | ------------- | ------------- | ----------- | --------------------------------- | --------------------------------- | ----------------------------- | ----------------------------------------- |
-| claude-haiku-5.5 | 60.0%         | 20.0%         | 20.0%       | 0                                 | 2                                 | 40.0%                         | 0                                         |
+| claude-haiku-5.5 | 40.0%         | 40.0%         | 20.0%       | 1                                 | 1                                 | 40.0%                         | 1                                         |
 | gpt-5.4-mini     | 33.3%         | 0.0%          | 0.0%        | 0                                 | 1                                 | 66.7%                         | 1                                         |
 
 ### Is the cited source real? (deterministic checks, no LLM)
 
 | model            | gold URL string in response | judge C1 agrees with string check | judge yes / string no | judge no / string yes | cited URLs that came from its searches | URLs cited per try |
 | ---------------- | --------------------------- | --------------------------------- | --------------------- | --------------------- | -------------------------------------- | ------------------ |
-| claude-haiku-5.5 | 40.0%                       | 80.0%                             | 1                     | 0                     | 90.0%                                  | 2.4                |
+| claude-haiku-5.5 | 40.0%                       | 100.0%                            | 0                     | 0                     | 90.0%                                  | 2.4                |
 | gpt-5.4-mini     | 33.3%                       | 100.0%                            | 0                     | 0                     | 100.0%                                 | 1.3                |
 
 C1 is judged from the response text only (its Sources line), not from the search-result list. A cited URL that never appeared in the model's search results was probably made up.
 
-## 5. Judge agreement (gemini-3.1-flash-lite vs deepseek-v4-flash)
+## 5. Judge agreement (deepseek-v4-flash vs gemini-3.1-flash-lite)
 
-| verdict | tries | agreement | Cohen's κ | yes rate gemini-3.1-flash-lite | yes rate deepseek-v4-flash |
-| ------- | ----- | --------- | --------- | ------------------------------ | -------------------------- |
-| c1      | 8     | 87.5%     | 0.75      | 50.0%                          | 37.5%                      |
-| c2      | 8     | 87.5%     | 0.60      | 12.5%                          | 25.0%                      |
-| passed  | 8     | 100.0%    | 1.00      | 12.5%                          | 12.5%                      |
+| verdict | tries | agreement | Cohen's κ | yes rate deepseek-v4-flash | yes rate gemini-3.1-flash-lite |
+| ------- | ----- | --------- | --------- | -------------------------- | ------------------------------ |
+| c1      | 8     | 87.5%     | 0.75      | 37.5%                      | 50.0%                          |
+| c2      | 8     | 87.5%     | 0.60      | 25.0%                      | 12.5%                          |
+| passed  | 8     | 100.0%    | 1.00      | 12.5%                      | 12.5%                          |
 
 Pass rate under each judge: claude-haiku-5.5: 20.0% vs 20.0%; gpt-5.4-mini: 0.0% vs 0.0%. 1 disagreeing tries → judge_disagreements.csv.
 

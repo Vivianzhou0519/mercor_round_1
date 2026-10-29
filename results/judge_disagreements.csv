@@ -1,0 +1,27 @@
+model,task_id,try,c1,c1_j2,c2,c2_j2,reason,reason_j2,answer_tail
+claude-haiku-5.5,task_0feca2d493bd4a13b6314717b9bf3a09,0,1,1,1,0,C1: The response names the required source URL https://media.contentapi.ea.com/content/dam/able/manuals/ufc3xb1man.pdf in its sources list. | C2: The response's final answer exactly matches the expected answer: Submission Showdown; LT + LB; RT.,C1: The response explicitly lists the required URL in the sources section. | C2: The response provides incorrect button combinations for the flying submission (LT+LB is not the correct input) and relies on external inferences rather than the provided source.,"content/dam/able/manuals/ufc3xb1man.pdf, https://www.spottis.com/games/ufc-3-controls/
+
+Confidence: 85% for the Submission Showdown answer, about 70% for the LT + LB combination, and about 70% for RT."
+claude-haiku-5.5,task_1e540fdfa57d41f09a4ce28f42a7bf9d,0,1,1,0,1,"C1: The response directly includes the required URL https://www.phillipscollection.org/sites/default/files/2024-04/fy23-annual-report.pdf in its list of sources. | C2: The response hedges by presenting an alternative possible sum ($100,600) if a different donor list were used, violating the rule against hedging between several answers.","C1: The response explicitly references the required URL in the sources section. | C2: The response arrives at the correct final sum of $150,600.","blog/2022-12-09-fellow-spotlight-rebecca-shipman ; https://www.phillipscollection.org/press/phillips-collection-announces-historic-endowment-chief-diversity-officer-dc-philanthropists
+
+Confidence: 60%"
+claude-haiku-5.5,task_a57f13b60f73422a8e301a3c9f3e4ab5,2,1,1,0,1,"C1: The response includes the exact URL of the required document. | C2: The response hedges by presenting an alternative calculation and calling it a judgment call, which does not meet the requirement for a single correct final answer.","C1: The response explicitly includes the required URL in the sources section. | C2: The response provides the correct final answer of 588,000 based on the specified calculation."," precept's discussion of the customer base size, then multiplied them.
+
+Exact Answer: 588,000
+
+Sources: https://www.fi.ee/sites/default/files/2020-06/ettekirjutus_inglise_keeles_0.pdf
+
+Confidence: 60%"
+claude-haiku-5.5,task_edafa33e92ae44eca8f8fc1bb4d6a140,1,1,1,1,0,"C1: The response explicitly names and links the required IMDA report PDF URL. | C2: The response's final answer is 20.1% (20.09%), which matches the expected answer of 20.09%.","C1: The response explicitly includes the required URL in the sources section. | C2: The final answer provided is 'about 20.1%' and '20.1%', which does not match the required exact answer of 20.09%.","ov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf ; https://www.imda.gov.sg/assets/e77d879a-6b39-4de4-b024-5e0c6da0eff3.pdf
+Confidence: 72%"
+claude-haiku-5.5,task_edafa33e92ae44eca8f8fc1bb4d6a140,2,1,1,1,0,"C1: The response explicitly names and links the required IMDA report PDF. | C2: The final answer is 20.1%, which is equivalent to 20.09% when rounded to one decimal place.","C1: The response explicitly provides the required URL in the sources section. | C2: The response provides 20.1% as the final answer, failing to match the exact required value of 20.09%.",", then multiplied them.
+
+Exact Answer: 20.1%
+
+Sources: https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf
+
+Confidence: 85%"
+gpt-5.4-mini,task_edafa33e92ae44eca8f8fc1bb4d6a140,1,1,1,1,0,C1: The response explicitly names and links the required IMDA source document. | C2: The final answer 20.1% is equivalent to the expected 20.09% when rounded to one decimal place.,"C1: The response explicitly links the required source document. | C2: The final answer provided is 20.1%, which does not match the required exact answer of 20.09%.","% of AI-using enterprises.
+Exact Answer: 20.1%
+Sources: https://www.imda.gov.sg/-/media/imda/files/about/resources/corporate-publications/annual-report/imda-sgde-report-fy2024-2025.pdf
+Confidence: 97%"
